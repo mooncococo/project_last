@@ -1,4 +1,5 @@
-package product.model;
+package admin.model;
+
 
 public class Product {
 

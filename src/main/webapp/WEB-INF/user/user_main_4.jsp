@@ -49,7 +49,7 @@
 </style>
 </head>
 <body>
-	<%@include file="user_top.jsp" %>
+	<%@include file="user_top_4.jsp" %>
 	<!-- 메인 슬라이드 부분  -->
 <div id="carouselExampleFade" class="c slide carousel-fade" data-ride="carousel">
   <div class="carousel-inner">
