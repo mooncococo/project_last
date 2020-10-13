@@ -1,10 +1,14 @@
 package admin.model;
 
+import javax.validation.constraints.NotNull;
 
 public class Category {
 	private int cnum;
+	@NotNull(message = "대분류를 선택하세요")
 	private String code;
+	@NotNull(message = "소분류를 선택하세요")
 	private String cname;
+	
 	public Category(int cnum, String code, String cname) {
 		super();
 		this.cnum = cnum;

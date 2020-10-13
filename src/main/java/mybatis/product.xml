@@ -4,6 +4,8 @@
 
 <mapper namespace="admin.model.Product">
 	
-
+	<insert id="InsertProduct">
+		insert into product(pnum,pname,pcate,pcate_t,pimage)
+	</insert>
 </mapper>
 

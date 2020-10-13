@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+  
 <!DOCTYPE html>
 <html>
 <head>
@@ -38,19 +39,18 @@
 	</div> 
 	<!-- admin_top nav bar -->
 	<nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark">
-	  <a class="navbar-brand" href="#">Admin</a><!-- 관리자 페이자 홈  -->
+	  <a class="navbar-brand" href="admin.adpage">Admin</a><!-- 관리자 페이자 홈  -->
 	  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
 	    <span class="navbar-toggler-icon"></span>
 	  </button>
 	  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 	    <div class="navbar-nav">
-	      <a class="nav-link active" href="user.page">Sorority<span class="sr-only">(current)</span></a><!-- 사용자홈으로 보내주세요 -->
+	      <a class="nav-link active" href="user.uspage">Sorority<span class="sr-only">(current)</span></a><!-- 사용자홈으로 보내주세요 -->
 	      <a class="nav-link" href="input.cate">카테고리 등록</a>
 	      <a class="nav-link" href="list.cate">카테고리 목록</a>
 	      <a class="nav-link" href="input.prd">상품 등록</a>
-	      <a class="nav-link" href="#">상품 재고관리</a>
 	      <a class="nav-link" href="list.prd">상품 목록</a>
-	      <a class="nav-link" href="#">회원 관리</a>
+	      <a class="nav-link" href="list.mem">회원 관리</a>
 	    </div>
 	  </div>
 	</nav>

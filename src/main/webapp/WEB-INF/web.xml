@@ -88,7 +88,7 @@
 		
 	<servlet-mapping>
 		<servlet-name>member</servlet-name>
-		<url-pattern>*.me</url-pattern>
+		<url-pattern>*.mem</url-pattern>
 	</servlet-mapping>
 	
 	
@@ -122,17 +122,31 @@
 	</servlet-mapping>
 	
 	<servlet>
-		<servlet-name>page</servlet-name>
+		<servlet-name>adpage</servlet-name>
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
 		<init-param>
 			<param-name>contextConfigLocation</param-name>
-			<param-value>/WEB-INF/spring/appServlet/page_servlet.xml</param-value>
+			<param-value>/WEB-INF/spring/appServlet/adpage_servlet.xml</param-value>
 		</init-param>
 	</servlet>
 		
 	<servlet-mapping>
-		<servlet-name>page</servlet-name>
-		<url-pattern>*.page</url-pattern>
+		<servlet-name>adpage</servlet-name>
+		<url-pattern>*.adpage</url-pattern>
+	</servlet-mapping>
+	
+		<servlet>
+		<servlet-name>uspage</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<init-param>
+			<param-name>contextConfigLocation</param-name>
+			<param-value>/WEB-INF/spring/appServlet/uspage_servlet.xml</param-value>
+		</init-param>
+	</servlet>
+		
+	<servlet-mapping>
+		<servlet-name>uspage</servlet-name>
+		<url-pattern>*.uspage</url-pattern>
 	</servlet-mapping>
 	
 	
