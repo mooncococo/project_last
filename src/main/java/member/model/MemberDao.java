@@ -1,5 +1,8 @@
 package member.model;
 
-public class MemberDao {
+import org.springframework.stereotype.Component;
 
+@Component("myMemberDao")
+public class MemberDao {
+	
 }
