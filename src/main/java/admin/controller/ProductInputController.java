@@ -1,10 +1,11 @@
-package admin.controller;
+	package admin.controller;
 
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
 import javax.servlet.ServletContext;
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,7 +26,7 @@ import net.sf.json.JSONArray;
 @Controller
 public class ProductInputController {  //admin에서 상품등록 요청시
 
-		final String command ="input.prd";
+		final String command ="/input.prd";
 		final String getPage ="admin_ProductInputForm_4";
 		final String gotoPage = "redirect:/list.prd";
 		
@@ -47,14 +48,21 @@ public class ProductInputController {  //admin에서 상품등록 요청시
 		}
 	
 	  @RequestMapping(value=command,method = RequestMethod.POST) 
-	  public ModelAndView doAction(@Valid Product product, BindingResult result) {
+	  public ModelAndView doAction(@Valid Product product, BindingResult result,HttpServletRequest request) {
+		  
+		  String pspec = request.getParameter("pspec");
+		  System.out.println("pspec: " +pspec);
+		  
 		  ModelAndView mav = new ModelAndView();
+		  
+		  /*
 			if(result.hasErrors()) {
-				System.out.println("오류 발생");
+				System.out.println("유효성 검사 오류입니다.");
 				mav.setViewName(getPage);
 				return mav;
 				//return new ModelAndView(getPage);
 			}
+			*/
 			
 			MultipartFile multi = product.getUpload();  //interface 이기 때문에 객체는 생성하지 못한다.
 			
@@ -72,10 +80,8 @@ public class ProductInputController {  //admin에서 상품등록 요청시
 			try {
 				multi.transferTo(file);
 			} catch (IllegalStateException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}		
 			
