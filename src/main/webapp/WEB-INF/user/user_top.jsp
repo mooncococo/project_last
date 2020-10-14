@@ -119,6 +119,7 @@
           <a class="dropdown-item" href="#">공지사항</a>
           <a class="dropdown-item" href="#">문의사항</a>
           <a class="dropdown-item" href="#">오시는 길</a>
+          <a class="dropdown-item" href="admin.adpage">관리자 페이지</a>
         </div>
       </li>
     </ul>
