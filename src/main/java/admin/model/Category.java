@@ -9,7 +9,14 @@ public class Category {
 	@NotNull(message = "소분류를 선택하세요")
 	private String cname;
 	private String csum;
+	private int level;
 	
+	public int getLevel() {
+		return level;
+	}
+	public void setLevel(int level) {
+		this.level = level;
+	}
 	public Category(int cnum, String code, String cname) {
 		super();
 		this.cnum = cnum;
