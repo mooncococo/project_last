@@ -4,7 +4,7 @@
 
 <mapper namespace="admin.model.Category">
 	<insert id="InsertCate">
-		insert into cate(cnum, code, cname) values(cate_seq.nextval,#{code},#{cname})
+		insert into cate(cnum, code, cname,csum) values(cate_seq.nextval,#{code},#{cname},#{code}||#{cname})
 	</insert>
 	
 	<select id="GetTotalCount" resultType="int" parameterType="hashmap">

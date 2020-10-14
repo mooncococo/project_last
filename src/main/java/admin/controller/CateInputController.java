@@ -1,5 +1,6 @@
 package admin.controller;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,7 +31,8 @@ public class CateInputController {   //admin에서 카테등록 요청시
 	}
 	
 	@RequestMapping(value=command,method=RequestMethod.POST)
- 	public ModelAndView doAction(@Valid Category category, BindingResult result) {
+ 	public ModelAndView doAction(@Valid Category category, BindingResult result,
+ 								HttpServletRequest request) {
 		
 		ModelAndView mav = new ModelAndView();
 		if(result.hasErrors()) {
@@ -39,7 +41,11 @@ public class CateInputController {   //admin에서 카테등록 요청시
 			return mav;
 			//return new ModelAndView(getPage);
 		}
-		
+		/*
+		 * String a = request.getParameter("code"); String b =
+		 * request.getParameter("cname"); String csum = a+b;
+		 * System.out.println("csum : "+csum);
+		 */
 		categoryDao.insertCate(category);
 		
 		mav.setViewName(gotoPage);

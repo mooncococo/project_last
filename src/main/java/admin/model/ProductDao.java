@@ -1,10 +1,13 @@
 package admin.model;
 
+import java.util.List;
 import java.util.Map;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+
+import utility.Paging;
 
 @Component("myProductDao")
 public class ProductDao {
@@ -21,6 +24,11 @@ public class ProductDao {
 	public int getTotalCount(Map<String, String> map) {
 		// TODO Auto-generated method stub
 		return 0;
+	}
+
+	public List<Product> selectProductAll(Paging pageInfo, Map<String, String> map) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

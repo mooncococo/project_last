@@ -8,6 +8,7 @@ public class Category {
 	private String code;
 	@NotNull(message = "소분류를 선택하세요")
 	private String cname;
+	private String csum;
 	
 	public Category(int cnum, String code, String cname) {
 		super();
@@ -17,6 +18,12 @@ public class Category {
 	}
 	public Category() {
 		super();
+	}
+	public String getCsum() {
+		return csum;
+	}
+	public void setCsum(String csum) {
+		this.csum = csum;
 	}
 	public int getCnum() {
 		return cnum;

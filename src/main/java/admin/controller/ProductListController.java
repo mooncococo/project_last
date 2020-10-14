@@ -48,11 +48,11 @@ public class ProductListController {
 		System.out.println("offset : " + pageInfo.getOffset()); // 0
 		System.out.println("limit : " + pageInfo.getLimit()); // 5	
 		
-		List<Product> lists =productDao.selectProductAll(pageInfo,map);
+		List<Product> list =productDao.selectProductAll(pageInfo,map);
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("pageInfo", pageInfo);
 		mav.addObject("totalCount", totalCount);
-		mav.addObject("lists", lists);
+		mav.addObject("list", list);
 		mav.setViewName(getPage);
 		return mav;
 	}

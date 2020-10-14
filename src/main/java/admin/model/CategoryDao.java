@@ -20,6 +20,7 @@ public class CategoryDao {
 	
 	public void insertCate(Category category) {
 		
+		
 		int cnt = sqlSessionTemplate.insert(namespace+".InsertCate", category); 
 		System.out.println("Cate insert cnt : "+cnt);
 	}
