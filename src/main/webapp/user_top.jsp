@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ include file="common.jsp" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,11 +18,18 @@
 <!-- 여기까지  -->
 <style type="text/css">
 	.top{
-		height:10vh;  
+		height:18vh;  
 		text-align: center;
-		padding-top: 1vh;
+		padding-top: 7vh;
 		font-weight: bold;
 		font-size: 2em;
+		width: 80%;
+		margin: 0 auto;
+		
+		/* padding-right: 10vw;
+		padding-left: 10vw; */
+		position: relative;
+		overflow: hidden;
 	/* 	background-color: #efe4d2; */
 	} 
 	
@@ -33,17 +41,41 @@
 		font-weight: bold;
 		margin-left: 40px;
 	}
+	.icon{
+		position:absolute;
+		bottom:0;
+		right:0;
+		
+	}
+	.icon img{
+		width: 30px; 
+		height: 30px; 
+		float: right;
+	}
+	
+	.icon a{
+		
+	}
 </style>
 </head>
 <body>
 	<!-- 사용자페이지 top부분 임포트 해서 사용  -->
 	<div class = "top">
-			Sorority
+		<p>Sorority</p>
+		<div class="icon">
+			<a href="#"><img src="<c:url value="/resources/images/로그아웃수정후.png"/>"/></a>
+			<a href="#"><img src="<c:url value="/resources/images/주문내역.png"/>"/></a>
+			<a href="#"><img src="<c:url value="/resources/images/장바구니.png"/>"/></a>
+			<a href="#"><img src="<c:url value="/resources/images/로그인,회원.png"/>"/></a>
+		</div>
 	</div>  
+		
+	
 	
 	
 <nav class="navbar navbar-expand navbar-light nav-color" style="padding-right: 10vw;
 		padding-left: 10vw; ">
+
   <a class="navbar-brand" href="#">Sorority</a>
  
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
