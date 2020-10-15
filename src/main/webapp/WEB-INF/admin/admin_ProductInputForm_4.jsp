@@ -63,15 +63,14 @@ WEB-INF\admin\product\ProductInputForm.jsp 입니다.<br>
 	<tr>
 		<td>카테고리</td>
 		<td>
-<<<<<<< HEAD
+
 			<select name="code" onChange="select()" id="selects">
 			<c:forEach items="${lists }" var="lists" begin="0" end="${fn:length(lists) }">   
 				<option value="${lists.code }">${lists.code}</option>
 			</c:forEach>		 
 			</select>	
 			<select name="pcate" id="selects2">
-				 <%
-=======
+
 			<select name="code" class="cate1">
 				<option value="">전체</option>
 			<%-- <c:forEach items="${lists }" var="lists" begin="0" end="${fn:length(lists) }">   
@@ -80,19 +79,19 @@ WEB-INF\admin\product\ProductInputForm.jsp 입니다.<br>
 			</select>	
 			<select name="pcate" class="cate2">
 				<%-- <%
->>>>>>> c089fae8b110693af8b15d734987df714d3f90e8
+
 					if(code[0] == "Outer"){
 						out.print("<option value="+lists.get(0).getCname()+">"+lists.get(0).getCname());
 					}else if(code[1] == "Top"){
 						out.print("<option value="+lists.get(2).getCname()+">"+lists.get(2).getCname());
 					}
-<<<<<<< HEAD
+
 				%> 
-=======
+
 				%> --%>
 				<option value="">전체</option>
 				
->>>>>>> c089fae8b110693af8b15d734987df714d3f90e8
+
 			</select>
   		</td>
 	</tr>
