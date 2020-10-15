@@ -7,11 +7,23 @@
 	String code[] ={"Outer","Top","Blouse","Bottom","Dress","Skirt","Shoes","Bag","Acc"};
 
 %>
-
+<style type="text/css">
+	.table{
+		width: 25%;
+		margin: 0 auto;
+		margin-top: 15vh;
+	}
+	
+	.table th{
+		text-align: center;
+	}
+</style>
 
 <form action="input.cate" method="post" name="myform">
-	<table border="1" width="350" align="center">
-		<div align="center"><p> 카테고리 등록 </p></div>	
+	<table class="table">
+		<tr>
+			<th colspan="2">카테고리 등록</th>
+		</tr>
 		<tr>
 			<td align="center">	
 				<b>카테고리 대분류</b>	

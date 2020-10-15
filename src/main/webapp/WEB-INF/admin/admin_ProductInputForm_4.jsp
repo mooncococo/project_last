@@ -20,12 +20,9 @@
 } */
 </script>
 <% 
-	/* String code[] ={"Outer","Top","Blouse","Bottom","Dress","Skirt","Shoes","Bag","Acc"};
+	String code[] ={"Outer","Top","Blouse","Bottom","Dress","Skirt","Shoes","Bag","Acc"};
 	List<Category> lists = (List<Category>)request.getAttribute("lists");
-	out.println(lists.size());
-	out.println(lists.get(0).getCname());
-	out.println(lists.get(1).getCname());
-	out.println(lists.get(2).getCname()); */
+	
 
 %>
 
@@ -37,18 +34,17 @@ WEB-INF\admin\product\ProductInputForm.jsp 입니다.<br>
 		<td>
 			<select name="code" onChange="select()" id="selects">
 			<c:forEach items="${lists }" var="lists" begin="0" end="${fn:length(lists) }">   
-					 <option value="${lists.code }">${lists.code } 
+				<option value="${lists.code }">${lists.code}</option>
 			</c:forEach>		 
 			</select>	
 			<select name="pcate" id="selects2">
-				<%-- <%
+				 <%
 					if(code[0] == "Outer"){
 						out.print("<option value="+lists.get(0).getCname()+">"+lists.get(0).getCname());
 					}else if(code[1] == "Top"){
 						out.print("<option value="+lists.get(2).getCname()+">"+lists.get(2).getCname());
 					}
-				%> --%>
-				
+				%> 
 			</select>
   		</td>
 	</tr>

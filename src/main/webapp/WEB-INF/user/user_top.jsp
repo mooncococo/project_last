@@ -53,10 +53,11 @@
 		float: right;
 	}
 	
-	.icon a{
-		
-	}
+	
 </style>
+<script type="text/javascript">
+	
+</script>
 </head>
 <body>
 	<!-- 사용자페이지 top부분 임포트 해서 사용  -->
@@ -81,13 +82,14 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto"> 
       <li class="nav-item active">
-        <a class="nav-link" href="#">Best <span class="sr-only">(current)</span></a><!-- 랭킹도 같이 -->
+        <a class="nav-link" href="#" id="test">Best <span class="sr-only">(current)</span></a><!-- 랭킹도 같이 -->
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">Outer</a>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">Top</a>
+        
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">Blouse</a>

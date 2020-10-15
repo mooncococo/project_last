@@ -1,9 +1,5 @@
 Manifest-Version: 1.0
-<<<<<<< HEAD
 Built-By: skyup
-=======
-Built-By: KIHYUNPC
->>>>>>> 1d2ffb310be6314bd35dd75451ac711c125d69c7
 Build-Jdk: 12.0.2
 Created-By: Maven Integration for Eclipse
 
