@@ -5,7 +5,9 @@
 <mapper namespace="admin.model.Product">
 	
 	<insert id="InsertProduct">
-		insert into product(pnum,pname,pcate,pcate_t,pimage)
+		insert into product(pnum,pname,pcate,pimage,price,pspec,pnote,point,pinputdate)
+		values(prod_seq.nextval,#{pname},#{pcate},#{pimage},#{price},#{pspec},#{pnote},#{point},sysdate)
 	</insert>
+	
 </mapper>
 

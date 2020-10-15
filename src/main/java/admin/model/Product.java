@@ -4,24 +4,31 @@ import java.util.Date;
 
 import javax.validation.constraints.NotNull;
 
-import org.hibernate.validator.constraints.NotBlank;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.web.multipart.MultipartFile;
 
 public class Product {
+	
 	private int pnum;
-	@NotEmpty(message = "상품 이름 입력은 필수입니다.")
+	
+	//@NotEmpty(message = "상품 이름 입력은 필수입니다.")
 	private String pname;
+	
 	private String pcate;
-	@NotEmpty(message = "이미지 선택은 필수입니다.")
+	
+	//@NotEmpty(message = "이미지 선택은 필수입니다.")
 	private String pimage;
+	
 	private int price;
-	@NotNull(message = "스펙을 한가지 선택하세요")
+	
+	//@NotNull(message = "스펙을 한가지 선택하세요")
 	private String pspec;
-	@NotEmpty(message = "상품 설명 입력은 필수입니다.")
+	
 	private String pnote;
+	
 	private int point;
 	private Date pinputdate;
+	
 	private String uploadOld;
 	
 	private MultipartFile upload; //선택한 화일의 정보가 여기로 먼저 들어온다

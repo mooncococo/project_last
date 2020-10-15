@@ -77,6 +77,8 @@
 	</servlet-mapping>
 	
 	
+	
+	
 	<servlet>
 		<servlet-name>member</servlet-name>
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
@@ -88,8 +90,10 @@
 		
 	<servlet-mapping>
 		<servlet-name>member</servlet-name>
-		<url-pattern>*.mem</url-pattern>
+		<url-pattern>*.me</url-pattern>
 	</servlet-mapping>
+	
+	
 	
 	
 	<servlet>
@@ -151,5 +155,10 @@
 	
 	
 	
+<<<<<<< HEAD
+=======
+	
+	
+>>>>>>> c089fae8b110693af8b15d734987df714d3f90e8
 
 </web-app>

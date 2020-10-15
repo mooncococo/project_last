@@ -3,9 +3,62 @@
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="member.model.Member">
+	<insert id="InsertData">
+		insert into
+		member(mnum,mid,mname,mpw,addr1,addr2,hp1,hp2,hp3,email1,email2,birth1,birth2,birth3)
+		values(mseq.nextval,#{mid},#{mname},#{mpw},#{addr1},#{addr2},#{hp1},#{hp2},
+		#{hp3},#{email1},#{email2},#{birth1},#{birth2},#{birth3})
+	</insert>
 
+	<select id="GetMembers" resultType="MyMember">
+		select * from member
+		where mnum= #{mnum}
+	</select>
+
+	<select id="GetTotalCount" resultType="int">
+		select count(*) from member
+		<if test="whatColumn=='mname'">
+			where mname like #{keyword}
+		</if>
+
+		<if test="whatColum=='addr1'">
+			where addr1 like #{keyword}
+		</if>
+
+		<if test="whatColum=='Birth1'">
+			where birth1 like #{keyword}
+		</if>
+	</select>
+
+	<select id="GetMemberList" resultType="MyMember">
+		select * from member
+		<if test="whatColumn=='mname'">
+			where mname like #{keyword}
+		</if>
+
+		<if test="whatColum=='addr1'">
+			where addr1 like #{keyword}
+		</if>
+
+		<if test="whatColum=='birth1'">
+			where birth1 like #{keyword}
+		</if>
+		order by mid
+	</select>
 	
- 
+	<delete id="DeleteMember">
+		delete from member
+		where mnum=#{mnum}
+	</delete>
+	
+	<select id="GetOneMember" resultType="MyMember">
+		select * from member where mnum = #{mnum}
+	</select>
+	
+	<update id="UpdateMem">
+		update member set mpoint = #{mpoint}, coupon = #{coupon} where mnum= #{mnum}	
+	</update> 
+	
 </mapper>
 
 

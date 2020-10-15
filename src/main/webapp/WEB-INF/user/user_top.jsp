@@ -5,6 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
+
 <title>Insert title here</title>
 <!-- BootstrapCDN 부트스트랩 필요하면  아래 코드 복사해서 사용하기-->
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
@@ -53,7 +54,13 @@
 		float: right;
 	}
 	
+<<<<<<< HEAD:src/main/webapp/WEB-INF/user/user_top.jsp
 	
+=======
+	.icon a{
+		
+	}
+>>>>>>> c089fae8b110693af8b15d734987df714d3f90e8:src/main/webapp/WEB-INF/user/user_top_4.jsp
 </style>
 <script type="text/javascript">
 	
@@ -61,13 +68,22 @@
 </head>
 <body>
 	<!-- 사용자페이지 top부분 임포트 해서 사용  -->
+	
+	<%
+		String viewLogin = request.getContextPath() + "/loginForm.me";
+	%>
+	
 	<div class = "top">
 		<p>Sorority</p>
 		<div class="icon">
 			<a href="#"><img src="<c:url value="/resources/images/로그아웃수정후.png"/>"/></a>
 			<a href="#"><img src="<c:url value="/resources/images/주문내역.png"/>"/></a>
 			<a href="#"><img src="<c:url value="/resources/images/장바구니.png"/>"/></a>
+<<<<<<< HEAD:src/main/webapp/WEB-INF/user/user_top.jsp
 			<a href="#"><img src="<c:url value="/resources/images/로그인,회원.png"/>"/></a>
+=======
+			<a href="<%=viewLogin%>"><img src="<c:url value="/resources/images/로그인,회원.png"/>"/></a>
+>>>>>>> c089fae8b110693af8b15d734987df714d3f90e8:src/main/webapp/WEB-INF/user/user_top_4.jsp
 		</div>
 	</div>  
 		
@@ -121,7 +137,6 @@
           <a class="dropdown-item" href="#">공지사항</a>
           <a class="dropdown-item" href="#">문의사항</a>
           <a class="dropdown-item" href="#">오시는 길</a>
-          <a class="dropdown-item" href="admin.adpage">관리자 페이지</a>
         </div>
       </li>
     </ul>
