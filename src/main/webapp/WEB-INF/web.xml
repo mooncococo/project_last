@@ -139,7 +139,7 @@
 		<url-pattern>*.adpage</url-pattern>
 	</servlet-mapping>
 	
-		<servlet>
+	<servlet>
 		<servlet-name>uspage</servlet-name>
 		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
 		<init-param>
@@ -151,6 +151,20 @@
 	<servlet-mapping>
 		<servlet-name>uspage</servlet-name>
 		<url-pattern>*.uspage</url-pattern>
+	</servlet-mapping>
+	
+	<servlet>
+		<servlet-name>detail</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<init-param>
+			<param-name>contextConfigLocation</param-name>
+			<param-value>/WEB-INF/spring/appServlet/proddetail_servlet.xml</param-value>
+		</init-param>
+	</servlet>
+		
+	<servlet-mapping>
+		<servlet-name>detail</servlet-name>
+		<url-pattern>*.detail</url-pattern>
 	</servlet-mapping>
 	
 	

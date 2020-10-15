@@ -42,8 +42,8 @@ public class ProductInputController {  //admin에서 상품등록 요청시
 		@RequestMapping(value=command,method = RequestMethod.GET)
 		public String doAction(Category category,Model model) {
 			
-			List<Category> lists = categoryDao.selectAll(); 
-			model.addAttribute("lists", JSONArray.fromObject(lists));
+			//List<Category> lists = categoryDao.selectAll(); 
+			//model.addAttribute("lists", lists);
 			return getPage;
 		}
 	

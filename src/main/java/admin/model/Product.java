@@ -11,6 +11,13 @@ public class Product {
 	
 	private int pnum;
 	
+	private String pcode;
+	public String getPcode() {
+		return pcode;
+	}
+	public void setPcode(String pcode) {
+		this.pcode = pcode;
+	}
 	//@NotEmpty(message = "상품 이름 입력은 필수입니다.")
 	private String pname;
 	
