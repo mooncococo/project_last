@@ -19,7 +19,7 @@ import utility.Paging;
 @Controller
 public class MemberListController {
 	final String command = "/list.me";
-	final String getPage = "MemberList";
+	final String getPage = "MemberList_4";
 	
 	@Autowired
 	MemberDao memberDao;

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ include file = "../admin/admin_top_4.jsp" %>    
 <%@ include file="common.jsp" %> 
 <style type="text/css">
 	body{
@@ -12,6 +13,9 @@
 <script type="text/javascript">
 	function insert(){
 		location.href='registerForm.me'; 
+	}
+	function updateGo(mnum,pageNumber,pageSize){
+		location.href="update.me?mnum="+mnum+"&pageNumber="+pageNumber+"&pageSize="+pageSize; 
 	}
 </script>       
 member\MemberList.jsp<br><br>
@@ -50,6 +54,7 @@ member\MemberList.jsp<br><br>
 		<th>포인트</th>
 		<th>쿠폰보유량</th>
 		<th>가입날짜</th>
+		<th>수정</th>
 		<th>삭제</th>
 	</tr>
 	
@@ -87,7 +92,9 @@ member\MemberList.jsp<br><br>
 			<td>
 				${member.regdate }
 			</td>
-			
+			<td>
+				<input type="button" value="수정하기" onClick="updateGo('${member.mnum }','${pageInfo.pageNumber}','${pageInfo.pageSize}')"> 
+			</td>
 			<td>
 				<a href="delete.me?mnum=${member.mnum }">삭제</a>
 			</td>

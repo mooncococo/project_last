@@ -21,6 +21,7 @@ import admin.model.Category;
 import admin.model.CategoryDao;
 import admin.model.Product;
 import admin.model.ProductDao;
+import net.sf.json.JSONArray;
 
 @Controller
 public class ProductInputController {  //admin에서 상품등록 요청시
@@ -42,7 +43,7 @@ public class ProductInputController {  //admin에서 상품등록 요청시
 		public String doAction(Category category,Model model) {
 			
 			List<Category> lists = categoryDao.selectAll(); 
-			model.addAttribute("lists", lists);
+			model.addAttribute("lists", JSONArray.fromObject(lists));
 			return getPage;
 		}
 	

@@ -35,15 +35,16 @@ values(mem_seq .nextval,'admin','1234','관리자','서울','마포구','010','1
 -- 카테고리 테이블
 -------------------------------------------------------------------------------------
 
-drop sequence cate_seq ;
-create sequence cate_seq start with 1 increment by 1 nocache ;
-
-drop table cate;
-create table cate(
-	cnum 	number primary key,
-	code 	varchar2(50) not null,
-	cname 	varchar2(50) not null
-);
+	drop sequence cate_seq ;
+	create sequence cate_seq start with 1 increment by 1 nocache ;
+	
+	drop table cate;
+	create table cate(
+		cnum 	number primary key,
+		code 	varchar2(50) not null,
+		cname 	varchar2(50) not null,
+		csum	 varchar2(50) not null
+	);
 
 
 
@@ -62,7 +63,7 @@ drop table product ;
 create table product(
 	pnum 		number primary key,
 	pname 		varchar2(50) not null,
-	pcate 		varchar2(50) not null,
+	pcate_o 		varchar2(50) not null,
 	pcate_t 		varchar2(50) not null,
 	pimage   	varchar2(30),
 	price   		number default 0,

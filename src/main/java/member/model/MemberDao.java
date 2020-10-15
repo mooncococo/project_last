@@ -43,4 +43,14 @@ public class MemberDao {
 		int cnt= sqlsessiontemplate.delete(namespace+".DeleteMember",mnum);
 		return cnt;
 	}
+
+	public Member getOneMember(int mnum) {
+		Member member =sqlsessiontemplate.selectOne(namespace+".GetOneMember", mnum);
+		return member;
+	}
+
+	public int updateMem(Member member) {
+		int cnt = sqlsessiontemplate.update(namespace+".UpdateMem", member);
+		return cnt;
+	}
 }
