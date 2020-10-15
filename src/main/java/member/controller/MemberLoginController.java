@@ -18,7 +18,11 @@ import member.model.MemberDao;
 @Controller
 public class MemberLoginController {
 	final String command = "/loginForm.me";
+	final String command2 = "/findId.me";
+	final String command3 = "/findPw.me";
 	final String getPage = "MemberLoginForm";
+	final String getPage2 = "MemberFindId";
+	final String getPage3 = "MemberFindPw";
 	
 	@Autowired
 	MemberDao memberDao;
@@ -57,4 +61,22 @@ public class MemberLoginController {
 		}
 	
 	}
+	
+	
+	@RequestMapping(command2)
+	public String doAction2() {
+		
+		return getPage2;
+	}
+	
+	@RequestMapping(command3)
+	public String doAction3() {
+		
+		return getPage3;
+	}
+	
+	
+	
+	
+	
 }

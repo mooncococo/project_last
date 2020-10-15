@@ -38,7 +38,6 @@
 
 </style>
 
-
 <form method="post" action="loginForm.me">
 	<table class="table">
 		<tr>
@@ -59,7 +58,8 @@
 		</tr>
 		<tr>    
 			<td align="center">  
-				<a href="">아이디 찾기</a> | <a href="">비밀번호 찾기</a>
+				<a href="<%=request.getContextPath() + "/findId.me"%>">아이디 찾기</a> | 
+				<a href="<%=request.getContextPath() + "/findPw.me"%>">비밀번호 찾기</a>
 			</td>
 		</tr>
 	</table>
