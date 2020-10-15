@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-<%@ include file="../user/user_top_4.jsp" %>
+<%@ include file="../user/user_top.jsp" %>
 <script type="text/javascript">
 	function register(){
 		location.href="registerForm.me"; // => MemberRegisterController.java
@@ -17,7 +17,7 @@
 		
 		width: 25%;
 		margin: 0 auto;
-		margin-top: 15vh;
+		margin-top: 30vh;
 	
 	}
 	

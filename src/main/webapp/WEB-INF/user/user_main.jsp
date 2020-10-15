@@ -8,7 +8,7 @@
 <style type="text/css">
 	/* main 슬라이드 css */
 	#carouselExampleFade{
-		margin-top: 50px;
+		margin-top: 23vh;
 		padding-right: 10vw;
 		padding-left: 10vw; 
 		height: 60vh;
@@ -54,7 +54,7 @@
 <div id="carouselExampleFade" class="c slide carousel-fade" data-ride="carousel">
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <img src="http://app-storage-edge-005.cafe24.com/bannermanage2/sisshop/2020/10/07/d6c7f195631ae8da9bec439e29fc3a88.jpg" class="d-block w-12" alt="...">
+      <img src="http://app-storage-edge-005.cafe24.com/bannermanage2/sisshop/2020/10/14/b42e607c880b1dfe243263ec4338763d.jpg" class="d-block w-12" alt="...">
     </div>
     <div class="carousel-item">
       <img src="http://app-storage-edge-005.cafe24.com/bannermanage2/sisshop/2020/10/07/646fbcf015ae1f89422c4099733b790a.jpg" class="d-block w-12" alt="...">
@@ -128,6 +128,6 @@
   </div>
 </div>
 
-
+<%@include file="user_bottom.jsp" %>
 </body> 
 </html>

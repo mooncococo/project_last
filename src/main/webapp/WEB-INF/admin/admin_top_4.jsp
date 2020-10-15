@@ -23,14 +23,13 @@
 		padding-top: 1vh;
 		font-weight: bold;
 		font-size: 2em;
-	/* 	background-color: #efe4d2; */
 	} 
 	
 	.nav-link{
 		margin-left: 40px;
 		
 	}
-		
+	
 	</style>
 </head>
 <body> 
