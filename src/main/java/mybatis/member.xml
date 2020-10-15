@@ -12,7 +12,7 @@
 
 	<select id="GetMembers" resultType="MyMember">
 		select * from member
-		where mid=#{mid}
+		where mnum= #{mnum}
 	</select>
 
 	<select id="GetTotalCount" resultType="int">
@@ -51,6 +51,13 @@
 		where mnum=#{mnum}
 	</delete>
 	
+	<select id="GetOneMember" resultType="MyMember">
+		select * from member where mnum = #{mnum}
+	</select>
+	
+	<update id="UpdateMem">
+		update member set mpoint = #{mpoint}, coupon = #{coupon} where mnum= #{mnum}	
+	</update> 
 	
 </mapper>
 
