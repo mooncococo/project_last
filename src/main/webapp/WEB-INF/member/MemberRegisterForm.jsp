@@ -21,14 +21,40 @@
 		color: gray; 
 	}
 </style>
-<%
-	String str="";
-	System.out.print("str:"+str);
-%>
+
 <script src="http://code.jquery.com/jquery-1.11.1.min.js" type="text/javascript"></script>
 <script type="text/javascript">
-	 
+	var dupcheck = false;
+	var change = false;
+	var use = "";
+	
+	$(function(){
+		$('input[name="mid"]').keydown(function(){
+			$('#idmessage').css('display','none');
+			Change=true;
+			use="";
+		});
+		
+		$('input[name="rempw"]').keydown(function(){
+			$('#pwmessage').css('display','none');
+			Change=true;
+			use="";
+		});
+		
+	});
+	
+	function passwd_keyup(){
+		if($('input[name=mpw]').val() == $('input[name=rempw]').val()){
+			$('#pwmessage').html("<br><font color=red>비밀번호 일치</font>");
+			$('#pwmessage').show();
+		}
+		else{
+			$('#pwmessage').html("<br><font color=red>비밀번호 불일치</font>");
+			$('#pwmessage').show();
+		}
+	}
 	function duplicate(){
+		dupcheck=true;
 		
 		$.ajax({
 			url:"duplication.me",
@@ -41,16 +67,21 @@
 			
 			success:function(data){		
 				if($.trim(data) =='YES'){
-					alert("사용 가능한 아이디입니다.");
-					
+					$('#idmessage').html('<br><font color=red>사용 가능한 아이디 입니다.</font>');
+					$('#idmessage').show();
+					use = "possible";
 				}
 				else{
-					alert("이미 사용중인 아이디입니다.");
+					$('#idmessage').html('<br><font color=red>사용 불가능한 아이디 입니다.</font>');
+					$('#idmessage').show();
+					use = "impossible";
 				}
 			}
 		}); 
 		
 	}
+	
+	
 	
 	
 </script>
@@ -69,6 +100,7 @@
 				<td>
 					<input type="text" name="mid" id="mid" value="lee">
 					<input type="button" id="duplicate_check" value="중복체크" class="btn btn-primary mb-2"  style="background:#78909c; border:none; " onclick="duplicate()">
+					<span id="idmessage" style="display:none;"></span>
 					<form:errors cssClass="err" path="mid" />
 				</td>
 			</tr>
@@ -84,8 +116,9 @@
 			<tr>
 				<td>비밀번호 확인<img src="<c:url value="/resources/images/star1.PNG"/>" style="width: 10px; height: 10px"/></td>	<!-- 선우 코드 작성중 -->
 				<td>
-					<input type="text" name="" id="" value="">
-					<form:errors cssClass="" path="" />
+					<input type="text" name="rempw" id="rempw" onkeyup="passwd_keyup()">
+					<span id="pwmessage" style="display:none;"></span>
+					<form:errors cssClass="err" path="rempw" />
 				</td>
 			</tr>
 			

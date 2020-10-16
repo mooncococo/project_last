@@ -35,10 +35,10 @@ public class MemberDuplicationController {
 		System.out.println("cnt:"+cnt);
 		String str = "";
 		
-		if(cnt==0) {
+		if(cnt == 0) {
 			str="YES";
 		}
-		else if(cnt==1){
+		else if(cnt == 1){
 			str="NO";
 		}
 		/*

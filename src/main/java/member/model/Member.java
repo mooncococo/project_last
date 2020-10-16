@@ -14,6 +14,9 @@ public class Member {
 	@Length(min=4,max=8,message="비밀번호는 4~8자 입력해주세요.")
 	private String mpw;
 	
+	@NotEmpty(message="비밀번호 확인을 해주세요.")
+	private String rempw;
+	
 	@NotEmpty(message="이름을 입력해주세요.")
 	private String mname;
 	
@@ -56,13 +59,15 @@ public class Member {
 		super();
 	}
 	
-	public Member(int mnum, String mid, String mpw, String mname, String addr1, String addr2, String hp1, String hp2,
-			String hp3, String email1, String email2, String birth1, String birth2, String birth3, String mpoint,
-			String coupon, String regdate) {
+
+	public Member(int mnum, String mid, String mpw, String rempw, String mname, String addr1, String addr2, String hp1,
+			String hp2, String hp3, String email1, String email2, String birth1, String birth2, String birth3,
+			String mpoint, String coupon, String regdate) {
 		super();
 		this.mnum = mnum;
 		this.mid = mid;
 		this.mpw = mpw;
+		this.rempw = rempw;
 		this.mname = mname;
 		this.addr1 = addr1;
 		this.addr2 = addr2;
@@ -78,7 +83,6 @@ public class Member {
 		this.coupon = coupon;
 		this.regdate = regdate;
 	}
-
 
 
 	public int getMnum() {
@@ -98,6 +102,13 @@ public class Member {
 	}
 	public void setMpw(String mpw) {
 		this.mpw = mpw;
+	}
+	public String getRempw() {
+		return rempw;
+	}
+
+	public void setRempw(String rempw) {
+		this.rempw = rempw;
 	}
 	public String getMname() {
 		return mname;
