@@ -50,6 +50,7 @@
 	      <a class="nav-link" href="list.cate">카테고리 목록</a>
 	      <a class="nav-link" href="input.prd">상품 등록</a>
 	      <a class="nav-link" href="list.prd">상품 목록</a>
+	      <a class="nav-link" href="detaillist.detail">재고 확인</a>
 	      <a class="nav-link" href="list.me">회원 관리</a>
 	    </div>
 	  </div>
