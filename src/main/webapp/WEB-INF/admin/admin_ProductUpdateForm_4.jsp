@@ -99,17 +99,18 @@ function firstChange() {
 		
 		//alert(f_selIndex+','+s_selIndex);
 		
-		var area = document.getElementById("result");
-		area.innerHTML = "선택한 상품은 <br> <img src=../images/"+s_selboxImage[f_selIndex-1][s_selIndex-1]+">";
-		
+	
 				
 	}
 	
 	
 </script>
-WEB-INF\admin\product\ProductInputForm.jsp 입니다.<br>
+WEB-INF\admin\product\ProductUpdateForm.jsp 입니다.<br>
 <body onLoad="init()">
-<form:form commandName="product" action="input.prd" method="post" enctype="multipart/form-data" name="myform">
+<form:form commandName="product" action="update.prd" method="post" enctype="multipart/form-data" name="myform">
+<input type="hidden" name="pnum" value="${ product.pnum }">
+<input type="hidden" name=pageNumber value="${pageNumber }">
+<input type="hidden" name=pageSize value="${pageSize }">
 <table border="1" >
 	<tr>
 		<td>카테고리</td>
@@ -119,9 +120,9 @@ WEB-INF\admin\product\ProductInputForm.jsp 입니다.<br>
 					 <option value="${i }">${i} 
 			</c:forEach> -->
 			</select>	
-			<form:errors cssClass="err" path="code" />
+			<form:errors cssClass="err" path="pcode" />
 			<select name="pcate" id="cate2">
-				<option value="">	
+				
 			</select>
 			<form:errors cssClass="err" path="pcate" />
 <%--
@@ -139,7 +140,7 @@ WEB-INF\admin\product\ProductInputForm.jsp 입니다.<br>
 	<tr>
 		<td>상품명</td>
 		<td>
-			<input type="text" name="pname" value="">
+			<input type="text" name="pname" value="${product.pname }">
 			<form:errors cssClass="err" path="pname" />
 		</td>
 	</tr>
@@ -147,7 +148,9 @@ WEB-INF\admin\product\ProductInputForm.jsp 입니다.<br>
 	<tr>
 		<td>상품이미지</td>
 		<td> 
-			<input type="file" name="upload">
+			<img src="<%=request.getContextPath() %>/resources/${product.pimage}" width="100px" height="100px">
+			<input type="file" name="upload" id="upload" value="" >
+			<input type="hidden" name="uploadOld" value="${product.pimage }">
 			<form:errors cssClass="err" path="pimage" />
 		</td>
 	</tr>
@@ -155,7 +158,7 @@ WEB-INF\admin\product\ProductInputForm.jsp 입니다.<br>
 	<tr>
 		<td>상품가격</td>
 		<td>
-			<input type="text" name="price" value="">원
+			<input type="text" name="price" value="${product.price }">원
 			<form:errors cssClass="err" path="price" />
 		</td>		
 	</tr>
@@ -163,7 +166,7 @@ WEB-INF\admin\product\ProductInputForm.jsp 입니다.<br>
 	<tr>
 		<td>적립포인트</td>
 		<td>
-			<input type="text" name="point" value="">point
+			<input type="text" name="point" value="${product.point }">point
 			<form:errors cssClass="err" path="point" />
 		</td>
 	</tr>
@@ -171,9 +174,9 @@ WEB-INF\admin\product\ProductInputForm.jsp 입니다.<br>
 	<tr>
 		<td>상품스펙</td>
 		<td>
-			<input type="radio" name="pspec" value="new">new 	
-			<input type="radio" name="pspec" value="normal">normal 	
-			<input type="radio" name="pspec" value="sale">sale 
+			<input type="radio" name="pspec" value="new" <c:if test="${product.pspec =='new' }">checked</c:if> >new 	
+			<input type="radio" name="pspec" value="normal" <c:if test="${product.pspec =='normal' }">checked</c:if> >normal 	
+			<input type="radio" name="pspec" value="sale" <c:if test="${product.pspec =='sale' }">checked</c:if> >sale 
 			<form:errors cssClass="err" path="pspec" />
 		</td>
 	</tr>
@@ -181,7 +184,7 @@ WEB-INF\admin\product\ProductInputForm.jsp 입니다.<br>
 	<tr>
 		<td>비고</td>
 		<td>
-			<textarea rows="10" cols="39" maxlength="50" name="pnote"> pnote</textarea>
+			<textarea rows="10" cols="39" maxlength="50" name="pnote"> ${product.pnote }</textarea>
 			<form:errors cssClass="err" path="pnote" />
 		</td>
 	</tr>

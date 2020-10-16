@@ -1,15 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-start.jsp 입니다.<br>
+start_4.jsp 입니다.<br>
 
 
-<%-- 
 <%
-	String viewPage = request.getContextPath() + "/admin/admin_main_1.jsp";
-	
+	String viewPage = request.getContextPath() + "/user.uspage";
 	response.sendRedirect(viewPage);
-%> 
- --%>
- 
- 
- 
+%>

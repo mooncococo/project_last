@@ -62,5 +62,37 @@
 	<select id="CheckID" resultType="int">
 		select count(*) from member where mid=#{checkId}
 	</select>
+	<select id="FindIdByEmail" resultType="MyMember">
+		select mid,mname,email1,email2,regdate from member 
+		where mname=#{mname} and email1=#{email1} and email2=#{email2} 
+	</select>
 	
+	<select id="FindIdByHp" resultType="MyMember">
+		select mid,mname,hp1,hp2,hp3,regdate from member 
+		where mname=#{mname} and hp1=#{hp1} and hp2=#{hp2} and hp3=#{hp3}
+	</select>
+	
+	<select id="FindPwByEmail" resultType="MyMember">
+		select mid,mname,email1,email2,regdate,mpw from member 
+		where mname=#{mname} and mid=#{mid} and email1=#{email1} and email2=#{email2} 
+	</select>
+	
+	<select id="FindPwByHp" resultType="MyMember">
+		select mid,mname,hp1,hp2,hp3,regdate,mpw from member 
+		where mname=#{mname} and mid=#{mid} and hp1=#{hp1} and hp2=#{hp2} and hp3=#{hp3}
+	</select>
 </mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+>>>>>>> 7e9f29977ca130804e9d79252734942e5caca515
