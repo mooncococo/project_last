@@ -10,9 +10,9 @@
 		#{hp3},#{email1},#{email2},#{birth1},#{birth2},#{birth3})
 	</insert>
 
-	<select id="GetMembers" resultType="MyMember">
+	<select id="GetMember" resultType="MyMember">
 		select * from member
-		where mnum= #{mnum}
+		where mid= #{mid}
 	</select>
 
 	<select id="GetTotalCount" resultType="int">
@@ -59,6 +59,9 @@
 		update member set mpoint = #{mpoint}, coupon = #{coupon} where mnum= #{mnum}	
 	</update> 
 	
+	<select id="CheckID" resultType="int">
+		select count(*) from member where mid=#{checkId}
+	</select>
 	<select id="FindIdByEmail" resultType="MyMember">
 		select mid,mname,email1,email2,regdate from member 
 		where mname=#{mname} and email1=#{email1} and email2=#{email2} 
@@ -78,17 +81,5 @@
 		select mid,mname,hp1,hp2,hp3,regdate,mpw from member 
 		where mname=#{mname} and mid=#{mid} and hp1=#{hp1} and hp2=#{hp2} and hp3=#{hp3}
 	</select>
+	
 </mapper>
-
-
-
-
-
-
-
-
-
-
-
-
-

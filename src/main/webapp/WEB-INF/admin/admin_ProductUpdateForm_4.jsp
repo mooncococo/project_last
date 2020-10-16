@@ -5,6 +5,21 @@
     pageEncoding="UTF-8"%>
 <%@ include file ="admin_top_4.jsp" %>
 <%@ include file = "common.jsp" %>
+<style type="text/css">
+
+	.table{
+		width: 30%;
+		margin: 0 auto;
+		margin-top: 1vh; 
+	}
+	#top_form{
+		width: 60%;
+		margin: 0 auto;
+		margin-top: 6vh;
+	}
+	
+</style>
+
 <% 
 	 String code[] ={"Outer","Top","Blouse","Bottom","Dress","Skirt","Shoes","Bag","Acc"};
 	 String Outer[] = {"JUMPER","MUSTANG","COAT","JACKET"};
@@ -105,13 +120,16 @@ function firstChange() {
 	
 	
 </script>
-WEB-INF\admin\product\ProductUpdateForm.jsp 입니다.<br>
+<!-- WEB-INF\admin\product\ProductUpdateForm.jsp -->
 <body onLoad="init()">
+<div id="top_form">
+	<font color="gray" size="5" ><b>상품 수정</b></font>  
+</div>
 <form:form commandName="product" action="update.prd" method="post" enctype="multipart/form-data" name="myform">
 <input type="hidden" name="pnum" value="${ product.pnum }">
 <input type="hidden" name=pageNumber value="${pageNumber }">
 <input type="hidden" name=pageSize value="${pageSize }">
-<table border="1" >
+<table align="center" width="40%" class="table">
 	<tr>
 		<td>카테고리</td>
 		<td>
@@ -191,8 +209,8 @@ WEB-INF\admin\product\ProductUpdateForm.jsp 입니다.<br>
 	
 	<tr>
 		<td colspan="2" align="center">
-			<input type="submit" value="상품등록">
-			<input type="reset" value="취소">
+			<input type="submit" value="수정하기 " style="color:#f5f5f5; background:#373737; border:none; text-align: center;">
+			<input type="reset" value="취소" style="color:#f5f5f5; background:#373737; border:none; text-align: center;">
 		</td>
 	</tr>
 </table>

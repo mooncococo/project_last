@@ -16,7 +16,7 @@
 	.table{
 		width: 25%;
 		margin: 0 auto;
-		margin-top: 15vh;
+		margin-top: 30vh;
 	}
 	
 	.btn{

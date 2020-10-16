@@ -22,8 +22,8 @@ public class MemberDao {
 		sqlsessiontemplate.insert(namespace+".InsertData",member);
 	}
 	
-	public Member getMembers(String mid) {
-		Member member = sqlsessiontemplate.selectOne(namespace+".GetMembers");
+	public Member getMember(String mid) {
+		Member member = sqlsessiontemplate.selectOne(namespace+".GetMember",mid);
 		return member;
 	}
 	
@@ -51,6 +51,11 @@ public class MemberDao {
 
 	public int updateMem(Member member) {
 		int cnt = sqlsessiontemplate.update(namespace+".UpdateMem", member);
+		return cnt;
+	}
+	
+	public int getDuplicateId(String checkId) { 
+		int cnt = sqlsessiontemplate.selectOne(namespace+".CheckID",checkId);
 		return cnt;
 	}
 	

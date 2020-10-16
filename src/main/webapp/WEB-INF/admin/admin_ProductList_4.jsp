@@ -2,9 +2,40 @@
     pageEncoding="UTF-8"%>
 <%@ include file ="admin_top_4.jsp" %>
 <%@ include file = "common.jsp" %>
-WEB-INF\admin\product\ProductList.jsp 입니다.<br>
+<!-- WEB-INF\admin\product\ProductList.jsp -->
 
-<form action="list.prd" method="get">
+<style type="text/css">
+
+	.table{
+		width: 45%;
+		margin: 0 auto;
+		margin-top: 4vh; 
+	}
+	#top_form2{
+		width: 45%;
+		margin: 0 auto;
+		margin-top: 4vh;   
+	}
+	#top_form1{
+		width: 60%;
+		margin: 0 auto;
+		margin-top: 6vh;
+	}
+	th{
+		text-align: center;
+	}
+	#paging{
+		width: 45%;
+		margin: 0 auto;
+		text-align: center;
+		margin-top: 4vh;
+	}
+</style>
+<div id="top_form1">
+	<font color="gray" size="5" ><b>상품 목록(재고관리)</b></font>  
+</div>
+
+<form action="list.prd" method="get" id="top_form2">
 	<select name="whatColumn">
 		<option value="all">전체 검색
 		<option value="pnum">상품번호
@@ -15,8 +46,8 @@ WEB-INF\admin\product\ProductList.jsp 입니다.<br>
 </form>
 
 <form action="post" enctype="multipart/form-data">
-<p align="center">상품 리스트(재고관리)</p>	
-<table border="1" align="center">
+<!-- <p align="center">상품 리스트(재고관리)</p>	 -->
+<table align="center" width="40%" class="table">
 	<tr>
 		<th>상품번호</th>
 		<th>상품이름</th>
@@ -30,16 +61,16 @@ WEB-INF\admin\product\ProductList.jsp 입니다.<br>
 	
 	<c:forEach var="prd" items="${ list }"> 
 	<tr>
-		<td>${prd.pnum }</td>
-		<td>
+		<td align="center">${prd.pnum }</td>
+		<td align="center">
 			<a href="detail.detail?pnum=${prd.pnum }">${prd.pname }</a>
 		</td>
-		<td>${prd.pimage }</td>
-		<td>${prd.pcode }</td>
-		<td>${prd.pspec }</td>
-		<td>${prd.price }</td>
-		<td>${prd.point }</td>
-		<td>
+		<td align="center">${prd.pimage }</td>
+		<td align="center">${prd.pcode }</td>
+		<td align="center">${prd.pspec }</td>
+		<td align="center">${prd.price }</td>
+		<td align="center">${prd.point }</td>
+		<td align="center">
 		<a href="update.prd?pnum=${prd.pnum }&pageNumber=${pageInfo.pageNumber}&pageSize=${pageInfo.pageSize}">수정</a> | 
 		<a href="delete.prd?pnum=${prd.pnum }&pageNumber=${pageInfo.pageNumber}">삭제</a></td>
 	</tr>
@@ -48,4 +79,7 @@ WEB-INF\admin\product\ProductList.jsp 입니다.<br>
 
 </table>
 </form>
-${pageInfo.pagingHtml }
+
+<div id="paging">
+	${pageInfo.pagingHtml }
+</div>

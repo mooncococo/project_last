@@ -5,6 +5,20 @@
     pageEncoding="UTF-8"%>
 <%@ include file ="admin_top_4.jsp" %>
 <%@ include file = "common.jsp" %>
+<style type="text/css">
+
+	.table{
+		width: 30%;
+		margin: 0 auto;
+		margin-top: 2vh; 
+	}
+	#top_form{
+		width: 60%;
+		margin: 0 auto;
+		margin-top: 6vh;
+	}
+	
+</style>
 <% 
 	 String code[] ={"Outer","Top","Blouse","Bottom","Dress","Skirt","Shoes","Bag","Acc"};
 	 String Outer[] = {"JUMPER","MUSTANG","COAT","JACKET"};
@@ -107,12 +121,15 @@ function firstChange() {
 	
 	
 </script>
-WEB-INF\admin\product\ProductInputForm.jsp 입니다.<br>
+<!-- WEB-INF\admin\product\ProductInputForm.jsp 입니다.<br> -->
 <body onLoad="init()">
+<div id="top_form">
+	<font color="gray" size="5" ><b>상품 등록</b></font>  
+</div>
 <form:form commandName="product" action="input.prd" method="post" enctype="multipart/form-data" name="myform">
-<table border="1" >
+<table align="center" width="40%" class="table">
 	<tr>
-		<td>카테고리</td>
+		<th>카테고리</th>
 		<td>
 			<select name="pcode" id="cate1" onChange="firstChange()">
  			<!--<c:forEach items="" var="i" begin="0" end="9">   
@@ -137,7 +154,7 @@ WEB-INF\admin\product\ProductInputForm.jsp 입니다.<br>
 	</tr>
 	
 	<tr>
-		<td>상품명</td>
+		<th>상품명</th>
 		<td>
 			<input type="text" name="pname" value="">
 			<form:errors cssClass="err" path="pname" />
@@ -145,7 +162,7 @@ WEB-INF\admin\product\ProductInputForm.jsp 입니다.<br>
 	</tr>
 	
 	<tr>
-		<td>상품이미지</td>
+		<th>상품이미지</th>
 		<td> 
 			<input type="file" name="upload">
 			<form:errors cssClass="err" path="pimage" />
@@ -153,7 +170,7 @@ WEB-INF\admin\product\ProductInputForm.jsp 입니다.<br>
 	</tr>
 	
 	<tr>
-		<td>상품가격</td>
+		<th>상품가격</th>
 		<td>
 			<input type="text" name="price" value="">원
 			<form:errors cssClass="err" path="price" />
@@ -161,7 +178,7 @@ WEB-INF\admin\product\ProductInputForm.jsp 입니다.<br>
 	</tr>
 	
 	<tr>
-		<td>적립포인트</td>
+		<th>적립포인트</th>
 		<td>
 			<input type="text" name="point" value="">point
 			<form:errors cssClass="err" path="point" />
@@ -169,7 +186,7 @@ WEB-INF\admin\product\ProductInputForm.jsp 입니다.<br>
 	</tr>
 	
 	<tr>
-		<td>상품스펙</td>
+		<th>상품스펙</th>
 		<td>
 			<input type="radio" name="pspec" value="new">new 	
 			<input type="radio" name="pspec" value="normal">normal 	
@@ -179,7 +196,7 @@ WEB-INF\admin\product\ProductInputForm.jsp 입니다.<br>
 	</tr>
 	
 	<tr>
-		<td>비고</td>
+		<th>비고</th>
 		<td>
 			<textarea rows="10" cols="39" maxlength="50" name="pnote"> pnote</textarea>
 			<form:errors cssClass="err" path="pnote" />
@@ -188,8 +205,8 @@ WEB-INF\admin\product\ProductInputForm.jsp 입니다.<br>
 	
 	<tr>
 		<td colspan="2" align="center">
-			<input type="submit" value="상품등록">
-			<input type="reset" value="취소">
+			<input type="submit" value="등록" class="btn btn-light" style="color:#f5f5f5; background:#373737; border:none; text-align: center;">
+			<input type="reset" value="취소" class="btn btn-light" style="color:#f5f5f5; background:#373737; border:none; text-align: center;">
 		</td>
 	</tr>
 </table>

@@ -26,6 +26,7 @@ public class MemberLoginController {
 	final String getPage = "MemberLoginForm";
 	final String getPage2 = "MemberFindId";
 	final String getPage3 = "MemberFindPw";
+	final String gotoPage1 = "../../start_4";
 	final String gotoPage2 = "MemberFindIdCompleted";
 	final String gotoPage3 = "MemberFindPwCompleted";
 	
@@ -51,7 +52,8 @@ public class MemberLoginController {
 	@RequestMapping(value=command,method=RequestMethod.POST)
 	public ModelAndView doAction(Member member, HttpServletResponse response,
 							HttpSession session) throws IOException {
-		Member dbMember = memberDao.getMembers(member.getMid());
+		
+		Member dbMember = memberDao.getMember(member.getMid());
 		
 		response.setContentType("text/html; charset=UTF-8");
 		
@@ -68,10 +70,12 @@ public class MemberLoginController {
 		else if(member.getMpw().equals(dbMember.getMpw())){
 			session.setAttribute("loginInfo", dbMember);
 			
-			return new ModelAndView((String) session.getAttribute("destination"));
+			return new ModelAndView(gotoPage1);
 		}
 		else {
-			pw.println("비밀번호가 일치합니다");
+			pw.println("<script type='text/javascript'>");
+			pw.println("alert('비밀번호가 일치하지 않습니다.');");
+			pw.println("</script>");
 			pw.flush();
 			return new ModelAndView(getPage);
 		}
