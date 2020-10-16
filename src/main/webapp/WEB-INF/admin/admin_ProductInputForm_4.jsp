@@ -171,9 +171,9 @@ WEB-INF\admin\product\ProductInputForm.jsp 입니다.<br>
 	<tr>
 		<td>상품스펙</td>
 		<td>
-			<input type="checkbox" name="pspec" value="new">new 	
-			<input type="checkbox" name="pspec" value="normal">normal 	
-			<input type="checkbox" name="pspec" value="sale">sale 
+			<input type="radio" name="pspec" value="new">new 	
+			<input type="radio" name="pspec" value="normal">normal 	
+			<input type="radio" name="pspec" value="sale">sale 
 			<form:errors cssClass="err" path="pspec" />
 		</td>
 	</tr>

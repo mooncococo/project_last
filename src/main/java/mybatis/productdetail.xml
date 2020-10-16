@@ -9,7 +9,7 @@
 	</insert>
 	
 	<select id="GetDetailList" resultType="MyProductDetail" >
-		select * from productDetail
+		select * from productdetail
 			<if test="whatColumn=='pnum'">
 				where pnum like #{keyword} 
 			</if>
@@ -20,13 +20,21 @@
 	</select>
 	
 	<select id="GetTotalCount" resultType="int" parameterType="hashmap">
-		select count(*) from productDetail
+		select count(*) from productdetail
 		<if test="whatColumn == 'pnum'">
 			where pnum like #{keyword}
 		</if>
 		<if test="whatColumn == 'pname'">
 			where pname like #{keyword}
 		</if>
+	</select>
+	
+	<delete id="DeleteProductDetail">
+		delete from product where dnum = #{dnum}
+	</delete>
+	
+	<select id="GetOneProductDetail" resultType="MyProductDetail">
+		select * from productdetail where dnum = #{dnum}
 	</select>
 </mapper>
 

@@ -36,6 +36,17 @@ public class ProductDetailDao {
 		System.out.println("listcontroller lists.size():"+lists.size());
 		return lists;
 	}
+
+	public void deleteProductDetail(int dnum) {
+		sqlSessionTemplate.delete(namespace+".DeleteProductDetail", dnum);
+		
+	}
+
+	public ProductDetail getOneProductDetail(int dnum) {
+		ProductDetail pd = new ProductDetail();
+		pd = sqlSessionTemplate.selectOne(namespace+".GetOneProductDetail", dnum);
+		return pd;
+	}
 	
 	
 	

@@ -105,10 +105,10 @@ function firstChange() {
 	
 	
 </script>
-WEB-INF\admin\product\ProductInputForm.jsp 입니다.<br>
+WEB-INF\admin\product\ProductUpdateForm.jsp 입니다.<br>
 <body onLoad="init()">
 <form:form commandName="product" action="update.prd" method="post" enctype="multipart/form-data" name="myform">
-<input type="hidden" name="cnum" value="${ product.pnum }">
+<input type="hidden" name="pnum" value="${ product.pnum }">
 <input type="hidden" name=pageNumber value="${pageNumber }">
 <input type="hidden" name=pageSize value="${pageSize }">
 <table border="1" >

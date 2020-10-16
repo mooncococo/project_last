@@ -4,33 +4,32 @@
 <%@ include file ="common.jsp" %>
 WEB-INF\admin\product\ProductDetailInputForm_4.jsp 입니다.<br>
 
-<form action="detail.detail" method="post">
-<input type="hidden" name="pnum" value="${product.pnum }">
-<input type="hidden" name="pcode" value="${product.pcode }">
+<form:form commandName="productDetail" action="update.detail" method="post">
+<input type="hidden" name="dnum" value="${productDetail.dnum }">
 <table border="1">
 	<tr>
 		<td>상품명</td>
-		<td><input type="text" name="pname" value="${product.pname }"></td>
+		<td><input type="text" name="pname" value="${productDetail.pname }" disabled></td>
 	</tr>
 	
 	<tr>
 		<td>사이즈</td>
 		<td>
-			<input type="text" name="psize" value="">
+			<input type="text" name="psize" value="${productDetail.psize }" disabled>
 		</td>
 	</tr>
 	
 	<tr>
 		<td>색상</td>
 		<td> 
-			<input type="text" name="pcolor" value="">
+			<input type="text" name="pcolor" value="${productDetail.pcolor }" disabled>
 		</td>
 	</tr>
 	
 	<tr>
 		<td>재고</td>
 		<td>
-			<input type="text" name="pstock" value="">개
+			<input type="text" name="pstock" value="${productDetail.pstock }">개
 		</td>		
 	</tr>
 	
@@ -41,5 +40,5 @@ WEB-INF\admin\product\ProductDetailInputForm_4.jsp 입니다.<br>
 		</td>
 	</tr>
 </table>
-</form>
+</form:form>
 

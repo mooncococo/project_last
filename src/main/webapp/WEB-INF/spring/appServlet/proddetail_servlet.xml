@@ -31,14 +31,7 @@
 			<value>.jsp</value>
 		</property>
 	</bean>
-	
-	<bean id="multipartResolver"
-		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
-		<property name="maxUploadSize" value="10485760" />
-		<property name="maxInMemorySize" value="10240" />
-		<property name="defaultEncoding" value="UTF-8" />
-	</bean>
-	
+
 	<!-- 
 	첫번째 bean의 id="internalResourceViewResolver"는 생략가능한데,
 	두번째 bean의 id="multipartResolver"는 생략하면 상품 입력 폼에서 입력 잘 했는데도 계속 유효성 검사 에러난다.

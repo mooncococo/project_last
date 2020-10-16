@@ -51,6 +51,19 @@ public class ProductDetail {
 	public void setPstock(String pstock) {
 		this.pstock = pstock;
 	}
+	public ProductDetail(int dnum, int pnum, String pcode, String pname, String psize, String pcolor, String pstock) {
+		super();
+		this.dnum = dnum;
+		this.pnum = pnum;
+		this.pcode = pcode;
+		this.pname = pname;
+		this.psize = psize;
+		this.pcolor = pcolor;
+		this.pstock = pstock;
+	}
+	public ProductDetail() {
+		super();
+	}
 	
 	
 }

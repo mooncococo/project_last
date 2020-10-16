@@ -19,7 +19,7 @@ import utility.Paging;
 
 @Controller
 public class ProductDetailListController {
-	final String command="detailList.detail";
+	final String command="detaillist.detail";
 	final String getPage="admin_ProductDetailList_4";
 	
 	@Autowired
@@ -35,6 +35,7 @@ public class ProductDetailListController {
 		Map<String,String> map = new HashMap<String,String>();
 		map.put("whatColumn",whatColumn); //whatColumn=title
 		map.put("keyword", "%"+keyword+"%"); //keyword=%³¯%
+		System.out.println("controller whatColumn/keyword ="+whatColumn+"/"+keyword);
 		
 		int totalCount = productDetailDao.getTotalCount(map); 
 		System.out.println("totalCount : " + totalCount);
@@ -48,6 +49,7 @@ public class ProductDetailListController {
 		System.out.println("limit : " + pageInfo.getLimit()); // 5	
 		
 		List<ProductDetail> lists =productDetailDao.selectDetailAll(pageInfo,map);
+		
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("pageInfo", pageInfo);
 		mav.addObject("totalCount", totalCount); 

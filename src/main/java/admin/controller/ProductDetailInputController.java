@@ -18,7 +18,7 @@ public class ProductDetailInputController {
 
 	final String command ="detail.detail";
 	final String getPage ="admin_ProductDetailInputForm_4";
-	final String gotoPage = "redirect:/detailList.detail";
+	final String gotoPage = "redirect:/detaillist.detail";
 	
 	@Autowired
 	private ProductDao productDao;
@@ -32,11 +32,15 @@ public class ProductDetailInputController {
 		Product product = productDao.getOneProduct(pnum);
 		
 		model.addAttribute("product", product);
+		System.out.println("product.getPname() = "+product.getPname());
 		return getPage;
 	}
 	
 	@RequestMapping(value=command,method=RequestMethod.POST)
 	public ModelAndView doAction(ProductDetail productDetail) {
+		System.out.println("ProductDetail post");
+		System.out.println("productde pnum = " + productDetail.getPnum());
+		System.out.println("productde pcode = " + productDetail.getPcode());
 		
 		ModelAndView mav = new ModelAndView();
 		productDetailDao.insertDetail(productDetail);

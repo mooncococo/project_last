@@ -48,6 +48,12 @@ public class ProductDao {
 		sqlSessionTemplate.delete(namespace+".DeleteProduct", pnum);
 		
 	}
+
+	public int updateProduct(Product product) {
+		int cnt = sqlSessionTemplate.update(namespace+".UpdateProduct", product);
+		
+		return cnt;
+	}
 	
 }
 
