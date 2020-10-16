@@ -41,13 +41,13 @@ public class Member {
 	/* @NotNull(message="이메일 주소를 입력해주세요.") */
 	private String email2;
 	
-	@Length(max=4,message="태어난 연도 4자리로 입력해주세요.")
+	@Length(min=2,max=4,message="태어난 연도 4자리로 입력해주세요.")
 	private String birth1;
 	
-	@Length(max=2,message="태어난 월을 2자리 형식으로 입력해주세요 ex) 1월 01")
+	@Length(min=1,max=2,message="태어난 월을 2자리 형식으로 입력해주세요 ex) 1월 01")
 	private String birth2;
 	
-	@Length(max=2,message="태어난 일을 2자리 형식으로 입력해주세요.")
+	@Length(min=1,max=2,message="태어난 일을 2자리 형식으로 입력해주세요.")
 	private String birth3;
 	
 	private String mpoint;

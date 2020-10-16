@@ -121,7 +121,7 @@
 			<tr>
 				<td>비밀번호<img src="<c:url value="/resources/images/star1.PNG"/>" style="width: 10px; height: 10px"/></td>
 				<td>
-					<input type="text" name="mpw" id="mpw" value="1234">
+					<input type="password" name="mpw" id="mpw" value="1234">
 					<form:errors cssClass="err" path="mpw" />
 				</td>
 			</tr>
@@ -129,9 +129,9 @@
 			<tr>
 				<td>비밀번호 확인<img src="<c:url value="/resources/images/star1.PNG"/>" style="width: 10px; height: 10px"/></td>	<!-- 선우 코드 작성중 -->
 				<td>
-					<input type="text" name="rempw" id="rempw" onkeyup="passwd_keyup()">
+					<input type="password" name="rempw" id="rempw" onkeyup="passwd_keyup()">
 					<span id="pwmessage" style="display:none;"></span>
-					<form:errors cssClass="err" path="rempw" />
+						<form:errors id="err" cssClass="err" path="rempw"/>
 				</td>
 			</tr>
 			
@@ -185,10 +185,10 @@
 					</select> 
 					-
 					
-					<input type="text" name="p2" id="p2" value=""  size="4">
+					<input type="text" name="p2" id="p2" value="" size="4">
 					-
 					
-					<input type="text" name="p3" id="p3" value=""  size="4">
+					<input type="text" name="p3" id="p3" value="" size="4">
 				</td>
 			</tr>
 			

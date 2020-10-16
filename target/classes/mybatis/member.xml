@@ -10,9 +10,9 @@
 		#{hp3},#{email1},#{email2},#{birth1},#{birth2},#{birth3})
 	</insert>
 
-	<select id="GetMembers" resultType="MyMember">
+	<select id="GetMember" resultType="MyMember">
 		select * from member
-		where mnum= #{mnum}
+		where mid= #{mid}
 	</select>
 
 	<select id="GetTotalCount" resultType="int">
@@ -81,6 +81,7 @@
 		select mid,mname,hp1,hp2,hp3,regdate,mpw from member 
 		where mname=#{mname} and mid=#{mid} and hp1=#{hp1} and hp2=#{hp2} and hp3=#{hp3}
 	</select>
+	
 </mapper>
 
 
@@ -94,5 +95,3 @@
 
 
 
-
->>>>>>> 7e9f29977ca130804e9d79252734942e5caca515

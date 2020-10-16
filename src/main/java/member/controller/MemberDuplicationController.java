@@ -41,19 +41,7 @@ public class MemberDuplicationController {
 		else if(cnt == 1){
 			str="NO";
 		}
-		/*
-		for (int i = 0; i < list.size(); i++) {
-			System.out.println("list:" + list.get(i).getMid());
-
-			if (list.get(i).getMid().equals(checkId)) {
-				str="NO";
-				// checkId가 DB와 같은 아이디가있으면 NO
-			} else {
-				str="YES";
-				// checkId가 DB와 같은 아이디가 없으면 YES } }
-			}
-		}
-		 */
+		
 		System.out.println("checkId:" + checkId);
 		System.out.println("str:" + str);
 
