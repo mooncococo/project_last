@@ -53,4 +53,51 @@ public class MemberDao {
 		int cnt = sqlsessiontemplate.update(namespace+".UpdateMem", member);
 		return cnt;
 	}
+	
+	public Member findIdByEmail(String name, String email1,String email2) {
+		Member bean = new Member();
+		bean.setMname(name);
+		bean.setEmail1(email1);
+		bean.setEmail2(email2);
+		Member member = sqlsessiontemplate.selectOne(namespace+".FindIdByEmail", bean);
+		return member;
+		  
+	}
+	
+	public Member findIdByHp(String name, String hp1,String hp2,String hp3) {
+		Member bean = new Member();
+		bean.setMname(name);
+		bean.setHp1(hp1); 
+		bean.setHp2(hp2);
+		bean.setHp3(hp3);
+		Member member = sqlsessiontemplate.selectOne(namespace+".FindIdByHp", bean);
+		return member;
+		
+	}
+	
+	public Member findPwByEmail(String name, String id,String email1,String email2) {
+		Member bean = new Member();
+		bean.setMname(name);
+		bean.setMid(id);
+		bean.setEmail1(email1);
+		bean.setEmail2(email2);
+		Member member = sqlsessiontemplate.selectOne(namespace+".FindPwByEmail", bean);
+		return member;
+		  
+	}
+	
+	public Member findPwByEmail(String name,String id, String hp1,String hp2,String hp3) {
+		Member bean = new Member();
+		bean.setMname(name);
+		bean.setMid(id);
+		bean.setHp1(hp1); 
+		bean.setHp2(hp2);
+		bean.setHp3(hp3);
+		Member member = sqlsessiontemplate.selectOne(namespace+".FindPwByHp", bean);
+		return member;
+		
+	}
+	
+	
+	
 }

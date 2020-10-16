@@ -21,7 +21,7 @@ create table member(
 	birth1 varchar2(30) not null,
 	birth2 varchar2(30) not null,
 	birth3 varchar2(30) not null,
-	mpoint varchar2(30) not null,
+	mpoint varchar2(30),
 	coupon varchar2(30) default 1,
 	regdate date default sysdate
 );
