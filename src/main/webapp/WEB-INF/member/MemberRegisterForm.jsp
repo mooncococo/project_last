@@ -24,6 +24,7 @@
 
 <script src="http://code.jquery.com/jquery-1.11.1.min.js" type="text/javascript"></script>
 <script type="text/javascript">
+	
 	var dupcheck = false;
 	var change = false;
 	var use = "";
@@ -31,17 +32,29 @@
 	$(function(){
 		$('input[name="mid"]').keydown(function(){
 			$('#idmessage').css('display','none');
-			Change=true;
+			change=true;
 			use="";
 		});
 		
 		$('input[name="rempw"]').keydown(function(){
 			$('#pwmessage').css('display','none');
-			Change=true;
+			change=true;
 			use="";
 		});
 		
 	});
+	
+	function checkDuplication(){
+		
+		if(dupcheck == false){
+			alert("중복검사를 해주세요.");
+			return false;
+		}
+		else if(use == "impossible"){
+			alert("'"+$("#mid").val()+"'는 이미 존재하는 아이디입니다.");
+			return false;
+		}
+	}
 	
 	function passwd_keyup(){
 		if($('input[name=mpw]').val() == $('input[name=rempw]').val()){
@@ -88,7 +101,7 @@
 </head>
 <body>
 
-	<form:form commandName="member" method="post" action="registerForm.me"> 
+	<form:form commandName="member" method="post" action="registerForm.me" onsubmit="return checkDuplication()"> 
 		<table class="table">
 			<tr>
 				<th colspan="2" id="title" style="padding-top: 20px;padding-bottom: 20px; text-align: center;" >  
