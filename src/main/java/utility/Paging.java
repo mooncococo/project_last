@@ -248,8 +248,8 @@ public class Paging {
 		//가운데
 		for (int i = this.beginPage; i <= this.endPage ; i++) {
 			if ( i == this.pageNumber ) {
-				result += "&nbsp;<font color='red'>" + i + "</font>&nbsp;"	;
-						
+				result += "&nbsp;<font color='blue'>" + i + "</font>&nbsp;"	;
+						  
 			} else {
 				result += "&nbsp;<a href='" + url   
 						+ "?pageNumber=" + i + "&pageSize=" + this.pageSize 
