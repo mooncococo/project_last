@@ -9,15 +9,7 @@
 	
 	
 </script>
-<%
 
-	String pnum = request.getParameter("pnum");
-	String pcode = request.getParameter("pcode");
-	String psize = request.getParameter("psize");
-	out.println("pnum = "+pnum);
-	out.println("pcode = "+pcode);
-	out.println("psize = "+psize);
-%>
 WEB-INF\admin\product\ProductDetailList_4.jsp 입니다.<br>
 <form action="detaillist.detail" method="get">
 	<select name="whatColumn">
@@ -54,6 +46,7 @@ WEB-INF\admin\product\ProductDetailList_4.jsp 입니다.<br>
 			<a href="delete.detail?dnum=${detail.dnum }&pageNumber=${pageInfo.pageNumber}">삭제</a>
 		</td>
 	</tr>
+	
 </c:forEach>	
 	
 	

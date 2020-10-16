@@ -45,7 +45,7 @@ public class ProductUpdateController {
 	@RequestMapping(value=command , method = RequestMethod.POST)
 	public ModelAndView doAction(@RequestParam("pageNumber") int pageNumber,
 								@RequestParam("pageSize") int pageSize,
-								@ModelAttribute("product") @Valid Product product,
+								@Valid Product product,
 								BindingResult result) {
 		
 		

@@ -5,21 +5,7 @@
     pageEncoding="UTF-8"%>
 <%@ include file ="admin_top_4.jsp" %>
 <%@ include file = "common.jsp" %>
-<% 
-	 String code[] ={"Outer","Top","Blouse","Bottom","Dress","Skirt","Shoes","Bag","Acc"};
-	 String Outer[] = {"JUMPER","MUSTANG","COAT","JACKET"};
-	 String Top[] = {"TEE","KNIT","SWEATSHIRT&HOODY","STRIPE"};
-	 String Blouse[] = {"BLOUSE","SHIRT"};
-	 String Bottom[] = {"DENIM","SHORTS","COTTON&SLACKS"};
-	 String Dress[] = {"MINI","LONG"};
-	 String Skirt[] = {"MINI","LONG"};
-	 String Shoes[] = {"ALL"};
-	 String Bag[] = {"BACK","SHOULDER","ETC"};
-	 String Acc[] = {"JEWELRY","HAT","MUFFLER&GLOVES","ETC"};
 
-	// List<Category> lists = ( List<Category> )request.getAttribute("lists");
-
-%>
 	<!-- 
 function select() {
 	
@@ -50,58 +36,59 @@ s_selboxText[6] = new Array("ALL");
 s_selboxText[7] = new Array("BACK","SHOULDER","ETC");
 s_selboxText[8] = new Array("JEWELRY","HAT","MUFFLER&GLOVES","ETC");
 
+let a_choi;
 function init() {
-	
-	f_sel = document.myform.cate1;
-	s_sel = document.myform.cate2;
-	
+	a_choi = $(".pcode_class").val()
+	let f_sel = document.myform.cate1;
+	let s_sel = document.myform.cate2;	
 
 	f_sel.options[0] = new Option("선택");
 	s_sel.options[0] = new Option("선택");
-	
-	for(var i=0;i<f_selbox.length;i++) {
+	$("#cate1 option").eq(0).attr('value','선택')
+	for(let i=0;i<f_selbox.length;i++) {
 		f_sel.options[i+1] = new Option(f_selbox[i]);
+        $("#cate1 option").eq(i+1).attr('value',f_selbox[i])
+	//$("#cate1 option").eq(i).val($(".pcode_class").val())
+        console.log($("#cate1 option").eq(i).val().includes(a_choi))
+        if($("#cate1 option").eq(i).val().includes(a_choi) == true){
+            $("#cate1 option").eq(i).attr("selected", "selected")
+            console.log($('#cate1 option:selected').val())
+          }
 	}
+	
 } //init
 	
-
-function firstChange() {
-		
-	//alert($("#cate1 option:selected").val());
-
-		f_sel = document.myform.cate1;
+$(()=>{
+	let b_choi = $(".pcode_class2").val();
+	console.log(b_choi)
+	if($('#cate1 option:selected').val()== a_choi) {
+	    f_sel = document.myform.cate1;
 		s_sel = document.myform.cate2;
-		
 		f_selIndex = f_sel.selectedIndex; // 선택:0  여성복:1	
-	
-	
 		for(var i=s_sel.length-1;i>0;i--) {
-			
 			s_sel.options[i] = null;
-			
 			}
-	
-		
 		for(var i=0;i<s_selboxText[f_selIndex-1].length;i++) {
 			s_sel.options[i+1] = new Option(s_selboxText[f_selIndex-1][i]);
-			
 		}
-		
-	} //firstChange
-	
-	function secondChange(){
-		
-		f_sel = document.myform.cate1;
-		s_sel = document.myform.cate2;
-		
-		f_selIndex = document.myform.cate1.selectedIndex;
-		s_selIndex = document.myform.cate2.selectedIndex;
-		
-		//alert(f_selIndex+','+s_selIndex);
-		
-	
-				
+		for(let i=0;i<s_selboxText.length;i++) {
+		    $("#cate2 option").eq(i+1)
+		    console.log("cate2 : "+$('#cate2 option').eq(i).val())
+		    console.log("b_choi : "+b_choi)
+		 	console.log("비교 값 : "+$("#cate2 option").eq(i).val().includes(b_choi) == true)
+		  if($("#cate2 option").eq(i).val().includes(b_choi) == true){
+		    $("#cate2 option").eq(i).attr("selected", "selected")
+		  }
+		}
 	}
+})
+
+
+
+	
+
+
+
 	
 	
 </script>
@@ -111,14 +98,14 @@ WEB-INF\admin\product\ProductUpdateForm.jsp 입니다.<br>
 <input type="hidden" name="pnum" value="${ product.pnum }">
 <input type="hidden" name=pageNumber value="${pageNumber }">
 <input type="hidden" name=pageSize value="${pageSize }">
+<input type="text" class="pcode_class" value="${product.pcode }">
+<input type="text" class="pcode_class2" value="${product.pcate }">
 <table border="1" >
 	<tr>
 		<td>카테고리</td>
 		<td>
-			<select name="pcode" id="cate1" onChange="firstChange()">
- 			<!--<c:forEach items="" var="i" begin="0" end="9">   
-					 <option value="${i }">${i} 
-			</c:forEach> -->
+			<select name="pcode" id="cate1">
+				
 			</select>	
 			<form:errors cssClass="err" path="pcode" />
 			<select name="pcate" id="cate2">

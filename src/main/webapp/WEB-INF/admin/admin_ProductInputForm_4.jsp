@@ -89,21 +89,7 @@ function firstChange() {
 		
 	} //firstChange
 	
-	function secondChange(){
-		
-		f_sel = document.myform.cate1;
-		s_sel = document.myform.cate2;
-		
-		f_selIndex = document.myform.cate1.selectedIndex;
-		s_selIndex = document.myform.cate2.selectedIndex;
-		
-		//alert(f_selIndex+','+s_selIndex);
-		
-		var area = document.getElementById("result");
-		area.innerHTML = "선택한 상품은 <br> <img src=../images/"+s_selboxImage[f_selIndex-1][s_selIndex-1]+">";
-		
-				
-	}
+
 	
 	
 </script>

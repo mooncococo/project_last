@@ -39,7 +39,7 @@
 	</delete>
 	
 	<update id="UpdateProduct">
-		update product set pcode=#{pcode}, pcate=#{pcate},pname = #{pname},pimage = #{pimage},price = #{price},
+		update product set pcode = #{pcode}, pcate = #{pcate},pname = #{pname},pimage = #{pimage},price = #{price},
 		point = #{point}, pspec= #{pspec}, pnote = #{pnote} 
 		where pnum = #{pnum}
 	</update>

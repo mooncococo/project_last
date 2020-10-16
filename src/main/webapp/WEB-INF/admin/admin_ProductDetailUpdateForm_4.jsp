@@ -2,10 +2,13 @@
     pageEncoding="UTF-8"%>
 <%@ include file ="admin_top_4.jsp" %>
 <%@ include file ="common.jsp" %>
-WEB-INF\admin\product\ProductDetailInputForm_4.jsp 입니다.<br>
+WEB-INF\admin\product\ProductDetailUpdateForm_4.jsp 입니다.<br>
 
 <form:form commandName="productDetail" action="update.detail" method="post">
 <input type="hidden" name="dnum" value="${productDetail.dnum }">
+<input type="hidden" name="pnum" value="${productDetail.pnum}">
+<input type="hidden" name="pcode" value="${productDetail.pcode }">
+
 <table border="1">
 	<tr>
 		<td>상품명</td>
@@ -35,7 +38,7 @@ WEB-INF\admin\product\ProductDetailInputForm_4.jsp 입니다.<br>
 	
 	<tr>
 		<td colspan="2" align="center">
-			<input type="submit" value="등록 후 리스트보기">
+			<input type="submit" value="수정 후 리스트보기">
 			<input type="reset" value="취소">
 		</td>
 	</tr>

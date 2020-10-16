@@ -36,5 +36,9 @@
 	<select id="GetOneProductDetail" resultType="MyProductDetail">
 		select * from productdetail where dnum = #{dnum}
 	</select>
+	
+	<update id="UpdateProductDetail">
+		update productdetail set pstock = #{pstock} where dnum= #{dnum}
+	</update>
 </mapper>
 

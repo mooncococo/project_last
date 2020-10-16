@@ -47,6 +47,11 @@ public class ProductDetailDao {
 		pd = sqlSessionTemplate.selectOne(namespace+".GetOneProductDetail", dnum);
 		return pd;
 	}
+
+	public int UpdateProductDetail(ProductDetail productDetail) {
+		int cnt = sqlSessionTemplate.update(namespace+".UpdateProductDetail", productDetail);
+		return cnt;
+	}
 	
 	
 	
