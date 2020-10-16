@@ -21,24 +21,35 @@
 		color: gray; 
 	}
 </style>
-
+<%
+	String str="";
+	System.out.print("str:"+str);
+%>
+<script src="http://code.jquery.com/jquery-1.11.1.min.js" type="text/javascript"></script>
 <script type="text/javascript">
+	 
 	function duplicate(){
-		id = $("#mid").val();
 		
 		$.ajax({
-			url:"ID_Check",
+			url:"duplication.me",
 			type:'POST',
-			data:id,
-			success:function(data){
-				if(data == 0){
+			datatype:'text',
+			/* contentType :'text/plain; charset=utf-8;',  */
+			data: ({
+				checkId : $("#mid").val()
+			}),
+			
+			success:function(data){		
+				if($.trim(data) =='YES'){
 					alert("사용 가능한 아이디입니다.");
+					
 				}
 				else{
 					alert("이미 사용중인 아이디입니다.");
 				}
 			}
-		});
+		}); 
+		
 	}
 	
 	

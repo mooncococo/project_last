@@ -59,17 +59,8 @@
 		update member set mpoint = #{mpoint}, coupon = #{coupon} where mnum= #{mnum}	
 	</update> 
 	
+	<select id="CheckID" resultType="int">
+		select count(*) from member where mid=#{checkId}
+	</select>
+	
 </mapper>
-
-
-
-
-
-
-
-
-
-
-
-
-

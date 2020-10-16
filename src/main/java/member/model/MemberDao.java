@@ -53,4 +53,9 @@ public class MemberDao {
 		int cnt = sqlsessiontemplate.update(namespace+".UpdateMem", member);
 		return cnt;
 	}
+	
+	public int getDuplicateId(String checkId) { 
+		int cnt = sqlsessiontemplate.selectOne(namespace+".CheckID",checkId);
+		return cnt;
+	}
 }
