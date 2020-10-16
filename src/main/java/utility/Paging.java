@@ -2,24 +2,24 @@ package utility;
 
 public class Paging {
 	
-	//ÆäÀÌÂ¡ °ü·Ã º¯¼ö	
-	private int totalCount = 0 ; //ÃÑ ·¹ÄÚµå °Ç¼ö
-	private int totalPage = 0 ; //ÀüÃ¼ ÆäÀÌÁö ¼ö
-	private int pageNumber = 0 ; //º¸¿©ÁÙ ÆäÀÌÁö ³Ñ¹ö
-	private int pageSize = 0 ; //ÇÑ ÆäÀÌÁö¿¡ º¸¿©ÁÙ °Ç¼ö
-	private int beginRow = 0 ; //ÇöÀç ÆäÀÌÁöÀÇ ½ÃÀÛ Çà
-	private int endRow = 0 ; //ÇöÀç ÆäÀÌÁöÀÇ ³¡ Çà
-	private int pageCount = 3 ; // ÇÑ È­¸é¿¡ º¸¿©ÁÙ ÆäÀÌÁö ¸µÅ© ¼ö (ÆäÀÌÁö °¹¼ö)
-	private int beginPage = 0 ; //ÆäÀÌÂ¡ Ã³¸® ½ÃÀÛ ÆäÀÌÁö ¹øÈ£
-	private int endPage = 0 ; //ÆäÀÌÂ¡ Ã³¸® ³¡ ÆäÀÌÁö ¹øÈ£
+	//ï¿½ï¿½ï¿½ï¿½Â¡ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½	
+	private int totalCount = 0 ; //ï¿½ï¿½ ï¿½ï¿½ï¿½Úµï¿½ ï¿½Ç¼ï¿½
+	private int totalPage = 0 ; //ï¿½ï¿½Ã¼ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
+	private int pageNumber = 0 ; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ¹ï¿½
+	private int pageSize = 0 ; //ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ç¼ï¿½
+	private int beginRow = 0 ; //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
+	private int endRow = 0 ; //ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½
+	private int pageCount = 3 ; // ï¿½ï¿½ È­ï¿½é¿¡ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å© ï¿½ï¿½ (ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½)
+	private int beginPage = 0 ; //ï¿½ï¿½ï¿½ï¿½Â¡ Ã³ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È£
+	private int endPage = 0 ; //ï¿½ï¿½ï¿½ï¿½Â¡ Ã³ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½È£
 	private int offset = 0 ;
 	private int limit = 0 ;
-	private String url = "" ; //¿¹½Ã ==>  http://localhost:8080/MyServlet/list.do
-	private String pagingHtml = "";//ÇÏ´ÜÀÇ ¼ýÀÚ ÆäÀÌÁö ¸µÅ©
+	private String url = "" ; //ï¿½ï¿½ï¿½ï¿½ ==>  http://localhost:8080/MyServlet/list.do
+	private String pagingHtml = "";//ï¿½Ï´ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å©
 	
-	//°Ë»öÀ» À§ÇÑ º¯¼ö Ãß°¡
-	private String whatColumn = "" ; //°Ë»ö ¸ðµå(ÀÛ¼ºÀÚ, ±ÛÁ¦¸ñ, ÀüÃ¼ °Ë»öÀº all) µîµî
-	private String keyword = "" ; //°Ë»öÇÒ ´Ü¾î 
+	//ï¿½Ë»ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß°ï¿½
+	private String whatColumn = "" ; //ï¿½Ë»ï¿½ ï¿½ï¿½ï¿½(ï¿½Û¼ï¿½ï¿½ï¿½, ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½Ã¼ ï¿½Ë»ï¿½ï¿½ï¿½ all) ï¿½ï¿½ï¿½
+	private String keyword = "" ; //ï¿½Ë»ï¿½ï¿½ï¿½ ï¿½Ü¾ï¿½ 
 
 	public int getTotalCount() {
 		return totalCount;
@@ -146,7 +146,7 @@ public class Paging {
 		
 		return pagingHtml;
 //		pagingHtml:
-//			&nbsp;<font color='red'>1</font>&nbsp;&nbsp;<a href='/ex/list.ab?pageNumber=2&pageSize=2&whatColumn=null&keyword=null'>2</a>&nbsp;&nbsp;<a href='/ex/list.ab?pageNumber=3&pageSize=2&whatColumn=null&keyword=null'>3</a>&nbsp;&nbsp;<a href='/ex/list.ab?pageNumber=4&pageSize=2&whatColumn=null&keyword=null'>4</a>&nbsp;&nbsp;<a href='/ex/list.ab?pageNumber=5&pageSize=2&whatColumn=null&keyword=null'>5</a>&nbsp;&nbsp;<a href='/ex/list.ab?pageNumber=6&pageSize=2&whatColumn=null&keyword=null'>6</a>&nbsp;&nbsp;<a href='/ex/list.ab?pageNumber=7&pageSize=2&whatColumn=null&keyword=null'>7</a>&nbsp;&nbsp;<a href='/ex/list.ab?pageNumber=8&pageSize=2&whatColumn=null&keyword=null'>8</a>&nbsp;&nbsp;<a href='/ex/list.ab?pageNumber=9&pageSize=2&whatColumn=null&keyword=null'>9</a>&nbsp;&nbsp;<a href='/ex/list.ab?pageNumber=10&pageSize=2&whatColumn=null&keyword=null'>10</a>&nbsp;&nbsp;<a href='/ex/list.ab?pageNumber=11&pageSize=2&whatColumn=null&keyword=null'>´ÙÀ½</a>&nbsp;&nbsp;<a href='/ex/list.ab?pageNumber=22&pageSize=2&whatColumn=null&keyword=null'>¸Ç ³¡</a>&nbsp;
+//			&nbsp;<font color='red'>1</font>&nbsp;&nbsp;<a href='/ex/list.ab?pageNumber=2&pageSize=2&whatColumn=null&keyword=null'>2</a>&nbsp;&nbsp;<a href='/ex/list.ab?pageNumber=3&pageSize=2&whatColumn=null&keyword=null'>3</a>&nbsp;&nbsp;<a href='/ex/list.ab?pageNumber=4&pageSize=2&whatColumn=null&keyword=null'>4</a>&nbsp;&nbsp;<a href='/ex/list.ab?pageNumber=5&pageSize=2&whatColumn=null&keyword=null'>5</a>&nbsp;&nbsp;<a href='/ex/list.ab?pageNumber=6&pageSize=2&whatColumn=null&keyword=null'>6</a>&nbsp;&nbsp;<a href='/ex/list.ab?pageNumber=7&pageSize=2&whatColumn=null&keyword=null'>7</a>&nbsp;&nbsp;<a href='/ex/list.ab?pageNumber=8&pageSize=2&whatColumn=null&keyword=null'>8</a>&nbsp;&nbsp;<a href='/ex/list.ab?pageNumber=9&pageSize=2&whatColumn=null&keyword=null'>9</a>&nbsp;&nbsp;<a href='/ex/list.ab?pageNumber=10&pageSize=2&whatColumn=null&keyword=null'>10</a>&nbsp;&nbsp;<a href='/ex/list.ab?pageNumber=11&pageSize=2&whatColumn=null&keyword=null'>ï¿½ï¿½ï¿½ï¿½</a>&nbsp;&nbsp;<a href='/ex/list.ab?pageNumber=22&pageSize=2&whatColumn=null&keyword=null'>ï¿½ï¿½ ï¿½ï¿½</a>&nbsp;
 
 	}
 
@@ -190,11 +190,11 @@ public class Paging {
 		this.pageNumber = Integer.parseInt( _pageNumber ) ; 
 
 		if( _pageSize == null || _pageSize.equals("null") || _pageSize.equals("") ){
-			_pageSize = "5" ; // ÇÑ ÆäÀÌÁö¿¡ º¸¿©ÁÙ ·¹ÄÚµå °¹¼ö
+			_pageSize = "5" ; // ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Úµï¿½ ï¿½ï¿½ï¿½ï¿½
 		}		
 		this.pageSize = Integer.parseInt( _pageSize ) ;
 		
-		this.limit = pageSize ; // ÇÑ ÆäÀÌÁö¿¡ º¸¿©ÁÙ ·¹ÄÚµå °¹¼ö
+		this.limit = pageSize ; // ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Úµï¿½ ï¿½ï¿½ï¿½ï¿½
 
 		this.totalCount = totalCount ; 
 
@@ -230,25 +230,25 @@ public class Paging {
 	
 	}
 	
-	private String getPagingHtml( String url ){ //ÆäÀÌÂ¡ ¹®ÀÚ¿­À» ¸¸µç´Ù.
+	private String getPagingHtml( String url ){ //ï¿½ï¿½ï¿½ï¿½Â¡ ï¿½ï¿½ï¿½Ú¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½.
 		System.out.println("getPagingHtml url:"+url); 
 		
 		String result = "" ;
 		String added_param = "&whatColumn=" + whatColumn + "&keyword=" + keyword ;
 		
-		if (this.beginPage != 1) { // ¾ÕÂÊ, pageSize:ÇÑ È­¸é¿¡ º¸ÀÌ´Â ·¹ÄÚµå ¼ö
+		if (this.beginPage != 1) { // ï¿½ï¿½ï¿½ï¿½, pageSize:ï¿½ï¿½ È­ï¿½é¿¡ ï¿½ï¿½ï¿½Ì´ï¿½ ï¿½ï¿½ï¿½Úµï¿½ ï¿½ï¿½
 			result += "&nbsp;<a href='" + url  
 					+ "?pageNumber=" + ( 1 ) + "&pageSize=" + this.pageSize 
-					+ added_param + "'>¸Ç Ã³À½</a>&nbsp;" ;
+					+ added_param + "'>ï¿½ï¿½ Ã³ï¿½ï¿½</a>&nbsp;" ;
 			result += "&nbsp;<a href='" + url 
 					+ "?pageNumber=" + (this.beginPage - 1 ) + "&pageSize=" + this.pageSize 
-					+ added_param + "'>ÀÌÀü</a>&nbsp;" ;
+					+ added_param + "'>ï¿½ï¿½ï¿½ï¿½</a>&nbsp;" ;
 		}
 		
-		//°¡¿îµ¥
+		//ï¿½ï¿½ï¿½îµ¥
 		for (int i = this.beginPage; i <= this.endPage ; i++) {
 			if ( i == this.pageNumber ) {
-				result += "&nbsp;<font color='red'>" + i + "</font>&nbsp;"	;
+				result += "&nbsp;<font color=' '>" + i + "</font>&nbsp;"	;
 						
 			} else {
 				result += "&nbsp;<a href='" + url   
@@ -260,15 +260,15 @@ public class Paging {
 		System.out.println("result:"+result);  
 		System.out.println();
 		
-		if ( this.endPage != this.totalPage) { // µÚÂÊ
+		if ( this.endPage != this.totalPage) { // ï¿½ï¿½ï¿½ï¿½
 			
 			result += "&nbsp;<a href='" + url  
 					+ "?pageNumber=" + (this.endPage + 1 ) + "&pageSize=" + this.pageSize 
-					+ added_param + "'>´ÙÀ½</a>&nbsp;" ;
+					+ added_param + "'>ï¿½ï¿½ï¿½ï¿½</a>&nbsp;" ;
 			
 			result += "&nbsp;<a href='" + url  
 					+ "?pageNumber=" + (this.totalPage ) + "&pageSize=" + this.pageSize 
-					+ added_param + "'>¸Ç ³¡</a>&nbsp;" ;
+					+ added_param + "'>ï¿½ï¿½ ï¿½ï¿½</a>&nbsp;" ;
 		}		
 		System.out.println("result2:"+result);
 		

@@ -87,6 +87,7 @@
 	right: 20px;
     position: fixed;
     bottom: 20px;
+    opacity: 0.4;
 	
 }
 </style>
@@ -101,8 +102,7 @@
 		<div class="top">
 			<p>Sorority</p>
 			<div class="icon">
-				<a href="#"><img
-					src="<c:url value="/resources/images/로그아웃수정후.png"/>" /></a> <a href="#"><img
+				<a href="#"><img src="<c:url value="/resources/images/로그아웃수정후.png"/>" /></a> <a href="#"><img
 					src="<c:url value="/resources/images/주문내역.png"/>" /></a> <a href="#"><img
 					src="<c:url value="/resources/images/장바구니.png"/>" /></a> <a
 					href="<%=viewLogin%>"><img src="<c:url value="/resources/images/로그인,회원.png"/>" /></a>
