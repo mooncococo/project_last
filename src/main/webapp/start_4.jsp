@@ -8,3 +8,4 @@ start_4.jsp 입니다.<br>
 	String loginInfo = (String)session.getAttribute("loginInfo");
 	response.sendRedirect(viewPage);
 %>
+  
