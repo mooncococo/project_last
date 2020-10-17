@@ -14,11 +14,13 @@
 <style type="text/css">
 
 	.table{
-		
 		width: 25%;
 		margin: 0 auto;
 		margin-top: 30vh;
+<<<<<<< HEAD
 	
+=======
+>>>>>>> d04e373e7425418b863b4924db661de1789e3505
 	}
 	
 	.btn{
@@ -35,24 +37,26 @@
 		height: 48px;
 		margin-bottom: 10px;
 	}
-
+}
 </style>
 
 <form method="post" action="loginForm.me">
 	<table class="table">
 		<tr>
-			<td align="center" id="title">LOGIN</td>
+			<td align="center">
+				<font size="5" color="#616161"><b>L O G I N</b></font>    
+			</td>
 		</tr>
 		<tr>
-			<td><input class="form-control" type="text" name="mid" value="" placeholder="아이디" id="inputbox">
+			<td><input class="form-control" type="text" name="mid" value="${mid }" placeholder="아이디" id="inputbox">
 			<input class="form-control" type="password" name="mpw" value="" placeholder="비밀번호" id="inputbox"></td>
 		</tr>
 		  
 		<tr>
 			<td>
-				<input type="submit" value="로그인" class="btn btn-secondary btn-lg btn-block" style="background:#1c313a; border:none; " >
+				<input type="submit" value="로그인" class="btn btn-secondary btn-lg btn-block" style="background:#373737; border:none; " >
 				<!-- <input type="reset" value="취소"> -->
-				<input type="button" value="회원가입" class="btn btn-secondary btn-lg btn-block" onClick="register()"  style="background:#78909c; border:none; ">
+				<input type="button" value="회원가입" class="btn btn-secondary btn-lg btn-block" onClick="register()"  style="background:#8e8e8e; border:none; ">
 				<!-- <input type="button" value="회원목록보기"  onClick="memberList()"> -->   
 			</td>
 		</tr>

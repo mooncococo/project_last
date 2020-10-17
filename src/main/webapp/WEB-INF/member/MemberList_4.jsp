@@ -3,11 +3,32 @@
 <%@ include file = "../admin/admin_top_4.jsp" %>    
 <%@ include file="common.jsp" %> 
 <style type="text/css">
-	body{
+	.table{  
+		width: 70%;
+		margin: 0 auto;
+		margin-top: 4vh; 
+	}
+	#top_form2{
+		width: 70%;
+		margin: 0 auto;
+		margin-top: 4vh;   
+	}
+	#top_form1{
+		width: 80%;
+		margin: 0 auto;
+		margin-top: 6vh;
+	}
+	th{
 		text-align: center;
 	}
-	table{
-		margin : 0px auto;
+	td{
+		text-align: center;
+	}
+	#paging{
+		width: 45%;
+		margin: 0 auto;
+		text-align: center;
+		margin-top: 4vh;
 	}
 </style>
 <script type="text/javascript">
@@ -18,14 +39,13 @@
 		location.href="update.me?mnum="+mnum+"&pageNumber="+pageNumber+"&pageSize="+pageSize; 
 	}
 </script>       
-member\MemberList.jsp<br><br>
+<!-- member\MemberList.jsp-->
 
-<a href="MemberLoginForm.jsp">로그인 페이지</a>
-<a href="">로그 아웃</a>
+<div id="top_form1">
+	<font color="gray" size="5" ><b>회원 관리</b></font>  
+</div>
 
-
-<h2>회원 리스트 화면</h2>
-<form action="list.me" method="get">
+<form action="list.me" method="get" id="top_form2">
 	<select name="whatColumn">
 		<option value="all">전체 검색
 		<option value="mname">이름
@@ -36,12 +56,12 @@ member\MemberList.jsp<br><br>
 	<input type="submit" value="검색">
 </form>
 
-<table border="1">
-	<tr>
-		<td colspan="12" align="right">
+<table align="center" width="40%" class="table">
+<!-- 	<tr align="center">
+		<td colspan="11" align="right" >
 			<input type="button" value="회원추가" onclick="insert()">
 		</td>
-	</tr>
+	</tr> -->
 	
 	<tr>
 		<th>ID</th>
@@ -54,8 +74,7 @@ member\MemberList.jsp<br><br>
 		<th>포인트</th>
 		<th>쿠폰보유량</th>
 		<th>가입날짜</th>
-		<th>수정</th>
-		<th>삭제</th>
+		<th>수정 | 삭제</th>
 	</tr>
 	
 	<c:forEach items="${lists }" var="member">
@@ -93,15 +112,14 @@ member\MemberList.jsp<br><br>
 				${member.regdate }
 			</td>
 			<td>
-				<input type="button" value="수정하기" onClick="updateGo('${member.mnum }','${pageInfo.pageNumber}','${pageInfo.pageSize}')"> 
-			</td>
-			<td>
+				<a href="update.me?mnum=${member.mnum }&pageNumber=${pageInfo.pageNumber}&pageSize=${pageInfo.pageSize}">수정</a>|
 				<a href="delete.me?mnum=${member.mnum }">삭제</a>
 			</td>
 		</tr> 
 	</c:forEach>
 </table>
 
-${pageInfo.pagingHtml } 
-
+<div id="paging">
+	${pageInfo.pagingHtml } 
+</div>
 

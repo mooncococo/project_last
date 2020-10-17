@@ -7,6 +7,7 @@
 <meta charset="UTF-8">
 <title>admin_top.jsp</title>
 	<!-- BootstrapCDN 부트스트랩 필요하면  아래 코드 복사해서 사용하기-->
+<<<<<<< HEAD
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
@@ -15,6 +16,16 @@
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+=======
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" >
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" ></script>
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" ></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" ></script>
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" >
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" ></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" ></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" ></script>
+>>>>>>> d04e373e7425418b863b4924db661de1789e3505
 	<!-- 여기까지  -->
 	<style type="text/css">
 		.top{
@@ -49,6 +60,7 @@
 	      <a class="nav-link" href="list.cate">카테고리 목록</a>
 	      <a class="nav-link" href="input.prd">상품 등록</a>
 	      <a class="nav-link" href="list.prd">상품 목록</a>
+	      <a class="nav-link" href="detaillist.detail">재고 확인</a>
 	      <a class="nav-link" href="list.me">회원 관리</a>
 	    </div>
 	  </div>
