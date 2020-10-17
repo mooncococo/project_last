@@ -12,7 +12,6 @@ MemberFindPwCompleted.jsp
 	margin: 0 auto;
 	margin-top: 4vh;
 }
-
 #d_top {
 	width: 25%;
 	margin: 0 auto;

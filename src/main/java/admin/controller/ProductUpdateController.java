@@ -35,10 +35,16 @@ public class ProductUpdateController {
 	ServletContext servletContext;
 	
 	@RequestMapping(value=command,method=RequestMethod.GET)
-	public String doAction(@RequestParam(value="pnum") int pnum,Model model) {
+	public String doAction(@RequestParam(value="pnum") int pnum,
+				@RequestParam("pageNumber") int pageNumber,
+				@RequestParam("pageSize") int  pageSize,
+				Model model) {
 		
+	   // System.out.println("update get 들어옴");
 		Product product = productDao.getOneProduct(pnum);
 		model.addAttribute("product", product);
+		model.addAttribute("pageNumber", pageNumber);
+		model.addAttribute("pageSize", pageSize);
 		return getPage;
 	}
 	
@@ -47,8 +53,18 @@ public class ProductUpdateController {
 								@RequestParam("pageSize") int pageSize,
 								@Valid Product product,
 								BindingResult result) {
+	    System.out.println("update post 들어옴");
 		
-		
+	    System.out.println("product.getPnum() : "+product.getPnum());
+	    System.out.println("product.getPcode() : "+product.getPcode());
+	    System.out.println("product.getPcate(): "+product.getPcate());
+	    System.out.println("product.getPimage() : "+product.getPimage());
+	    System.out.println("product.getPname() : "+product.getPname());
+	    System.out.println("product.getPspec() : "+product.getPspec());
+	    System.out.println("product.getPrice() : "+product.getPrice());
+	    System.out.println("product.getPoint() : "+product.getPoint());
+	    
+	    
 		ModelAndView mav = new ModelAndView();
 		
 		if(result.hasErrors()) {

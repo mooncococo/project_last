@@ -20,8 +20,8 @@ public class ProductDetailDeleteController {
 	public String doAction(@RequestParam(value="dnum") int dnum,
 			@RequestParam(value="pageNumber",required = true) int pageNumber){
 		
+	    System.out.println("detail delete dnum = " +dnum);
 		productDetailDao.deleteProductDetail(dnum);
-		
 		return gotoPage+"?pageNumber="+pageNumber;
 	}
 }
