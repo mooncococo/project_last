@@ -1,5 +1,10 @@
 Manifest-Version: 1.0
+<<<<<<< HEAD
 Built-By: user
 Build-Jdk: 13.0.2
+=======
+Built-By: KIHYUNPC
+Build-Jdk: 12.0.2
+>>>>>>> 7dfddfec0d9f93cefc3b6fbbf0dd7535b417cd3f
 Created-By: Maven Integration for Eclipse
 

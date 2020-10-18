@@ -6,17 +6,21 @@
 <configuration>
 	<typeAliases>
 		<typeAlias type="member.model.Member" alias="MyMember"/>
-		<typeAlias type="product.model.Product" alias="MyProduct"/>
+		<typeAlias type="admin.model.Product" alias="MyProduct"/>
 		<typeAlias type="order.model.Order" alias="MyOrder"/>
 		<typeAlias type="orderdetail.model.OrderDetail" alias="MyOrderDetail"/>
+		<typeAlias type="admin.model.Category" alias="MyCategory"/>
+		<typeAlias type="admin.model.ProductDetail" alias="MyProductDetail"/>
 	</typeAliases>
 	
 	<mappers>
 		<mapper resource="mybatis/product.xml"/>
+		<mapper resource="mybatis/productdetail.xml"/>
 		<mapper resource="mybatis/member.xml"/>
 		<mapper resource="mybatis/order.xml"/>
 		<mapper resource="mybatis/orderdetail.xml"/>
 		<mapper resource="mybatis/composite.xml"/>
+		<mapper resource="mybatis/category.xml"/>
 	</mappers>
 	
 	
