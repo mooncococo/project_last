@@ -41,6 +41,8 @@ public class MemberRegisterController {
 			return mav;
 		}
 		memberDao.insertData(member);
+		
+		
 		mav.setViewName(gotoPage);
 		 
 		return mav;

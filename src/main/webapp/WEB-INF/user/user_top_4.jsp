@@ -64,6 +64,7 @@
 	
 	<%
 		String viewLogin = request.getContextPath() + "/loginForm.me";
+		
 	%>
 	
 	<div class = "top">

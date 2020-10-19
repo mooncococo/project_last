@@ -35,7 +35,7 @@
 
 </script>
     
-WEB-INF\member\MemberFindId.jsp<br>
+
 
 <form action="findId.me" method="post">
 	<table align="center" width="40%" class="table">

@@ -54,6 +54,8 @@
 			alert("'"+$("#mid").val()+"'는 이미 존재하는 아이디입니다.");
 			return false;
 		}
+		else
+			alert("'"+$("#mid").val()+"'님 회원가입을 축하드립니다.");
 	}
 	
 	function passwd_keyup(){

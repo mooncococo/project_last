@@ -14,7 +14,7 @@ public class Member {
 	@Length(min=4,max=8,message="비밀번호는 4~8자 입력해주세요.")
 	private String mpw;
 	
-	@NotEmpty(message="비밀번호 확인을 해주세요.")
+	@Length(min=4,max=8,message="비밀번호 확인해주세요.")
 	private String rempw;
 	
 	@NotEmpty(message="이름을 입력해주세요.")

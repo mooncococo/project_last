@@ -11,6 +11,7 @@ create table member(
 	mnum number primary key,
 	mid varchar2(30) not null,
 	mpw varchar2(30) not null,
+	rempw varchar2(30),
 	mname varchar2(30) not null,
 	addr1 varchar2(30) not null,
 	addr2 varchar2(30) not null,
@@ -30,7 +31,24 @@ create table member(
 insert into member(mnum,mid,mpw,mname,addr1,addr2,hp1,hp2,hp3,email1,email2,birth1,birth2,birth3,mpoint) 
 values(mseq.nextval,'admin','1234','관리자','서울','마포구','010','1234','5678','admin','naver.com','1990','01','01','100');
 
+col mid for a10
+col mpw for a10
+col mname for a10
+col addr1 for a10
+col addr2 for a10
+col hp1 for a10
+col hp2 for a10
+col hp3 for a10
+col email1 for a10
+col email2 for a10
+col birth1 for a10
+col birth2 for a10
+col birth3 for a10
+col mpoint for a10
+col coupon for a10
+col regdate for a10
 
+select * from member;
 
 -------------------------------------------------------------------------------------
 -- 카테고리 테이블

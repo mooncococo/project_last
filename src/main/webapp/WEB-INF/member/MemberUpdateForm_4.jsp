@@ -22,34 +22,15 @@
 	}
 </style>
 
-<script type="text/javascript">
-	function duplicate(){
-		id = $("#mid").val();
-		
-		$.ajax({
-			url:"ID_Check",
-			type:'POST',
-			data:id,
-			success:function(data){
-				if(data == 0){
-					alert("사용 가능한 아이디입니다.");
-				}
-				else{
-					alert("이미 사용중인 아이디입니다.");
-				}
-			}
-		});
-	}
-	
-	
-</script>
 </head>
 <body>
 
 	<form:form commandName="member" method="post" action="update.me"> 
-	<input type="hidden" name="mnum" value="${ member.mnum }">
+	<input type="hidden" name="mnum" value="${member.mnum }">
 	<input type="hidden" name=pageNumber value="${pageNumber }">
 	<input type="hidden" name=pageSize value="${pageSize }">	
+	
+	
 		<table class="table">
 			<tr>
 				<th colspan="2" id="title" style="padding-top: 20px;padding-bottom: 20px; text-align: center;" >  
@@ -99,37 +80,7 @@
 					<input type="text" name="addr2" id="addr2" value="${member.addr2 }" size="50">
 					<form:errors cssClass="err" path="addr2" />
 			</tr>
-<!-- 			
-			<tr>
-				<td>일반전화</td>
-				<td>
-					<select id="p1" name="p1">  
-						<option value="02">02</option>			
-						<option value="031">031</option>			
-						<option value="032">032</option>			
-						<option value="033">033</option>			
-						<option value="041">041</option>			
-						<option value="042">042</option>			
-						<option value="043">043</option>			
-						<option value="044">044</option>			
-						<option value="051">051</option>			
-						<option value="052">052</option>			
-						<option value="053">053</option>			
-						<option value="054">054</option>			
-						<option value="061">061</option>			
-						<option value="062">062</option>			
-						<option value="063">063</option>			
-						<option value="064">064</option>			
-					</select> 
-					-
-					
-					<input type="text" name="p2" id="p2" value=""  size="4">
-					-
-					
-					<input type="text" name="p3" id="p3" value=""  size="4">
-				</td>
-			</tr>
- -->			
+
 			<tr>
 				<td>휴대전화<img src="<c:url value="/resources/images/star1.PNG"/>" style="width: 10px; height: 10px"/></td>
 				<td>
