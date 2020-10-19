@@ -7,7 +7,7 @@
 <style type="text/css">
 
 	.table{
-		width: 45%;
+		width: 60%;
 		margin: 0 auto;
 		margin-top: 4vh; 
 	}
@@ -65,7 +65,11 @@
 		<td align="center">
 			<a href="detail.detail?pnum=${prd.pnum }">${prd.pname }</a>
 		</td>
-		<td align="center">${prd.pimage }</td>
+		<td align="center">
+		
+			<img src="<%=request.getContextPath() %>/resources/${prd.pimage }"  width="100px" height="100px"/>
+		
+		</td>
 		<td align="center">${prd.pcode }</td>
 		<td align="center">${prd.pspec }</td>
 		<td align="center">${prd.price }</td>

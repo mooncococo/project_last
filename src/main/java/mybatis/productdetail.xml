@@ -30,11 +30,15 @@
 	</select>
 	
 	<delete id="DeleteProductDetail">
-		delete from product where dnum = #{dnum}
+		delete from productdetail where dnum = #{dnum}
 	</delete>
 	
 	<select id="GetOneProductDetail" resultType="MyProductDetail">
 		select * from productdetail where dnum = #{dnum}
 	</select>
+	
+	<update id="UpdateProductDetail">
+		update productdetail set pstock = #{pstock} where dnum= #{dnum}
+	</update>
 </mapper>
 

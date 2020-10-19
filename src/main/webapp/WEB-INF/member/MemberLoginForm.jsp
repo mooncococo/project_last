@@ -12,15 +12,18 @@
 </script>
 
 <style type="text/css">
-
 	.table{
 		width: 25%;
 		margin: 0 auto;
+<<<<<<< HEAD
 		margin-top: 30vh;
 <<<<<<< HEAD
 	
 =======
 >>>>>>> d04e373e7425418b863b4924db661de1789e3505
+=======
+		margin-top: 20vh;
+>>>>>>> 7dfddfec0d9f93cefc3b6fbbf0dd7535b417cd3f
 	}
 	
 	.btn{
@@ -68,7 +71,4 @@
 		</tr>
 	</table>
 </form>
-
-
-
 

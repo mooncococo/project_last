@@ -1,9 +1,8 @@
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ include file ="admin_top_4.jsp" %>
 <%@ include file ="common.jsp" %>
-<!-- WEB-INF\admin\product\ProductDetailInputForm_4.jsp 입니다. -->
-
 <style type="text/css">
 
 	.table{
@@ -22,35 +21,39 @@
 	}
 </style>
 
+
+WEB-INF\admin\product\ProductDetailUpdateForm_4.jsp 입니다.<br>
 <div id="top_form">
 	<font color="gray" size="5" ><b>재고 수정</b></font>  
 </div>
 
-
 <form:form commandName="productDetail" action="update.detail" method="post">
 <input type="hidden" name="dnum" value="${productDetail.dnum }">
-<table  align="center" width="40%" class="table">
+<input type="hidden" name="pnum" value="${productDetail.pnum}">
+<input type="hidden" name="pcode" value="${productDetail.pcode }">
+
+<table border="1">
 	<tr>
-		<th>상품명</th>
+		<td>상품명</td>
 		<td><input type="text" name="pname" value="${productDetail.pname }" disabled></td>
 	</tr>
 	
 	<tr>
-		<th>사이즈</th>
+		<td>사이즈</td>
 		<td>
 			<input type="text" name="psize" value="${productDetail.psize }" disabled>
 		</td>
 	</tr>
 	
 	<tr>
-		<th>색상</th>
+		<td>색상</td>
 		<td> 
 			<input type="text" name="pcolor" value="${productDetail.pcolor }" disabled>
 		</td>
 	</tr>
 	
 	<tr>
-		<th>재고</th>
+		<td>재고</td>
 		<td>
 			<input type="text" name="pstock" value="${productDetail.pstock }">개
 		</td>		
@@ -58,10 +61,11 @@
 	
 	<tr>
 		<td colspan="2" align="center">
-			<input type="submit" value="등록 후 리스트보기" class="btn btn-light" style="color:#f5f5f5; background:#373737; border:none; text-align: center;">
-			<input type="reset" value="취소" class="btn btn-light" style="color:#f5f5f5; background:#373737; border:none; text-align: center;">
+			<input type="submit" value="수정 후 리스트보기">
+			<input type="reset" value="취소">
 		</td>
 	</tr>
 </table>
 </form:form>
+
 

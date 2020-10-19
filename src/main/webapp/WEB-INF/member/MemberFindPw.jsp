@@ -6,17 +6,15 @@
 
 
 <style type="text/css">
-
 	.table{
 		width: 25%;
 		margin: 0 auto;
-		margin-top: 10vh;
+		margin-top: 20vh;
 	}
 </style>
 	
-<script type="text/javascript" src="../../js/jquery.js"></script>
+<script src="http://code.jquery.com/jquery-1.11.1.min.js" type="text/javascript"></script>
 <script type="text/javascript">
-
 	function abc(){
 		
 		var findpw = $('input[name="findpw"]:checked').val();
@@ -32,7 +30,6 @@
 		}
 	}//abc
 	
-
 </script>
 >>>>>>> d04e373e7425418b863b4924db661de1789e3505
     
