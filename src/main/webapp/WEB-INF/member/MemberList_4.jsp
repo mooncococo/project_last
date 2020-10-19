@@ -92,7 +92,7 @@
 				<input type="button" value="수정하기" onClick="updateGo('${member.mnum }','${pageInfo.pageNumber}')"> 
 			</td>
 			<td>
-				<a href="delete.me?mnum=${member.mnum }">삭제</a>
+				<a href="delete.me?mnum=${member.mnum }&pageNumber=${pageInfo.pageNumber}">삭제</a>
 			</td>
 		</tr> 
 	</c:forEach>

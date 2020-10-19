@@ -36,26 +36,32 @@ public class ProductDetailUpdateController {
 	}
 	
 	@RequestMapping(value=command,method=RequestMethod.POST)
-	public ModelAndView doAction(@RequestParam("pageNumber") int pageNumber,
-			@RequestParam("pageSize") int pageSize,
-			@Valid ProductDetail productDetail, BindingResult result) {
+	public ModelAndView doAction(ProductDetail productDetail) {
 			ModelAndView mav = new ModelAndView();
 				
-		
+		/*System.out.println("productDetail.getDnum() =" +productDetail.getDnum());
+		System.out.println("productDetail.getPcode() =" +productDetail.getPcode());
+		System.out.println("productDetail.getPcolor() =" +productDetail.getPcolor());
+		System.out.println("productDetail.getPname() =" +productDetail.getPname());
+		System.out.println("productDetail.getPnum() =" +productDetail.getPnum());
+		System.out.println("productDetail.getPsize() =" +productDetail.getPsize());
+		System.out.println("productDetail.getPstock() =" +productDetail.getPstock());
 		if(result.hasErrors()) {
 			System.out.println("update 오류 발생");
 			mav.setViewName(getPage);
 			return mav;
 		}
-			
+		*/	
 		int cnt = productDetailDao.UpdateProductDetail(productDetail);
 	
 		if(cnt>0) {
-			mav.setViewName(gotoPage+"?pageNumber="+pageNumber+"&pageSize="+pageSize);
+			mav.setViewName(gotoPage);
 			//redirect:/list.ab?pageNumber=pageNumber&pageSize=pageSize 이런식으로 넘겨야한다
 		}else {
 			mav.setViewName(getPage);
 		}
+		
+			System.out.println("detail update post요청입니다.");
 		return mav;
 		
 	}

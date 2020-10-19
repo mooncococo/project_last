@@ -3,15 +3,30 @@
 <!-- WEB-INF\admin\category\CateInputForm.jsp 입니다.<br> -->
 <%@ include file ="admin_top_4.jsp" %>
 <%@ include file ="common.jsp" %>
+
+<style type="text/css">
+
+	.table{
+		width: 30%;
+		margin: 0 auto;
+		margin-top: 7vh; 
+	}
+	#top_form{
+		width: 60%;
+		margin: 0 auto;
+		margin-top: 6vh;
+	}
+</style>
+
 <% 
 	String code[] ={"Outer","Top","Blouse","Bottom","Dress","Skirt","Shoes","Bag","Acc"};
 
 %>
-
-
+<div id="top_form">
+	<font color="gray" size="5" ><b>카테고리 등록</b></font>  
+</div>
 <form action="input.cate" method="post" name="myform">
-	<table border="1" width="350" align="center">
-		<div align="center"><p> 카테고리 등록 </p></div>	
+	<table  align="center" width="40%" class="table">
 		<tr>
 			<td align="center">	
 				<b>카테고리 대분류</b>	
@@ -48,12 +63,13 @@
 		
 		<tr>
 			<td colspan="2" align="center">
-				<input type="submit" value="등록">
-				<input type="reset" value="취소">
+				<input type="submit" value="등록" class="btn btn-light" style="color:#f5f5f5; background:#373737; border:none; text-align: center;">
+				<input type="reset" value="취소" class="btn btn-light" style="color:#f5f5f5; background:#373737; border:none; text-align: center;">
 			</td>
 		</tr>
+		
 	</table>
-	</form>	
+</form>	
 
 
 
