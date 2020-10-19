@@ -5,11 +5,11 @@
     pageEncoding="UTF-8"%>
 <%@ include file ="admin_top_4.jsp" %>
 <%@ include file = "common.jsp" %>
-<<<<<<< HEAD
+
 
 <script>
-/*function select() {
-=======
+function select() {
+
 <style type="text/css">
 
 	.table{
@@ -41,7 +41,7 @@
 %>
 	<!-- 
 function select() {
->>>>>>> d04e373e7425418b863b4924db661de1789e3505
+
 	
 	//alert("select");
 	const selected = $("#selects option:selected").val()
@@ -127,20 +127,18 @@ function firstChange() {
 	
 	
 </script>
-<<<<<<< HEAD
+
 
 
 <% 
 	String code[] ={"Outer","Top","Blouse","Bottom","Dress","Skirt","Shoes","Bag","Acc"};
 	List<Category> lists = (List<Category>)request.getAttribute("lists");
-	
-
 %>
 
 WEB-INF\admin\product\ProductInputForm.jsp 입니다.<br>
 <form action="input.prd" method="post" enctype="multipart/form-data">
 <table border="1">
-=======
+
 <!-- WEB-INF\admin\product\ProductInputForm.jsp 입니다.<br> -->
 <body onLoad="init()">
 <div id="top_form">
@@ -148,12 +146,9 @@ WEB-INF\admin\product\ProductInputForm.jsp 입니다.<br>
 </div>
 <form:form commandName="product" action="input.prd" method="post" enctype="multipart/form-data" name="myform">
 <table align="center" width="40%" class="table">
->>>>>>> d04e373e7425418b863b4924db661de1789e3505
 	<tr>
 		<th>카테고리</th>
 		<td>
-<<<<<<< HEAD
-
 			<select name="code" onChange="select()" id="selects">
 			<c:forEach items="${lists }" var="lists" begin="0" end="${fn:length(lists) }">   
 				<option value="${lists.code }">${lists.code}</option>
@@ -161,7 +156,7 @@ WEB-INF\admin\product\ProductInputForm.jsp 입니다.<br>
 			</select>	
 			<select name="pcate" id="selects2">
 
-=======
+
 			<select name="pcode" id="cate1" onChange="firstChange()">
  			<!--<c:forEach items="" var="i" begin="0" end="9">   
 					 <option value="${i }">${i} 
@@ -173,13 +168,13 @@ WEB-INF\admin\product\ProductInputForm.jsp 입니다.<br>
 			</select>
 			<form:errors cssClass="err" path="pcate" />
 <%--
->>>>>>> d04e373e7425418b863b4924db661de1789e3505
+
 			<select name="code" class="cate1">
  			<c:forEach items="${lists }" var="lists" begin="0" end="${fn:length(lists) }">   
 					 <option value="${lists.code }">${lists.code } 
 			</c:forEach>
 			</select>	
-<<<<<<< HEAD
+
 			<select name="pcate" class="cate2">
 				<%-- <%
 
@@ -196,11 +191,11 @@ WEB-INF\admin\product\ProductInputForm.jsp 입니다.<br>
 				
 
 			</select>
-=======
+
 			
 			 --%>		 	
 				
->>>>>>> d04e373e7425418b863b4924db661de1789e3505
+
   		</td>
 	</tr>
 	
@@ -261,12 +256,12 @@ WEB-INF\admin\product\ProductInputForm.jsp 입니다.<br>
 		</td>
 	</tr>
 </table>
-<<<<<<< HEAD
+
 </form>
 
 
 
-=======
+
 </form:form>
 </body>
 

@@ -21,7 +21,7 @@
 		color: gray; 
 	}
 </style>
-
+<script src="http://code.jquery.com/jquery-1.11.1.min.js" type="text/javascript"></script>
 <script type="text/javascript">
 	function duplicate(){
 		id = $("#mid").val();
