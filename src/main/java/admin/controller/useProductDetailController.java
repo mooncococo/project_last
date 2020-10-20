@@ -17,6 +17,7 @@ import admin.model.ProductDetailDao;
 public class useProductDetailController {			//user페이지에서 상품 클릭시 상품상세보기 화면이동하는 컨트롤러
 
 	final String command = "/detail.userdetail";
+	final String command2 = "/color.userdetail";
 	final String getPage = "user_productDetail";
 	
 	@Autowired
@@ -44,7 +45,20 @@ public class useProductDetailController {			//user페이지에서 상품 클릭�
 		mav.setViewName(getPage);
 		return mav;
 		
+	}
+	
+	@RequestMapping(command2)
+	public String doAction(@RequestParam(value="pname",required=true) String pname,
+							@RequestParam(value="pcolor",required=true) String pcolor
+			) {
+		System.out.println("pname:"+pname);
+		System.out.println("pcolor:"+pcolor);
+		return getPage;
 		
 	}
+	
+	
+	
+	
 	
 }

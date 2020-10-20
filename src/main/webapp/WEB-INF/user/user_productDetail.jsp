@@ -41,12 +41,23 @@
    }
 </style>
 
-<script type="text/javascript" src="<c:url value="../../resources/js/jquery.js"/>"></script>
 <script type="text/javascript">
-	$("selectColor").change(function(){
+	/* $("selectColor").change(function(){
 		alert(1);
-	}) 
+	})  */
 	  
+	function getSize(pname){
+		
+		var pcolor = $('#selectColor option:selected').val()
+		alert(color);
+		//location.href="/color.userdetail?pname="+pname"&pcolor="+pcolor;
+		$.ajax({
+			
+			
+			
+		})
+		
+	}
 
 </script>
 </head>
@@ -88,7 +99,7 @@
 
                      <div class="select_area">
                         <p>
-                        <select name="selectColor" onclick="getSize()">
+                        <select name="selectColor" onchange="getSize(${product.pname })" id="selectColor">
                         	<c:forEach var="bean" items="${ colorLists }"> 
 	                           <option><c:out value="${bean.pcolor }" /></option>                              
                            </c:forEach>                           
