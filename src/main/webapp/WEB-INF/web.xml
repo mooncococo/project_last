@@ -169,6 +169,22 @@
 	
 	
 	
+		<servlet>
+		<servlet-name>userdetail</servlet-name>
+		<servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+		<init-param>
+			<param-name>contextConfigLocation</param-name>
+			<param-value>/WEB-INF/spring/appServlet/user_proddetail.xml</param-value>
+		</init-param>
+	</servlet>
+		
+	<servlet-mapping>
+		<servlet-name>userdetail</servlet-name>
+		<url-pattern>*.userdetail</url-pattern>
+	</servlet-mapping>
+	
+	
+	
 	
 	
 

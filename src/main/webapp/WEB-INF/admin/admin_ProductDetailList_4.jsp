@@ -97,3 +97,4 @@
 <div id="paging">
 	${pageInfo.pagingHtml }
 </div>
+

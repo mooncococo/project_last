@@ -10,14 +10,129 @@ import org.springframework.web.multipart.MultipartFile;
 public class Product {
 	
 	private int pnum;
-	
 	private String pcode;
+	private String pcate;
+	private String pname;
+	private String pimage;
+	private int price;
+	private int point;
+	private String pspec;
+	private String pnote;
+	private Date pinputdate;
+	
+	
+	private String uploadOld;
+	private MultipartFile upload;
+	
+	
+	public Product() {
+		
+	}
+	public Product(int pnum, String pcode, String pcate, String pname, String pimage, int price, int point,
+			String pspec, String pnote, Date pinputdate) {
+		super();
+		this.pnum = pnum;
+		this.pcode = pcode;
+		this.pcate = pcate;
+		this.pname = pname;
+		this.pimage = pimage;
+		this.price = price;
+		this.point = point;
+		this.pspec = pspec;
+		this.pnote = pnote;
+		this.pinputdate = pinputdate;
+	}
+	public int getPnum() {
+		return pnum;
+	}
+	public void setPnum(int pnum) {
+		this.pnum = pnum;
+	}
 	public String getPcode() {
 		return pcode;
 	}
 	public void setPcode(String pcode) {
 		this.pcode = pcode;
 	}
+	public String getPcate() {
+		return pcate;
+	}
+	public void setPcate(String pcate) {
+		this.pcate = pcate;
+	}
+	public String getPname() {
+		return pname;
+	}
+	public void setPname(String pname) {
+		this.pname = pname;
+	}
+	public String getPimage() {
+		return pimage;
+	}
+	public void setPimage(String pimage) {
+		this.pimage = pimage;
+	}
+	public int getPrice() {
+		return price;
+	}
+	public void setPrice(int price) {
+		this.price = price;
+	}
+	public int getPoint() {
+		return point;
+	}
+	public void setPoint(int point) {
+		this.point = point;
+	}
+	public String getPspec() {
+		return pspec;
+	}
+	public void setPspec(String pspec) {
+		this.pspec = pspec;
+	}
+	public String getPnote() {
+		return pnote;
+	}
+	public void setPnote(String pnote) {
+		this.pnote = pnote;
+	}
+	public Date getPinputdate() {
+		return pinputdate;
+	}
+	public void setPinputdate(Date pinputdate) {
+		this.pinputdate = pinputdate;
+	}
+	
+	public String getUploadOld() {
+		return uploadOld;
+	}
+
+	public void setUploadOld(String uploadOld) {
+		this.uploadOld = uploadOld;
+	}
+
+	public MultipartFile getUpload() {
+		return upload;
+	}
+
+	public void setUpload(MultipartFile upload) {
+		this.upload = upload;
+		System.out.println("upload : "+upload);// ~~.jpg (X)
+		if(upload != null) {
+			System.out.println(upload.getName()); // upload
+			System.out.println(upload.getOriginalFilename()); // ~~.jpg  , 진짜 화일이름
+			this.pimage = upload.getOriginalFilename();  
+		}
+	}
+	
+	
+	
+	
+	
+	/*
+	private int pnum;
+	private String pcode;
+
 	//@NotEmpty(message = "상품 이름 입력은 필수입니다.")
 	private String pname;
 	
@@ -44,6 +159,12 @@ public class Product {
 	}
 	public void setPnum(int pnum) {
 		this.pnum = pnum;
+	}
+	public String getPcode() {
+		return pcode;
+	}
+	public void setPcode(String pcode) {
+		this.pcode = pcode;
 	}
 	public String getPname() {
 		return pname;
@@ -115,10 +236,11 @@ public class Product {
 			this.pimage = upload.getOriginalFilename();  
 		}
 	}
-	public Product(int pnum, String pname, String pcate, String pimage, int price, String pspec, String pnote,
+	public Product(int pnum, String pcode, String pname, String pcate, String pimage, int price, String pspec, String pnote,
 			int point, Date pinputdate) {
 		super();
 		this.pnum = pnum;
+		this.pcode = pcode;
 		this.pname = pname;
 		this.pcate = pcate;
 		this.pimage = pimage;
@@ -132,5 +254,6 @@ public class Product {
 		super();
 	}
 	
+	*/
 	
 }

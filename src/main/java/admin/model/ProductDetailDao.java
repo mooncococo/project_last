@@ -47,6 +47,26 @@ public class ProductDetailDao {
 		pd = sqlSessionTemplate.selectOne(namespace+".GetOneProductDetail", dnum);
 		return pd;
 	}
+
+	public int UpdateProductDetail(ProductDetail productDetail) {
+		int cnt = sqlSessionTemplate.update(namespace+".UpdateProductDetail", productDetail);
+		return cnt;
+	}
+
+	public List<ProductDetail> getProductsByPnum(int pnum) {
+		List<ProductDetail> lists = new ArrayList<ProductDetail>();
+		lists = sqlSessionTemplate.selectList(namespace+".GetProductsByPnum", pnum);
+		System.out.println("listcontroller lists.size():"+lists.size());
+		return lists;
+		
+	}
+
+	public List<ProductDetail> getDistinctColor() {
+		List<ProductDetail> lists = new ArrayList<ProductDetail>();
+		lists = sqlSessionTemplate.selectList(namespace+".GetDistinctColor");
+		System.out.println("color size():"+lists.size());
+		return lists;
+	}
 	
 	
 	

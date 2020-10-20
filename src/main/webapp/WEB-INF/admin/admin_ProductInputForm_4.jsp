@@ -19,38 +19,8 @@
 	}
 	
 </style>
-<% 
-	 String code[] ={"Outer","Top","Blouse","Bottom","Dress","Skirt","Shoes","Bag","Acc"};
-	 String Outer[] = {"JUMPER","MUSTANG","COAT","JACKET"};
-	 String Top[] = {"TEE","KNIT","SWEATSHIRT&HOODY","STRIPE"};
-	 String Blouse[] = {"BLOUSE","SHIRT"};
-	 String Bottom[] = {"DENIM","SHORTS","COTTON&SLACKS"};
-	 String Dress[] = {"MINI","LONG"};
-	 String Skirt[] = {"MINI","LONG"};
-	 String Shoes[] = {"ALL"};
-	 String Bag[] = {"BACK","SHOULDER","ETC"};
-	 String Acc[] = {"JEWELRY","HAT","MUFFLER&GLOVES","ETC"};
 
-	// List<Category> lists = ( List<Category> )request.getAttribute("lists");
-
-%>
-	<!-- 
-function select() {
 	
-	//alert("select");
-	const selected = $("#selects option:selected").val()
-	let shirt = "t-shirt";
-	
-	if(selected == "Outer"){
-		console.log("들어옴")
-		$("#selects2").append("<option value="+shirt+">"+shirt);
-	}
-	console.log(selected)
-	
-	
-	$('#selects2 option').attr('selected', 'selected')
-	//$(#selects2).empty();
- -->
 <script type="text/javascript">
 var f_selbox  = new Array('Outer','Top','Blouse','Bottom','Dress','Skirt','Shoes','Bag','Acc');
 var s_selboxText = new Array();
@@ -103,21 +73,7 @@ function firstChange() {
 		
 	} //firstChange
 	
-	function secondChange(){
-		
-		f_sel = document.myform.cate1;
-		s_sel = document.myform.cate2;
-		
-		f_selIndex = document.myform.cate1.selectedIndex;
-		s_selIndex = document.myform.cate2.selectedIndex;
-		
-		//alert(f_selIndex+','+s_selIndex);
-		
-		var area = document.getElementById("result");
-		area.innerHTML = "선택한 상품은 <br> <img src=../images/"+s_selboxImage[f_selIndex-1][s_selIndex-1]+">";
-		
-				
-	}
+
 	
 	
 </script>
@@ -126,35 +82,26 @@ function firstChange() {
 <div id="top_form">
 	<font color="gray" size="5" ><b>상품 등록</b></font>  
 </div>
+<body onLoad="init()">
 <form:form commandName="product" action="input.prd" method="post" enctype="multipart/form-data" name="myform">
 <table align="center" width="40%" class="table">
 	<tr>
-		<th>카테고리</th>
+		<td>카테고리</td>
 		<td>
 			<select name="pcode" id="cate1" onChange="firstChange()">
- 			<!--<c:forEach items="" var="i" begin="0" end="9">   
-					 <option value="${i }">${i} 
-			</c:forEach> -->
+
 			</select>	
 			<form:errors cssClass="err" path="code" />
 			<select name="pcate" id="cate2">
 				<option value="">	
 			</select>
-			<form:errors cssClass="err" path="pcate" />
-<%--
-			<select name="code" class="cate1">
- 			<c:forEach items="${lists }" var="lists" begin="0" end="${fn:length(lists) }">   
-					 <option value="${lists.code }">${lists.code } 
-			</c:forEach>
-			</select>	
-			
-			 --%>		 	
+			<form:errors cssClass="err" path="pcate" />	 	
 				
   		</td>
 	</tr>
 	
 	<tr>
-		<th>상품명</th>
+		<td>상품명</td>
 		<td>
 			<input type="text" name="pname" value="">
 			<form:errors cssClass="err" path="pname" />
@@ -162,7 +109,7 @@ function firstChange() {
 	</tr>
 	
 	<tr>
-		<th>상품이미지</th>
+		<td>상품이미지</td>
 		<td> 
 			<input type="file" name="upload">
 			<form:errors cssClass="err" path="pimage" />
@@ -170,7 +117,7 @@ function firstChange() {
 	</tr>
 	
 	<tr>
-		<th>상품가격</th>
+		<td>상품가격</td>
 		<td>
 			<input type="text" name="price" value="">원
 			<form:errors cssClass="err" path="price" />
@@ -178,7 +125,7 @@ function firstChange() {
 	</tr>
 	
 	<tr>
-		<th>적립포인트</th>
+		<td>적립포인트</td>
 		<td>
 			<input type="text" name="point" value="">point
 			<form:errors cssClass="err" path="point" />
@@ -186,7 +133,7 @@ function firstChange() {
 	</tr>
 	
 	<tr>
-		<th>상품스펙</th>
+		<td>상품스펙</td>
 		<td>
 			<input type="radio" name="pspec" value="new">new 	
 			<input type="radio" name="pspec" value="normal">normal 	
@@ -196,16 +143,16 @@ function firstChange() {
 	</tr>
 	
 	<tr>
-		<th>비고</th>
+		<td>비고</td>
 		<td>
-			<textarea rows="10" cols="39" maxlength="50" name="pnote"> pnote</textarea>
+			<textarea rows="10" cols="39" maxlength="200" name="pnote"> pnote</textarea>
 			<form:errors cssClass="err" path="pnote" />
 		</td>
 	</tr>
 	
 	<tr>
 		<td colspan="2" align="center">
-			<input type="submit" value="등록" class="btn btn-light" style="color:#f5f5f5; background:#373737; border:none; text-align: center;">
+			<input type="submit" value="상품등록" class="btn btn-light" style="color:#f5f5f5; background:#373737; border:none; text-align: center;">
 			<input type="reset" value="취소" class="btn btn-light" style="color:#f5f5f5; background:#373737; border:none; text-align: center;">
 		</td>
 	</tr>
@@ -215,100 +162,3 @@ function firstChange() {
 
 
 
-
-
-<%-- 
-<!DOCTYPE HTML>
-<html>
-<head>
-	<title>상품 추가 화면</title>
-	<meta charset="UTF-8">
-	<style type="text/css">
-		.err{
-		font-size: 9pt;
-		color: red;
-		font-weight: bold;
-		}
-	</style>
-</head>
-<body>
-WEB-INF\admin\product\ProductInputForm.jsp 입니다.<br>
-<form:form commandName="product" action="input.prd" method="post" enctype="multipart/form-data">
-	<table border="1">
-		<tr>
-			<td>카테고리</td>
-			<td>
-				<select name="code" id="selects">
-					<c:forEach var="cate" items="${lists }">
-						<option value="${ cate.code}">${ cate.code}</option>
-					</c:forEach>
-				</select>
-				
-				<select name="pcate" id="selects2">
-					<c:forEach var="cate" items="${lists }">
-						<option value=""></option>
-					</c:forEach>
-				</select>
-	  		</td>
-		</tr>
-		
-		<tr>
-			<td>상품명</td>
-			<td>
-				<input type="text" name="pname" value="">
-				<form:errors cssClass="err" path="pname" />
-				
-			</td>
-		</tr>
-		
-		<tr>
-			<td>상품이미지</td>
-			<td> 
-				<input type="file" name="upload" id="upload" value="" >
-				<form:errors cssClass="err" path="pimage" />
-			</td>
-		</tr>
-		
-		<tr>
-			<td>상품가격</td>
-			<td>
-				<input type="text" name="price" value="">원
-			</td>		
-		</tr>
-		
-		<tr>
-			<td>적립포인트</td>
-			<td>
-				<input type="text" name="point" value="">point
-			</td>
-		</tr>
-		
-		<tr>
-			<td>상품스펙</td>
-			<td>
-				<input type="radio" name="pspec" value="new">new 	
-				<input type="radio" name="pspec" value="normal">normal 	
-				<input type="radio" name="pspec" value="sale">sale
-				<form:errors cssClass="err" path="pspec"/> 	
-			</td>
-		</tr>
-		
-		<tr>
-			<td>비고</td>
-			<td>
-				<textarea rows="10" cols="39" maxlength="50" name="pnote">pnote</textarea>
-			</td>
-		</tr>
-		
-		<tr>
-			<td colspan="2" align="center">
-				<input type="submit" value="상품등록">
-				<input type="reset" value="취소">
-			</td>
-		</tr>
-	</table>
-</form:form>
-</body>
-</html>
-
- --%>

@@ -17,7 +17,7 @@ import member.model.MemberDao;
 public class MemberRegisterController {
 	final String command = "/registerForm.me";
 	final String getPage = "MemberRegisterForm";
-	final String gotoPage = "MemberRegisterCompleted";
+	final String getPage2 = "MemberRegisterCompleted";
 	
 	@Autowired
 	MemberDao memberDao;
@@ -41,7 +41,7 @@ public class MemberRegisterController {
 			return mav;
 		}
 		memberDao.insertData(member);
-		mav.setViewName(gotoPage);
+		mav.setViewName(getPage2);
 		 
 		return mav;
 	}

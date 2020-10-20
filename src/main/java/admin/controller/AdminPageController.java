@@ -8,9 +8,7 @@ public class AdminPageController {
 	final String command="admin.adpage";
 	final String getPage="/admin_main_4";
 	
-	final String command2="user.page";
-	final String getPage2="/user_main_4";
-	
+
 	@RequestMapping(command)
 	public String doAction() {
 		
@@ -18,11 +16,6 @@ public class AdminPageController {
 	}
 	
 	
-	@RequestMapping(command2)
-	public String doAction2() {
-		
-		return getPage2;
-	}
 	
 	
 	

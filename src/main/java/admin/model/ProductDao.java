@@ -55,6 +55,24 @@ public class ProductDao {
 		return cnt;
 	}
 	
+	public List<Product> selectNewProduct(){
+		List<Product> lists = new ArrayList<Product>();
+		lists= sqlSessionTemplate.selectList(namespace+".GetNewProduct" );
+		System.out.println("listcontroller lists.size():"+lists.size());
+		return lists;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }
 
 

@@ -13,7 +13,7 @@
 		
 		width: 75%;
 		margin: 0 auto;
-		margin-top: 10vh;
+		margin-top: 20vh;
 	}
 	#title{
 		font-weight: bold;
@@ -22,31 +22,86 @@
 	}
 </style>
 
+<script src="http://code.jquery.com/jquery-1.11.1.min.js" type="text/javascript"></script>
 <script type="text/javascript">
+	
+	var dupcheck = false;
+	var change = false;
+	var use = "";
+	
+	$(function(){
+		$('input[name="mid"]').keydown(function(){
+			$('#idmessage').css('display','none');
+			change=true;
+			use="";
+		});
+		
+		$('input[name="rempw"]').keydown(function(){
+			$('#pwmessage').css('display','none');
+			change=true;
+			use="";
+		});
+		
+	});
+	
+	function checkDuplication(){
+		
+		if(dupcheck == false){
+			alert("중복검사를 해주세요.");
+			return false;
+		}
+		else if(use == "impossible"){
+			alert("'"+$("#mid").val()+"'는 이미 존재하는 아이디입니다.");
+			return false;
+		}
+	}
+	
+	function passwd_keyup(){
+		if($('input[name=mpw]').val() == $('input[name=rempw]').val()){
+			$('#pwmessage').html("<br><font color=red>비밀번호 일치</font>");
+			$('#pwmessage').show();
+		}
+		else{
+			$('#pwmessage').html("<br><font color=red>비밀번호 불일치</font>");
+			$('#pwmessage').show();
+		}
+	}
 	function duplicate(){
-		id = $("#mid").val();
+		dupcheck=true;
 		
 		$.ajax({
-			url:"ID_Check",
+			url:"duplication.me",
 			type:'POST',
-			data:id,
-			success:function(data){
-				if(data == 0){
-					alert("사용 가능한 아이디입니다.");
+			datatype:'text',
+			/* contentType :'text/plain; charset=utf-8;',  */
+			data: ({
+				checkId : $("#mid").val()
+			}),
+			
+			success:function(data){		
+				if($.trim(data) =='YES'){
+					$('#idmessage').html('<br><font color=red>사용 가능한 아이디 입니다.</font>');
+					$('#idmessage').show();
+					use = "possible";
 				}
 				else{
-					alert("이미 사용중인 아이디입니다.");
+					$('#idmessage').html('<br><font color=red>사용 불가능한 아이디 입니다.</font>');
+					$('#idmessage').show();
+					use = "impossible";
 				}
 			}
-		});
+		}); 
+		
 	}
+	
+	
 	
 	
 </script>
 </head>
 <body>
 
-	<form:form commandName="member" method="post" action="registerForm.me"> 
+	<form:form commandName="member" method="post" action="registerForm.me" onsubmit="return checkDuplication()"> 
 		<table class="table">
 			<tr>
 				<th colspan="2" id="title" style="padding-top: 20px;padding-bottom: 20px; text-align: center;" >  
@@ -58,6 +113,7 @@
 				<td>
 					<input type="text" name="mid" id="mid" value="lee">
 					<input type="button" id="duplicate_check" value="중복체크" class="btn btn-primary mb-2"  style="background:#78909c; border:none; " onclick="duplicate()">
+					<span id="idmessage" style="display:none;"></span>
 					<form:errors cssClass="err" path="mid" />
 				</td>
 			</tr>
@@ -65,7 +121,7 @@
 			<tr>
 				<td>비밀번호<img src="<c:url value="/resources/images/star1.PNG"/>" style="width: 10px; height: 10px"/></td>
 				<td>
-					<input type="text" name="mpw" id="mpw" value="1234">
+					<input type="password" name="mpw" id="mpw" value="1234">
 					<form:errors cssClass="err" path="mpw" />
 				</td>
 			</tr>
@@ -73,8 +129,9 @@
 			<tr>
 				<td>비밀번호 확인<img src="<c:url value="/resources/images/star1.PNG"/>" style="width: 10px; height: 10px"/></td>	<!-- 선우 코드 작성중 -->
 				<td>
-					<input type="text" name="" id="" value="">
-					<form:errors cssClass="" path="" />
+					<input type="password" name="rempw" id="rempw" onkeyup="passwd_keyup()">
+					<span id="pwmessage" style="display:none;"></span>
+						<form:errors id="err" cssClass="err" path="rempw"/>
 				</td>
 			</tr>
 			
@@ -128,10 +185,10 @@
 					</select> 
 					-
 					
-					<input type="text" name="p2" id="p2" value=""  size="4">
+					<input type="text" name="p2" id="p2" value="" size="4">
 					-
 					
-					<input type="text" name="p3" id="p3" value=""  size="4">
+					<input type="text" name="p3" id="p3" value="" size="4">
 				</td>
 			</tr>
 			
