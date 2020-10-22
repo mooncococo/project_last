@@ -47,6 +47,11 @@
 	
 	<select id="GetDistinctColor" resultType="MyProductDetail" >
 		select distinct pcolor from productDetail
+		where pnum = #{pnum}
 	</select>
+	
+	<select id="GetProductSize" resultType="MyProductDetail">
+      select psize,pstock from productdetail where pnum = #{pnum} and pcolor = #{pcolor}
+   </select>
 </mapper>
 

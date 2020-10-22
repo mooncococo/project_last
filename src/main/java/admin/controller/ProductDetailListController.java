@@ -20,7 +20,9 @@ import utility.Paging;
 @Controller
 public class ProductDetailListController {
 	final String command="detaillist.detail";
+	final String command2="detaillist2.detail";
 	final String getPage="admin_ProductDetailList_4";
+	final String getPage2="popupStock";
 	
 	@Autowired
 	private ProductDetailDao productDetailDao;
@@ -58,6 +60,14 @@ public class ProductDetailListController {
 		return mav;
 	
 	}	
+	
+	
+	@RequestMapping(command2) 
+	public String doAction2() {
+		
+		return getPage2;
+	}
+
 	
 	
 	

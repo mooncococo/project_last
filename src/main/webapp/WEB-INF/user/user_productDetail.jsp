@@ -8,7 +8,7 @@
 <title> /WEB-INF/user/user_productDetail.jsp</title>
 <style type="text/css">
    .user_content {
-	   margin-top: 200px;
+      margin-top: 200px;
       padding-left: 15vw;
       padding-right: 15vw;
       padding-top: 5vh;
@@ -39,34 +39,101 @@
    .price-text span{
       font-size: 20px;
    }
+   #selectSize{
+         
+   }
 </style>
-
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.js"></script>
 <script type="text/javascript">
-	/* $("selectColor").change(function(){
-		alert(1);
-	})  */
-	  
-	function getSize(pname){
-		
-		var pcolor = $('#selectColor option:selected').val()
-		alert(color);
-		//location.href="/color.userdetail?pname="+pname"&pcolor="+pcolor;
-		$.ajax({
-			
-			
-			
-		})
-		
-	}
+
+   $(document).ready(function(){
+      <%-- location.href="detailsize.userdetail?pnum="+ <%= request.getParameter("pnum") %> +"&pcolor=" + pcolor;  --%>
+      /* let pcolor = $("#selectColor option:selected").val();
+      let optionlen = $("#selectColor option").length;
+      
+      for(let i=0; i<optionlen; i++){
+            if($("#selectColor option").eq(i).val().includes(pcolor)){
+                 $('#selectColor option').eq(i).attr("selected","selected")
+              }
+        } */
+        
+      $("#selectColor").change(function(){
+         let index = $("#selectColor option:selected").text();
+         let pnums = $('input[name="pnum"]').val()
+         let list_size = $('input[name="lists_size"]').val()
+
+         console.log(index);
+         console.log(pnums);
+         console.log(list_size);
+         $.ajax({
+               type : "get",
+               url : "detailsize.userdetail",
+
+               data : ({
+                  pcolor : index,
+                  pnum : pnums
+               }),
+               dataType: 'text',              
+               success : function(data) {
+                   showempinfo(data);
+                   console.log("통신성공");
+               },
+               error : function(){
+               console.log("통신실패");
+            }
+           });
+         function showempinfo(data){
+            console.log("data:"+data)
+            var slice = data.split(",");
+            console.log(slice)
+            if(data.includes('s')){
+               //console.log("드러옴")
+               $('#selectColor option').eq(index).attr("selected","selected")
+               $('#selectSize').empty();
+               for(let i=0; i<slice.length-1;i++){
+                  $('#selectSize').append("<option value='slice[i]'>"+slice[i])
+               }
+
+            }
+         }
+         
+         
+        
+            
+       })  
+      
+      
+   })
+   
+   
+          
+       function popupStock(){
+     	 //alert(1);
+     	 
+     	 //location.href="detaillist2.detail";  
+     	 
+     	 var url = "http://localhost:8080/ex/admin/popupStock.jsp";         
+     	 console.log(url);
+     	 var name = "popupStock";
+     	 var options = 'width=500, height=600, top=250, left=700, resizable=no, scrollbars=no, location=no';
+     	 window.open(url,name, options); 
+     	 
+     	 
+     	 
+      }
+
+
 
 </script>
 </head>
 <body>
   <%@include file="user_top_4.jsp"%>
-
+   
    <div class="user_content">
       <!-- 유저 컨텐트 내용 -->
       <div class="card mb-3" style="max-width: 85vw;"> 
+            <input type="hidden" name="pnum" value="${product.pnum }">
+            <input type="hidden" name="lists_size" value="${sizeLists.get(0).psize }">
          <div class="row no-gutters">
             <div class="col-md-4"> 
                 <img src="<%=request.getContextPath() %>/resources/${product.pimage }" class="card-img" alt="..." >
@@ -78,41 +145,43 @@
                   </h4>
                   <div class="pnote-text">
                      <span>
-                        	${product.pnote }  
+                           ${product.pnote }  
                      </span>
                     
                   </div>
                   
                   <div class="price-text">
                      <span>
-                        	￦${product.price }  
+                          	￦${product.price }  
                      </span>
                   </div>
                   
                   <div class="card-text">
                      
                      <div class="span_area">
+                        <p>재고 확인 :</p> 
                         <p>COLOR :</p> 
                         <p>SIZE :</p>
                      </div>
-                     
+                     <form>
+                        <%-- <input type="hidden" name="pcolor" value="${colorLists.color }"> --%>
+                     </form>
 
                      <div class="select_area">
+                     	<p>
+                     		<input type="button" value="실시간재고 확인하기" onclick="popupStock()"/>
+                     	</p>
                         <p>
-                        <select name="selectColor" onchange="getSize(${product.pname })" id="selectColor">
-                        	<c:forEach var="bean" items="${ colorLists }"> 
-	                           <option><c:out value="${bean.pcolor }" /></option>                              
+                        <select name="selectColor" id="selectColor">
+                        <option>선택</option>
+                           <c:forEach var="bean" items="${ colorLists }"> 
+                              <option><c:out value="${bean.pcolor }" /></option>                              
                            </c:forEach>                           
                         </select>
                         </p>
-                        
                         <p>
-                        <select>
-                           <option>s</option>                              
-                           <option>m</option>                              
-                           <option>x</option>                              
-                           <option>xl</option>                              
-                           <option>xxl</option>                              
+                        <select id="selectSize">
+                           <option class="choi">선택</option>                                                      
                         </select>
                         </p>
                      </div>
