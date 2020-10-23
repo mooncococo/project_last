@@ -40,5 +40,17 @@
 	<update id="UpdateProductDetail">
 		update productdetail set pstock = #{pstock} where dnum= #{dnum}
 	</update>
+	
+	<select id="GetProductsByPnum" resultType="MyProductDetail">
+		select * from productdetail where pnum = #{pnum} 
+	</select>
+
+	<select id="GetDistinctColor" resultType="MyProductDetail">
+		select distinct pcolor from productdetail where pnum = #{pnum} 
+	</select>
+
+	<select id="GetProductSize" resultType="MyProductDetail">
+		select psize,pstock from productdetail where pnum = #{pnum} and pcolor = #{pcolor} 
+	</select>
 </mapper>
 

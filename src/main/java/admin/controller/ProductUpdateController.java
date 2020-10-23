@@ -77,21 +77,34 @@ public class ProductUpdateController {
 		System.out.println("uploadPath : "+uploadPath);
 		//C:\SpringWorkspace_kkh\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\15_MyBatis_Products\resources\a.jpg
 		System.out.println("새로 선택한 화일명 : "+product.getPimage());
-		File file = new File(uploadPath+ File.separator +product.getPimage());
-		
-		File deFile = new File(uploadPath+ File.separator +product.getUploadOld());
-		deFile.delete();
-		
+		File file = null;
+		File deFile = null;
 		MultipartFile multi = product.getUpload();
-		try {
-			multi.transferTo(file);
-		} catch (IllegalStateException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
+		if(product.getPimage()=="") {
+		    
+		    System.out.println("if 들어옴!!!!!");
+		    System.out.println("product.getUploadOld()!!!! : " +product.getUploadOld());
+		    file = new File(uploadPath+ File.separator +product.getUploadOld());
+		    
 		}
+		else {
+		    System.out.println("else 들어옴!!!!!");
+        		file = new File(uploadPath+ File.separator +product.getPimage());
+        		deFile = new File(uploadPath+ File.separator +product.getUploadOld());
+        		//System.out.println("삭제들어옴 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+        		deFile.delete();
+		}	
+		
+		try {
+		    multi.transferTo(file);
+		} catch (IllegalStateException e) {
+		    // TODO Auto-generated catch block
+		    e.printStackTrace();
+		} catch (IOException e) {
+		    // TODO Auto-generated catch block
+		    e.printStackTrace();
+        	}
+		
 		
 		
 		int cnt = productDao.updateProduct(product); 

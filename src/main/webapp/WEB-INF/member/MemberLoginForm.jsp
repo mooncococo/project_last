@@ -12,10 +12,11 @@
 </script>
 
 <style type="text/css">
+
 	.table{
 		width: 25%;
 		margin: 0 auto;
-		margin-top: 20vh;
+		margin-top: 15vh;
 	}
 	
 	.btn{
@@ -63,4 +64,7 @@
 		</tr>
 	</table>
 </form>
+
+
+
 

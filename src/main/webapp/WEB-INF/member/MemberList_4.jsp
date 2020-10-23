@@ -14,14 +14,10 @@
 	function insert(){
 		location.href='registerForm.me'; 
 	}
-	function updateGo(mnum,pageNumber,pageSize){
-		location.href="update.me?mnum="+mnum+"&pageNumber="+pageNumber+"&pageSize="+pageSize; 
+	function updateGo(mnum,pageNumber){
+		location.href="update.me?mnum="+mnum+"&pageNumber="+pageNumber; 
 	}
 </script>       
-member\MemberList.jsp<br><br>
-
-<a href="MemberLoginForm.jsp">로그인 페이지</a>
-<a href="">로그 아웃</a>
 
 
 <h2>회원 리스트 화면</h2>
@@ -93,14 +89,15 @@ member\MemberList.jsp<br><br>
 				${member.regdate }
 			</td>
 			<td>
-				<input type="button" value="수정하기" onClick="updateGo('${member.mnum }','${pageInfo.pageNumber}','${pageInfo.pageSize}')"> 
+				<input type="button" value="수정하기" onClick="updateGo('${member.mnum }','${pageInfo.pageNumber}')"> 
 			</td>
 			<td>
-				<a href="delete.me?mnum=${member.mnum }">삭제</a>
+				<a href="delete.me?mnum=${member.mnum }&pageNumber=${pageInfo.pageNumber}">삭제</a>
 			</td>
 		</tr> 
 	</c:forEach>
 </table>
 
 ${pageInfo.pagingHtml } 
+
 

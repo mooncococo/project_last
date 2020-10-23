@@ -2,15 +2,17 @@ package admin.model;
 
 import java.util.Date;
 
+import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 
+import org.hibernate.validator.constraints.NotBlank;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.web.multipart.MultipartFile;
 
 public class Product {
 	
 	private int pnum;
-	
+	@NotNull(message = "대분류 선택은 필수입니다.")
 	private String pcode;
 	public String getPcode() {
 		return pcode;
@@ -18,22 +20,27 @@ public class Product {
 	public void setPcode(String pcode) {
 		this.pcode = pcode;
 	}
-	//@NotEmpty(message = "상품 이름 입력은 필수입니다.")
+	@NotEmpty(message = "상품 이름 입력은 필수입니다.")
 	private String pname;
 	
+	@NotEmpty(message = "소분류 선택은 필수입니다.")
 	private String pcate;
 	
-	//@NotEmpty(message = "이미지 선택은 필수입니다.")
+	@NotEmpty(message = "이미지 선택은 필수입니다.")
 	private String pimage;
 	
+	@Min(value = 100,message = "가격은 1원 이상을 입력하세요." )
 	private int price;
 	
-	//@NotNull(message = "스펙을 한가지 선택하세요")
+	@NotNull(message = "스펙을 한가지 선택하세요.")
 	private String pspec;
 	
+	@NotNull(message = "비고사항 입력을 하세요.")
 	private String pnote;
 	
+	@Min(value = 100,message = "제공할 포인트는 1원 이상을 입력하세요." )
 	private int point;
+	
 	private Date pinputdate;
 	
 	private String uploadOld;
@@ -113,12 +120,15 @@ public class Product {
 			System.out.println(upload.getName()); // upload
 			System.out.println(upload.getOriginalFilename()); // ~~.jpg  , 진짜 화일이름
 			this.pimage = upload.getOriginalFilename();  
+		}else {
+		    	this.pimage=uploadOld;
 		}
 	}
-	public Product(int pnum, String pname, String pcate, String pimage, int price, String pspec, String pnote,
+	public Product(int pnum, String pcode,String pname, String pcate, String pimage, int price, String pspec, String pnote,
 			int point, Date pinputdate) {
 		super();
 		this.pnum = pnum;
+		this.pcode = pcode;
 		this.pname = pname;
 		this.pcate = pcate;
 		this.pimage = pimage;

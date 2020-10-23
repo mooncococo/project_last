@@ -1,7 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
 <!DOCTYPE html>
 <html>
+<script type="text/javascript">
+	$('.class').ready(function(){
+		location.href="list.bd";
+	})
+
+</script>    
 <head>
 <meta charset="UTF-8">
 <title>WEB-INF\admin\adminMain.jsp</title>
@@ -10,7 +17,10 @@
 	<%@ include file="admin_top_4.jsp" %>
 	<h3 style="text-align: center; margin-top: 10px;">Notice</h3>
 	<table class="table">
-	  <thead>
+	
+	
+	
+<!-- 	<thead>
 	    <tr>
 	      <th scope="col">#</th>
 	      <th scope="col">First</th>
@@ -38,6 +48,8 @@
 	      <td>@twitter</td>
 	    </tr>
 	  </tbody>
+	  
+	   -->
 	</table>
 </body>
 </html>

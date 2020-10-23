@@ -12,13 +12,17 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.servlet.ModelAndView;
 
+import jdk.nashorn.internal.ir.RuntimeNode.Request;
 import member.model.Member;
 import member.model.MemberDao;
 
 @Controller
+@SessionAttributes("loginInfo")
 public class MemberLoginController {
+	HttpServletRequest request;
 	final String command = "/loginForm.me";
 	final String command1 = "/loginForm1.me";
 	final String command2 = "/findId.me";
@@ -26,7 +30,7 @@ public class MemberLoginController {
 	final String getPage = "MemberLoginForm";
 	final String getPage2 = "MemberFindId";
 	final String getPage3 = "MemberFindPw";
-	final String gotoPage1 = "../../start_4";
+	final String gotoPage1 = "../../WEB-INF/user/user_main_4";
 	final String gotoPage2 = "MemberFindIdCompleted";
 	final String gotoPage3 = "MemberFindPwCompleted";
 	
@@ -44,20 +48,22 @@ public class MemberLoginController {
 	@RequestMapping(value=command1)	
 	public ModelAndView doAction1(@RequestParam(value="mid") String mid) {
 		ModelAndView mav = new ModelAndView();
-		mav.addObject("mid",mid);
+		mav.addObject("mid", mid);
 		mav.setViewName(getPage);
 		return mav;
 	}
 	
 	@RequestMapping(value=command,method=RequestMethod.POST)
-	public ModelAndView doAction(Member member, HttpServletResponse response,
+	public ModelAndView doAction(Member member, HttpServletResponse response, HttpServletRequest request,
 							HttpSession session) throws IOException {
-		
+		System.out.println("loginInfo :" + session.getAttribute("loginInfo"));
 		Member dbMember = memberDao.getMember(member.getMid());
 		
 		response.setContentType("text/html; charset=UTF-8");
 		
 		PrintWriter pw = response.getWriter();
+		
+		ModelAndView mav = new ModelAndView();
 		
 		if(dbMember == null) {
 			pw.println("<script type='text/javascript'>");
@@ -65,19 +71,25 @@ public class MemberLoginController {
 			pw.println("</script>");
 			pw.flush();
 			
-			return new ModelAndView(getPage);
+			mav.setViewName(getPage);
+			return mav;
 		}
 		else if(member.getMpw().equals(dbMember.getMpw())){
-			session.setAttribute("loginInfo", dbMember);
 			
-			return new ModelAndView(gotoPage1);
+			session.setAttribute("loginInfo2", dbMember.getMid());
+			System.out.println("loginInfo2 :" + session.getAttribute("loginInfo2"));
+			mav.addObject("logintInfo",dbMember);
+			mav.setViewName(gotoPage1);
+			return mav;
 		}
 		else {
 			pw.println("<script type='text/javascript'>");
 			pw.println("alert('비밀번호가 일치하지 않습니다.');");
 			pw.println("</script>");
 			pw.flush();
-			return new ModelAndView(getPage);
+			
+			mav.setViewName(getPage);
+			return mav;
 		}
 	
 	}

@@ -25,7 +25,7 @@ public class ProductListController {
 	
 	@Autowired
 	private ProductDao productDao;
-
+	
 	@RequestMapping(command)
 	public ModelAndView doAction(@RequestParam(value="whatColumn", required = false) String whatColumn,
 			@RequestParam(value="keyword", required = false) String keyword,
@@ -48,7 +48,7 @@ public class ProductListController {
 		System.out.println("offset : " + pageInfo.getOffset()); // 0
 		System.out.println("limit : " + pageInfo.getLimit()); // 5	
 		
-		List<Product> list =productDao.selectProductAll(pageInfo,map);
+		List<Product> list = productDao.selectProductAll(pageInfo,map);
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("pageInfo", pageInfo);
 		mav.addObject("totalCount", totalCount);

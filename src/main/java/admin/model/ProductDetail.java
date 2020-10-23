@@ -1,12 +1,17 @@
 package admin.model;
 
+import javax.validation.constraints.NotNull;
+
 public class ProductDetail {
 	private int dnum;
 	private int pnum;
 	private String pcode;
 	private String pname;
+	@NotNull(message = "사이즈입력은 필수입니다.")
 	private String psize;
+	@NotNull(message = "색상입력은 필수입니다.")
 	private String pcolor;
+	@NotNull(message = "재고입력은 필수입니다.")
 	private String pstock;
 	
 	public String getPname() {

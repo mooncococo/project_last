@@ -4,6 +4,9 @@
   "http://mybatis.org/dtd/mybatis-3-config.dtd">
 
 <configuration>
+	<settings>
+  		<setting name="mapUnderscoreToCamelCase" value="true"/>
+  	</settings>
 	<typeAliases>
 		<typeAlias type="member.model.Member" alias="MyMember"/>
 		<typeAlias type="admin.model.Product" alias="MyProduct"/>
@@ -11,9 +14,13 @@
 		<typeAlias type="orderdetail.model.OrderDetail" alias="MyOrderDetail"/>
 		<typeAlias type="admin.model.Category" alias="MyCategory"/>
 		<typeAlias type="admin.model.ProductDetail" alias="MyProductDetail"/>
+		<typeAlias type="board.model.BoardBean" alias="MyBoard"/>
+		<typeAlias type="board.model.BoardComments" alias="MyBoardComments"/>
 	</typeAliases>
 	
 	<mappers>
+		<mapper resource="mybatis/board.xml"/>
+		<mapper resource="mybatis/comments.xml"/>
 		<mapper resource="mybatis/product.xml"/>
 		<mapper resource="mybatis/productdetail.xml"/>
 		<mapper resource="mybatis/member.xml"/>

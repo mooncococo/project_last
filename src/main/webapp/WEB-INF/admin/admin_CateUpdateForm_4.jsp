@@ -5,7 +5,11 @@
 <%@ include file = "common.jsp" %>
 
 <style type="text/css">
-
+		.err{
+		font-size: 9pt;
+		color: red;
+		font-weight: bold;
+		}
 	.table{
 		width: 30%;
 		margin: 0 auto;
@@ -34,7 +38,6 @@
 			
 			<td>	
 				<input type="text" name="code" value="${ category.code }">
-				<form:errors cssClass="err" path="code"/>
 			</td>
 		</tr>
 		

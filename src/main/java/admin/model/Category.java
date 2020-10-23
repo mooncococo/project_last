@@ -2,11 +2,12 @@ package admin.model;
 
 import javax.validation.constraints.NotNull;
 
+import org.hibernate.validator.constraints.NotEmpty;
+
 public class Category {
 	private int cnum;
-	@NotNull(message = "대분류를 선택하세요")
 	private String code;
-	@NotNull(message = "소분류를 선택하세요")
+	@NotEmpty(message = "소분류를 선택하세요")
 	private String cname;
 	private String csum;
 	private int level;

@@ -18,7 +18,6 @@ public class ProductDao {
 	
 	@Autowired
 	SqlSessionTemplate sqlSessionTemplate;
-	
 	public void insertProduct(Product product) {
 		
 		int cnt = sqlSessionTemplate.insert(namespace+".InsertProduct", product);
@@ -55,6 +54,14 @@ public class ProductDao {
 		return cnt;
 	}
 	
-}
+	public List<Product> selectNewProduct(){
+		List<Product> lists = new ArrayList<Product>();
+		lists= sqlSessionTemplate.selectList(namespace+".GetNewProduct" );
+		System.out.println("listcontroller lists.size():"+lists.size());
+		return lists;
+	}
+	
+	
+}	
 
 

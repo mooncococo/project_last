@@ -55,14 +55,14 @@ public class ProductInputController {  //admin에서 상품등록 요청시
 		  
 		  ModelAndView mav = new ModelAndView();
 		  
-		  /*
+		  
 			if(result.hasErrors()) {
 				System.out.println("유효성 검사 오류입니다.");
 				mav.setViewName(getPage);
 				return mav;
 				//return new ModelAndView(getPage);
 			}
-			*/
+			
 			
 			MultipartFile multi = product.getUpload();  //interface 이기 때문에 객체는 생성하지 못한다.
 			

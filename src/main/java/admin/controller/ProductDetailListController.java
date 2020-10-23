@@ -9,7 +9,9 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import admin.model.Category;
@@ -20,7 +22,9 @@ import utility.Paging;
 @Controller
 public class ProductDetailListController {
 	final String command="detaillist.detail";
+	final String command2="popuplist.detail";
 	final String getPage="admin_ProductDetailList_4";
+	final String getPage2="popupStock";
 	
 	@Autowired
 	private ProductDetailDao productDetailDao;
@@ -50,7 +54,7 @@ public class ProductDetailListController {
 		
 		List<ProductDetail> lists =productDetailDao.selectDetailAll(pageInfo,map);
 		
-		ModelAndView mav = new ModelAndView();
+		ModelAndView mav = new ModelAndView();  
 		mav.addObject("pageInfo", pageInfo);
 		mav.addObject("totalCount", totalCount); 
 		mav.addObject("lists", lists);
@@ -58,6 +62,24 @@ public class ProductDetailListController {
 		return mav;
 	
 	}	
+	
+	
+	@RequestMapping(value=command2,method=RequestMethod.GET)
+	@ResponseBody
+	public String doAction2(@RequestParam(value="pnum",required=true) int pnum) {
+		System.out.println("------도착------");
+		System.out.println("pnum: "+pnum);
+		String str = "이설아";
+		List<ProductDetail> lists = productDetailDao.getProductsByPnum(pnum);
+		String stock = "";
+		for(int i=0; i<lists.size(); i++) {
+			stock += lists.get(i).getPsize() +"/" + lists.get(i).getPcolor() +"," + lists.get(i).getPstock() +",";
+		}
+		System.out.println(stock);
+		return stock;
+		
+	}
+
 	
 	
 	

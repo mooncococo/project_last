@@ -6,6 +6,38 @@
 <%@ include file ="admin_top_4.jsp" %>
 <%@ include file = "common.jsp" %>
 
+<!-- 
+<style>
+input[type="file"] { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip:rect(0,0,0,0); border: 0; }
+label {
+	display: inline-block;
+	padding: .5em .75em;
+	color: #999;
+	font-size: inherit;
+	line-height: normal; 
+	vertical-align: middle; 
+	background-color: #fdfdfd; 
+	cursor: pointer; border: 1px solid #ebebeb;
+	 border-bottom-color: #e2e2e2; 
+	 border-radius: .25em;
+ } 
+.upload-name { 
+	display: inline-block; 
+	padding: .5em .75em; 
+	font-size: inherit; 
+	font-family: inherit; 
+	line-height: normal; 
+	vertical-align: middle; 
+	background-color: #f5f5f5; 
+	border: 1px solid #ebebeb; 
+	border-bottom-color: #e2e2e2; 
+	border-radius: .25em; 
+	-webkit-appearance: none;  
+	-moz-appearance: none; 
+	appearance: none;
+}
+</style>
+ -->
 <script>
 var f_selbox  = new Array('Outer','Top','Blouse','Bottom','Dress','Skirt','Shoes','Bag','Acc');
 var s_selboxText = new Array();
@@ -38,6 +70,28 @@ function init() {
             //console.log($('#cate1 option:selected').val())
           }
 	}
+	/* 
+	let fileTarget = $('.upload-hidden');
+    fileTarget.on('change', function(){
+        if(window.FileReader){
+            var filename = $(this)[0].files[0].name;
+        } else {
+            var filename = $(this).val().split('/').pop().split('\\').pop();
+        }
+        $(this).siblings('.upload-name').val(filename);
+    });
+	
+    fileTarget.on('change', function(){
+    let fileTarget = $('.upload-hidden');
+	    let upimg = $('#upload_name2').val();
+	    
+	    let path = "/ex/resources/";
+		let imgurl = path+upimg;
+		
+	    console.log(imgurl)
+	    $('#img').attr('src',imgurl)
+    }) */
+	
 	
 } //init
 	
@@ -66,10 +120,28 @@ $(()=>{
 		  }
 		}
 	}
+	
+	
 })
 
 </script>
-
+<style type="text/css">
+	.err{
+		font-size: 9pt;
+		color: red;
+		font-weight: bold;
+	}
+	.table{
+		width: 30%;
+		margin: 0 auto;
+		margin-top: 7vh; 
+	}
+	#top_form{
+		width: 60%;
+		margin: 0 auto;
+		margin-top: 6vh;
+	}
+</style>
 WEB-INF\admin\product\ProductUpdateForm.jsp 입니다.<br>
 
 <body onLoad="init()">
@@ -87,13 +159,11 @@ WEB-INF\admin\product\ProductUpdateForm.jsp 입니다.<br>
 				
 			</select>	
 			<form:errors cssClass="err" path="pcode" />
-			
-			
 			<select name="pcate" id="cate2">
 				
 			</select>
 			<form:errors cssClass="err" path="pcate" />
-<%--
+			<%--
 			<select name="code" class="cate1">
  			<c:forEach items="${lists }" var="lists" begin="0" end="${fn:length(lists) }">   
 					 <option value="${lists.code }">${lists.code } 
@@ -116,10 +186,18 @@ WEB-INF\admin\product\ProductUpdateForm.jsp 입니다.<br>
 	<tr>
 		<td>상품이미지</td>
 		<td> 
-			<img src="<%=request.getContextPath() %>/resources/${product.pimage}" width="100px" height="100px">
+			<%-- <img id="img" src="<%=request.getContextPath() %>/resources/${product.pimage }" width="100px" height="100px">
+			<input class="upload-name" id="upload_name2" value="${product.pimage }" disabled="disabled"> 
+               <input type="file" class="upload-hidden" name="upload" id="upImgFiles2" value="${product.pimage }">
+               <label for="upImgFiles2">업로드</label>
+			
+ --%>
+ 			<img src="<%=request.getContextPath() %>/resources/${product.pimage}" width="100px" height="100px">
 			<input type="file" name="upload" id="upload" value="" >
 			<input type="hidden" name="uploadOld" value="${product.pimage }">
 			<form:errors cssClass="err" path="pimage" />
+			
+			<%-- <form:errors cssClass="err" path="pimage" /> --%>
 		</td>
 	</tr>
 	

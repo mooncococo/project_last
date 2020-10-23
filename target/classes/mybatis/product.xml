@@ -43,5 +43,8 @@
 		point = #{point}, pspec= #{pspec}, pnote = #{pnote} 
 		where pnum = #{pnum}
 	</update>
+	<select id="GetNewProduct" resultType="MyProduct">
+		select * from product where pspec = 'new' 
+	</select>
 </mapper>
 

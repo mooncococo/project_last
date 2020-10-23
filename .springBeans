@@ -10,6 +10,8 @@
 		<config>src/main/webapp/WEB-INF/spring/appServlet/adpage_servlet.xml</config>
 	</configs>
 	<autoconfigs>
+		<config>src/main/webapp/WEB-INF/spring/appServlet/uspage_servlet.xml</config>
+		<config>src/main/webapp/WEB-INF/spring/appServlet/proddetail_servlet.xml</config>
 		<config>src/main/webapp/WEB-INF/spring/appServlet/prod_servlet.xml</config>
 		<config>src/main/webapp/WEB-INF/spring/appServlet/category_servlet.xml</config>
 		<config>src/main/webapp/WEB-INF/spring/appServlet/mall_servlet.xml</config>

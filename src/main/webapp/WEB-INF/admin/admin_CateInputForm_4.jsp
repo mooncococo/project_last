@@ -5,7 +5,11 @@
 <%@ include file ="common.jsp" %>
 
 <style type="text/css">
-
+	.err{
+		font-size: 9pt;
+		color: red;
+		font-weight: bold;
+	}
 	.table{
 		width: 30%;
 		margin: 0 auto;
@@ -25,7 +29,7 @@
 <div id="top_form">
 	<font color="gray" size="5" ><b>카테고리 등록</b></font>  
 </div>
-<form action="input.cate" method="post" name="myform">
+<form:form commandName="category" action="input.cate" method="post" name="myform">
 	<table  align="center" width="40%" class="table">
 		<tr>
 			<td align="center">	
@@ -57,7 +61,8 @@
 			</td>
 			
 			<td>	
-				<input type="text" name="cname">
+				<input type="text" name="cname" value="${category.cname }">
+				<form:errors cssClass="err" path="cname"/>
 			</td>
 		</tr>
 		
@@ -69,7 +74,7 @@
 		</tr>
 		
 	</table>
-</form>	
+</form:form>	
 
 
 

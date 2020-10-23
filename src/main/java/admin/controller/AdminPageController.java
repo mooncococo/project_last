@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class AdminPageController {
 	final String command="admin.adpage";
-	final String getPage="/admin_main_4";
+	final String gotoPage="redirect:/list.bd";
 	
 	final String command2="user.page";
 	final String getPage2="/user_main_4";
@@ -14,7 +14,7 @@ public class AdminPageController {
 	@RequestMapping(command)
 	public String doAction() {
 		
-		return getPage;
+		return gotoPage;
 	}
 	
 	

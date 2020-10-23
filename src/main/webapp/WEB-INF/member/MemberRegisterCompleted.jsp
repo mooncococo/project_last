@@ -4,4 +4,8 @@
 <%@ include file="../user/user_top_4.jsp" %>
     
 WEB-INF\member\MemberRegisterCompleted.jsp<br>
-회원가입 완료 페이지 작성하기 <br>
+
+<%
+	String viewPage = request.getContextPath() + "/loginForm.me";
+	response.sendRedirect(viewPage);
+%>

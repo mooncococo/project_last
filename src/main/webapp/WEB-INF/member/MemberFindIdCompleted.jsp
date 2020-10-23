@@ -12,6 +12,7 @@ MemberFindIdCompleted.jsp
 	margin: 0 auto;
 	margin-top: 4vh;
 }
+
 #d_top {
 	width: 25%;
 	margin: 0 auto;
@@ -20,10 +21,10 @@ MemberFindIdCompleted.jsp
 </style>
 <script type="text/javascript">
 	function goLogin(id){
-		location.href="loginForm1.me?mid="+id;
+		location.href="loginForm1.me?mid="+mid;
 	}
 	
-	function poPassword() {
+	function findpw(){
 		location.href="findPw.me";
 	}
 </script>
@@ -70,12 +71,10 @@ MemberFindIdCompleted.jsp
 			</font></td>
 		</tr>
 		<tr>
-			<td colspan="2" align="center"><input type="button"
-				class="btn btn-secondary" style="background: #373737; border: none;"
-				value="로그인" onclick="goLogin('${member.mid}')"> <input
-				type="button" class="btn btn-dark"
-				style="background:#373737; border: none;" value="비밀번호찾기"
-				onClick="poPassword()">
+			<td colspan="2" align="center">
+			<input type="button" class="btn btn-secondary" style="background: #373737; border: none;"
+				value="로그인" onclick="goLogin('${member.mid}')"> 
+			<input type="button" class="btn btn-dark" style="background:#373737; border: none;" value="비밀번호찾기" onclick="findpw()">
 			</td>
 		</tr>
 

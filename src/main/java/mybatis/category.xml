@@ -26,12 +26,12 @@
 			<if test="whatColumn=='cname'">
 				where cname like #{keyword} 
 			</if>
-		order by cnum desc
+		order by cnum asc
 	
 	</select>
 	
 		<select id="SelectAll" resultType="MyCategory">
-		select * from cate order by cnum desc
+		select * from cate order by cnum asc
 	
 	</select>
 	
