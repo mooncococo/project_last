@@ -21,7 +21,7 @@
 		color: gray; 
 	}
 </style>
-
+<script type="text/javascript" src="../js/jquery.js"></script>
 <script src="http://code.jquery.com/jquery-1.11.1.min.js" type="text/javascript"></script>
 <script type="text/javascript">
 	
@@ -41,10 +41,96 @@
 			change=true;
 			use="";
 		});
-		
 	});
 	
 	function checkDuplication(){
+		
+		if($('#mid').val()==""){
+			alert("아이디를 입력해주세요.");
+			$('#mid').focus();
+			return false;
+		}
+		
+		if($('#mpw').val()==""){
+			alert("비밀번호를 입력해주세요.");
+			$('#mpw').focus();
+			return false;
+		}
+		
+		if($('#rempw').val()==""){
+			alert("비밀번호를 확인해주세요.");
+			$('#rempw').focus();
+			return false;
+		}
+		
+		if($('#mpw').val() != $('#rempw').val()){
+			alert("비밀번호가 일치하지 않습니다.");
+			$('#rempw').focus();
+			return false;
+		}
+		
+	    if($('#mname').val()==""){
+			alert("이름을 입력해주세요.");
+			$('#mname').focus();
+			return false;
+		} 
+		
+		if($('select option:selected').val()=="도시선택"){
+			alert("도시를 선택해주세요.");
+			return false;
+		}
+		
+	 	if($('select option:selected').val()=="휴대폰선택"){
+			alert("휴대폰 앞번호를 선택해주세요.");
+			return false;
+		}
+		
+		if($('select option:selected').val()=="이메일선택"){
+			alert("이메일 주소를 선택해주세요.");
+			return false;
+		} 
+		
+		if($('#addr2').val()==""){
+			alert("상세주소를 입력해주세요.");
+			$('#addr2').focus();
+			return false;
+		}
+		
+		if($('#hp2').val()==""){
+			alert("휴대폰 앞자리를 입력해주세요.");
+			$('#hp2').focus();
+			return false;
+		}
+
+		if($('#hp3').val()==""){
+			alert("휴대폰 뒷자리를 입력해주세요.");
+			$('#hp3').focus();
+			return false;
+		}
+		
+		if($('#email1').val()==""){
+			alert("이메일을 입력해주세요.");
+			$('#email1').focus();
+			return false;
+		}
+
+		if($('#birth1').val()==""){
+			alert("태어난 년도를 입력해주세요.");
+			$('#birth1').focus();
+			return false;
+		}
+		
+		if($('#birth2').val()==""){
+			alert("태어난 월을 입력해주세요.");
+			$('#birth2').focus();
+			return false;
+		}
+		
+		if($('#birth3').val()==""){
+			alert("태어난 일을 입력해주세요.");
+			$('#birth3').focus();
+			return false;
+		}
 		
 		if(dupcheck == false){
 			alert("중복검사를 해주세요.");
@@ -53,9 +139,10 @@
 		else if(use == "impossible"){
 			alert("'"+$("#mid").val()+"'는 이미 존재하는 아이디입니다.");
 			return false;
+		}		
+		else{
+			alert("'"+$("#mid").val()+"'님 회원가입을 축하드립니다. 이제 로그인을 해주세요.");
 		}
-		else
-			alert("'"+$("#mid").val()+"'님 회원가입을 축하드립니다.");
 	}
 	
 	function passwd_keyup(){
@@ -149,7 +236,7 @@
 				<td>주소<img src="<c:url value="/resources/images/star1.PNG"/>" style="width: 10px; height: 10px"/></td>
 				<td>
 					<select name="addr1" id="addr1">
-						<!-- <option value="">선택하세요</option> -->			
+						<option value="도시선택">도시선택</option>		
 						<option value="서울">서울</option>			
 						<option value="부산">부산</option>			
 						<option value="대구">대구</option>			
@@ -168,6 +255,7 @@
 				<td>일반전화</td>
 				<td>
 					<select id="p1" name="p1">  
+						<option value="지역번호">지역번호</option>			
 						<option value="02">02</option>			
 						<option value="031">031</option>			
 						<option value="032">032</option>			
@@ -198,6 +286,7 @@
 				<td>휴대전화<img src="<c:url value="/resources/images/star1.PNG"/>" style="width: 10px; height: 10px"/></td>
 				<td>
 					<select name="hp1" id="hp1">
+						<option value="휴대폰선택">선택</option>		
 						<option value="010">010</option>			
 						<option value="011">011</option>			
 						<option value="016">016</option>			
@@ -222,15 +311,15 @@
 				<td>이메일<img src="<c:url value="/resources/images/star1.PNG"/>" style="width: 10px; height: 10px"/></td>
 				<td>
 					<input type="text" name="email1" id="email1" value="aa">
+					<form:errors cssClass="err" path="email1" />
 					@
 					<select id="email2" name="email2">
-						<!-- <option value="">선택하세요</option> -->			
+						<option value="이메일선택">선택</option> 
 						<option value="naver.com">naver.com</option>			
 						<option value="daum.net">daum.net</option>			
 						<option value="gmail.com">gmail.com</option>			
 						<option value="nate.com">nate.com</option>			
 					</select>
-					<form:errors cssClass="err" path="email1" />
 				</td>
 			</tr>
 			
@@ -238,14 +327,14 @@
 				<td>생년월일<img src="<c:url value="/resources/images/star1.PNG"/>" style="width: 10px; height: 10px"/></td>
 				<td>
 					<input type="text" name="birth1" id="birth1" value="2020" size="4">년
+					<form:errors cssClass="err" path="birth1" />
 			
 					<input type="text" name="birth2" id="birth2" value="10" size="2">월
+					<form:errors cssClass="err" path="birth2" />
 					
 					<input type="text" name="birth3" id="birth3" value="01" size="2">일
-					
-					<form:errors cssClass="err" path="birth1" />
-					<form:errors cssClass="err" path="birth2" />
 					<form:errors cssClass="err" path="birth3" />
+					
 				</td>
 			
 			</tr>
@@ -258,92 +347,5 @@
 			
 		</table>
 	</form:form>	
-		
-		
-		
-		
-		<%-- 
-		 <p>
-			<label for="mid">아이디</label>
-			<input type="text" name="mid" id="mid" value="lee">
-			<form:errors cssClass="err" path="mid" />
-			<input type="button" id="duplicate_check" value="중복체크" onclick="duplicate()">
-			
-		</p> 
-		<p>
-			<label for="mname">이름</label>
-			<input type="text" name="mname" id="mname" value="이수현">
-			<form:errors cssClass="err" path="mname" />
-		</p>
-		<p>
-			<label for="mpw">비번</label>
-			<input type="text" name="mpw" id="mpw" value="1234">
-			<form:errors cssClass="err" path="mpw" />
-		</p>	
-		<p>
-			<label for="addr1">주소 입력</label><br>
-			<select name="addr1" id="addr1">
-				<!-- <option value="">선택하세요</option> -->			
-				<option value="서울">서울</option>			
-				<option value="부산">부산</option>			
-				<option value="대구">대구</option>			
-				<option value="광주">광주</option>			
-				<option value="전주">전주</option>			
-				<option value="인천">인천</option>			
-			</select>
-			<form:errors cssClass="err" path="addr1" />
-			
-			<br>
-			
-			<label for="addr2">상세 주소</label><br>
-			<input type="text" name="addr2" id="addr2" value="종로구">
-			<form:errors cssClass="err" path="addr2" />
-		</p>	
-		<p>
-			<label for="hp1">휴대전화 번호</label><br>
-			<input type="text" name="hp1" id="hp1" value="010">
-			<form:errors cssClass="err" path="hp1"/>
-			-
-			
-			<input type="text" name="hp2" id="hp2" value="1234">
-			<form:errors cssClass="err" path="hp2" />
-			-
-			
-			<input type="text" name="hp3" id="hp3" value="5678">
-			<form:errors cssClass="err" path="hp3" />
-		</p>	
-		<p>
-			<label for="email1">이메일 입력</label><br>
-			<input type="text" name="email1" id="email1" value="aa">
-			@
-			<select id="email2" name="email2">
-				<!-- <option value="">선택하세요</option> -->			
-				<option value="naver.com">naver.com</option>			
-				<option value="daum.net">daum.net</option>			
-				<option value="gmail.com">gmail.com</option>			
-				<option value="nate.com">nate.com</option>			
-			</select>
-			<form:errors cssClass="err" path="email1" />						
-		</p>
-		
-		<p>
-			<label for="birth1">생년월일</label><br>
-			<input type="text" name="birth1" id="birth1" value="2020">
-			
-			<input type="text" name="birth2" id="birth2" value="10">
-			
-			<input type="text" name="birth3" id="birth3" value="01">
-			
-			<form:errors cssClass="err" path="birth1" />
-			<form:errors cssClass="err" path="birth2" />
-			<form:errors cssClass="err" path="birth3" />
-		</p>	
-			
-		<p class="btnRow">
-			<input type="submit" value="추가하기" id="btnSubmit">		
-		</p>
-	</form:form> 
-	--%>
-	
 </body>
 </html>
