@@ -38,7 +38,7 @@ public class Product {
 	@NotNull(message = "비고사항 입력을 하세요.")
 	private String pnote;
 	
-	@Min(value = 100,message = "제공할 포인트는 1원 이상을 입력하세요." )
+	
 	private int point;
 	
 	private Date pinputdate;

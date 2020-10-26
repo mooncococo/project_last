@@ -213,7 +213,7 @@ WEB-INF\admin\product\ProductUpdateForm.jsp 입니다.<br>
 		<td>적립포인트</td>
 		<td>
 			<input type="text" name="point" value="${product.point }">point
-			<form:errors cssClass="err" path="point" />
+			
 		</td>
 	</tr>
 	

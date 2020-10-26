@@ -37,15 +37,18 @@ list.jsp<br>
 	</tr>
 </table>
 <c:if test="${totalCount == 0}">
-<table width="700" border="1">
+<table class="table" >
+	<thead>
 		<tr>
 			<td>게시판에 저장된 글이 없습니다.</td>		
 		</tr>
+	</thead>	
 </table>
 </c:if>
 		
 <c:if test="${ not (totalCount == 0) }">
-	<table width="700" align="center" border="1">
+	<table class="table" >
+	<tbody>
 		<tr>
 			<td align="center" width="50">번호</td>	
 			<td align="center" width="250">제 목</td>	
@@ -67,7 +70,7 @@ list.jsp<br>
     	
     </c:forEach>
 			
-			
+	 </tbody>		
 	</table>
 </c:if>
 </body>

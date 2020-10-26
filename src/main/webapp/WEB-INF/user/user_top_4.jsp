@@ -12,12 +12,10 @@
    href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 <script
    src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script
    src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
 <link rel="stylesheet"
    href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script
    src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
 <script
@@ -92,7 +90,7 @@
 
 .dropdown {
   position: relative;
-  display: inline-block;
+  display: inline-block;a
 }
 
 .dropdown-content {
@@ -123,38 +121,41 @@
    <!-- 사용자페이지 top부분 임포트 해서 사용  -->
 
    <%
-   		String viewLogin = request.getContextPath() + "/loginForm.me";
-   		String viewLogout = request.getContextPath() + "/logout_3.jsp";
+         String viewLogin = request.getContextPath() + "/loginForm.me";
+         String viewLogout = request.getContextPath() + "/logout_3.jsp";
    %>
    <div class="fix">
       <div class="top">
          <p>Sorority</p>
          <div class="icon">
             <%
-            	if(session.getAttribute("loginInfo2") == null){
+               if(session.getAttribute("loginInfo2") == null){
             %>
             <%
-            	}else{
+               }else{
             %>
-            		<%=session.getAttribute("loginInfo2")%>님 반갑습니다.
+                  <%=session.getAttribute("loginInfo2")%>님 반갑습니다.
             <%
-            	}
+               }
             %>
+            
+            
+            
             <a href="<%=viewLogout%>"><img src="<c:url value="/resources/images/로그아웃수정후.png"/>" /></a> 
             <a href="#"><img src="<c:url value="/resources/images/주문내역.png"/>" /></a> 
             <a href="#"><img src="<c:url value="/resources/images/장바구니.png"/>" /></a> 
             <%
-            	if(session.getAttribute("loginInfo2") == null){
+               if(session.getAttribute("loginInfo2") == null){
             %>
-            		<a href="<%=viewLogin%>"><img src="<c:url value="/resources/images/로그인,회원.png"/>" /></a>
+                  <a href="<%=viewLogin%>"><img src="<c:url value="/resources/images/로그인,회원.png"/>" /></a>
             <%
-            	}
+               }
             %>
          </div>
          <div class="navposition">
          <nav class="navbar navbar-expand navbar-light nav-color"
             style="padding-right: 10vw; padding-left: 10vw;">
-	    	
+          
             <a class="navbar-brand" href="user.uspage">Sorority</a>
            
    
@@ -167,133 +168,54 @@
                   </li>
                   
                   <li class="nav-item">
-                     <div class="dropdown">
-                        <a class="nav-link dropbtn" href="#">Outer</a>
-                         <div class="dropdown-content">
-                            <!-- 반복문으로 2차 카테고리 출력하세요 -->
-                            <a href="#">홈</a>
-                            <a href="#">회사소개</a>
-                            <a href="#">제품소개</a>
-                            <a href="#">오시는길</a>
-                          </div>
-                     </div>
+                        <a class="nav-link dropbtn" href="outer.uspage?pcode=Outer">Outer</a>
                   </li>
                   <li class="nav-item">
-                     <div class="dropdown">
-                        <a class="nav-link dropbtn" href="#">Top</a>
-                        <div class="dropdown-content">
-                           <!-- 반복문으로 2차 카테고리 출력하세요 -->
-                            <a href="#">홈</a>
-                            <a href="#">회사소개</a>
-                            <a href="#">제품소개</a>
-                            <a href="#">오시는길</a>
-                          </div>
-                     </div>
+                        <a class="nav-link dropbtn" href="top.uspage?pcode=Top">Top</a>
                   </li>
                   <li class="nav-item">
-                     <div class="dropdown">
-                        <a class="nav-link dropbtn" href="#">Blouse</a>
-                        <div class="dropdown-content">
-                           <!-- 반복문으로 2차 카테고리 출력하세요 -->
-                            <a href="#">홈</a>
-                            <a href="#">회사소개</a>
-                            <a href="#">제품소개</a>
-                            <a href="#">오시는길</a>
-                          </div>
-                     </div>
+                        <a class="nav-link dropbtn" href="blouse.uspage?pcode=Blouse">Blouse</a>
                   </li>
                   <li class="nav-item">
-                     <div class="dropdown">
-                        <a class="nav-link dropbtn" href="#">Bottom</a>
-                     <div class="dropdown-content">
-                        <a href="#">홈</a>
-                           <!-- 반복문으로 2차 카테고리 출력하세요 -->
-                            <a href="#">회사소개</a>
-                            <a href="#">제품소개</a>
-                            <a href="#">오시는길</a>
-                          </div>
-                      </div>
+                        <a class="nav-link dropbtn" href="bottom.uspage?pcode=Bottom">Bottom</a>
                   </li>
                   <li class="nav-item">
-                     <div class="dropdown">
-                        <a class="nav-link dropbtn" href="#">Dress</a>
-                     <div class="dropdown-content">
-                           <!-- 반복문으로 2차 카테고리 출력하세요 -->
-                           <a href="#">홈</a>
-                            <a href="#">회사소개</a>
-                            <a href="#">제품소개</a>
-                            <a href="#">오시는길</a>
-                          </div>
-                      </div>
+                        <a class="nav-link dropbtn" href="dress.uspage?pcode=Dress">Dress</a>
                   </li>
                   <li class="nav-item">
-                     <div class="dropdown">
-                        <a class="nav-link dropbtn" href="#">Skirt</a>
-                     <div class="dropdown-content">
-                           <!-- 반복문으로 2차 카테고리 출력하세요 -->
-                           <a href="#">홈</a>
-                            <a href="#">회사소개</a>
-                            <a href="#">제품소개</a>
-                            <a href="#">오시는길</a>
-                          </div>
-                      </div>
+                        <a class="nav-link dropbtn" href="skirt.uspage?pcode=Skirt">Skirt</a>
                   </li>
                   <li class="nav-item">
-                     <div class="dropdown">
-                        <a class="nav-link dropbtn" href="#">Shoes</a>
-                     <div class="dropdown-content">
-                           <!-- 반복문으로 2차 카테고리 출력하세요 -->
-                           <a href="#">홈</a>
-                            <a href="#">회사소개</a>
-                            <a href="#">제품소개</a>
-                            <a href="#">오시는길</a>
-                          </div>
-                      </div>
+                        <a class="nav-link dropbtn" href="shoes.uspage?pcode=Shoes">Shoes</a>
                   </li>
                   <li class="nav-item">
-                     <div class="dropdown">
-                        <a class="nav-link dropbtn" href="#">Bag</a>
-                     <div class="dropdown-content">
-                           <a href="#">홈</a>
-                            <a href="#">회사소개</a>
-                            <a href="#">제품소개</a>
-                            <a href="#">오시는길</a>
-                          </div>
-                      </div>
+                        <a class="nav-link dropbtn" href="bag.uspage?pcode=Bag">Bag</a>
                   </li>
                   <li class="nav-item">
-                     <div class="dropdown">
-                        <a class="nav-link dropbtn" href="#">Acc</a>
-                     <div class="dropdown-content">
-                           <a href="#">홈</a>
-                            <a href="#">회사소개</a>
-                            <a href="#">제품소개</a>
-                            <a href="#">오시는길</a>
-                          </div>
-                      </div>
+                        <a class="nav-link dropbtn" href="acc.uspage?pcode=Acc">Acc</a>
                   </li>
                   <li class="nav-item">
                      <div class="dropdown">
                         <a class="nav-link dropbtn" href="#">contact us</a>
-                     	<div class="dropdown-content">
+                        <div class="dropdown-content">
                             <a href="#">홈</a>
                             <a href="#">회사소개</a>
                             <a href="#">공지사항</a>
                             <a href="#">오시는길 </a>
-                          	<%
-                          		if(session.getAttribute("loginInfo").equals("1") && session.getAttribute("loginInfo2") == null){
-                          	%>
-                          			 
-                          	<%		
-                          		}else if(session.getAttribute("loginInfo2").equals("admin")){
-                          	%>
-                          		<a href="#">관리자 페이지</a>
-                          	<%		
-                          		}
-                          	%>
-	                           
+                             <%
+                                if(session.getAttribute("loginInfo").equals("1") && session.getAttribute("loginInfo2") == null){
+                             %>
+                                    
+                             <%      
+                                }else if(session.getAttribute("loginInfo2").equals("admin")){
+                             %>
+                                <a href="list.bd">관리자 페이지</a>
+                             <%      
+                                }
+                             %>
+                              
                             
-                   	  </div>
+                        </div>
                      </div>
                   </li>
                

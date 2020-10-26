@@ -12,9 +12,20 @@
 		font-weight: bold;
 	}
 	.table{
-		width: 30%;
+		width: 60%;
 		margin: 0 auto;
-		margin-top: 7vh; 
+		margin-top: 4vh; 
+	}
+	#top_form{
+		width: 60%;
+		margin: 0 auto;
+		margin-top: 6vh;
+	}
+		#paging{
+		width: 45%;
+		margin: 0 auto;
+		text-align: center;
+		margin-top: 4vh;
 	}
 	#top_form{
 		width: 60%;
@@ -81,10 +92,13 @@ function firstChange() {
 </script>
 
 
-WEB-INF\admin\product\ProductInputForm.jsp 입니다.<br>
+<!-- WEB-INF\admin\product\ProductInputForm.jsp 입니다. --><br>
+<div id="top_form">
+	<font color="gray" size="5" ><b>상품 등록</b></font>  
+</div>
 <body onLoad="init()">
 <form:form commandName="product" action="input.prd" method="post" enctype="multipart/form-data" name="myform">
-<table border="1" >
+<table class="table">
 	<tr>
 		<td>카테고리</td>
 		<td>
@@ -129,7 +143,7 @@ WEB-INF\admin\product\ProductInputForm.jsp 입니다.<br>
 		<td>적립포인트</td>
 		<td>
 			<input type="text" name="point" value="${product.point }">point
-			<form:errors cssClass="err" path="point" />
+			
 		</td>
 	</tr>
 	

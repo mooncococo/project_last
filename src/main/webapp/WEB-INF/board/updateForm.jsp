@@ -6,7 +6,8 @@
 <h2>글쓰기</h2>
     <form:form commandName="board" method="post" action="update.bd" >   <!--  form에쓸때는 onSubmit, submit에 쓸때는 onClick -->
     <input type="hidden" name="num" id="num" value="${board.num }">
-    <table border="1" align="center" width="450" cellspacing="0">
+    <table class="table" align="center" width="450" cellspacing="0">
+    <tbody>
     <tr>
     <td colspan="2" align="right" ><a href="list.bd">글목록</a></td>
     </tr>
@@ -45,7 +46,7 @@
 	</tr>
     
     
-    
+    </tbody>
     </table>
     
     

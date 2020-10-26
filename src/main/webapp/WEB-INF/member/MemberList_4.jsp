@@ -9,6 +9,11 @@
 	table{
 		margin : 0px auto;
 	}
+	#top_form{
+		width: 60%;
+		margin: 0 auto;
+		margin-top: 6vh;
+	}
 </style>
 <script type="text/javascript">
 	function insert(){
@@ -19,8 +24,9 @@
 	}
 </script>       
 
-
-<h2>회원 리스트 화면</h2>
+<div id="top_form">
+	<font color="gray" size="5" ><b>회원 리스트 </b></font>  
+</div>
 <form action="list.me" method="get">
 	<select name="whatColumn">
 		<option value="all">전체 검색
@@ -32,7 +38,7 @@
 	<input type="submit" value="검색">
 </form>
 
-<table border="1">
+<table class="table">
 	<tr>
 		<td colspan="12" align="right">
 			<input type="button" value="회원추가" onclick="insert()">

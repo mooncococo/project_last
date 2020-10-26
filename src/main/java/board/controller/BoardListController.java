@@ -42,7 +42,6 @@ public class BoardListController {
 		Paging pageInfo = new Paging(pageNumber,pageSize,totalCount,url,whatColumn,keyword);
 		
 		 List<BoardBean> lists = boardDao.getBoardList(pageInfo,map);
-		 System.out.println("lists!!!!!!!!! : " +lists.get(1).getReadcount());
 		 
 		 ModelAndView mav = new ModelAndView();      
 		 mav.addObject("lists", lists);
