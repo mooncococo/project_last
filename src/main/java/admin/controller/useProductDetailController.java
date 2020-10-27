@@ -1,15 +1,12 @@
 package admin.controller;
 
-import java.io.UnsupportedEncodingException;
-import java.lang.ProcessBuilder.Redirect;
+
 import java.util.List;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
+
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -31,10 +28,10 @@ public class useProductDetailController {         //user페이지에서 상품 �
 
 
    @Autowired
-   ProductDao productDao;
+   private ProductDao productDao;
 
    @Autowired
-   ProductDetailDao productDetailDao;
+   private ProductDetailDao productDetailDao;
    
    
    @RequestMapping(value=command,method=RequestMethod.GET)
@@ -69,7 +66,6 @@ public class useProductDetailController {         //user페이지에서 상품 �
       List<ProductDetail> sizeLists = productDetailDao.getProductSize(pnum,pcolor);
 
       String sizeLists2 = "";
-      int sizeListss = sizeLists.size(); //4
       for(int i = 0; i<sizeLists.size();i++) {
          sizeLists2 += sizeLists.get(i).getPsize()+",";
          

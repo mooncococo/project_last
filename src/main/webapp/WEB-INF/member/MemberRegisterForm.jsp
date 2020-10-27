@@ -80,16 +80,6 @@
 			return false;
 		}
 		
-	 	if($('select option:selected').val()=="휴대폰선택"){
-			alert("휴대폰 앞번호를 선택해주세요.");
-			return false;
-		}
-		
-		if($('select option:selected').val()=="이메일선택"){
-			alert("이메일 주소를 선택해주세요.");
-			return false;
-		} 
-		
 		if($('#addr2').val()==""){
 			alert("상세주소를 입력해주세요.");
 			$('#addr2').focus();
@@ -286,7 +276,6 @@
 				<td>휴대전화<img src="<c:url value="/resources/images/star1.PNG"/>" style="width: 10px; height: 10px"/></td>
 				<td>
 					<select name="hp1" id="hp1">
-						<option value="휴대폰선택">선택</option>		
 						<option value="010">010</option>			
 						<option value="011">011</option>			
 						<option value="016">016</option>			
@@ -314,7 +303,6 @@
 					<form:errors cssClass="err" path="email1" />
 					@
 					<select id="email2" name="email2">
-						<option value="이메일선택">선택</option> 
 						<option value="naver.com">naver.com</option>			
 						<option value="daum.net">daum.net</option>			
 						<option value="gmail.com">gmail.com</option>			

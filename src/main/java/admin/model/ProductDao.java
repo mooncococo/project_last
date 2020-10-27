@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import javax.crypto.interfaces.PBEKey;
 
 import org.apache.ibatis.session.RowBounds;
 import org.mybatis.spring.SqlSessionTemplate;
@@ -135,6 +134,7 @@ public class ProductDao {
        lists = sqlSessionTemplate.selectList(namespace+".SearchProduct",mlist);
        return lists;
     }
+
    
    //카테고리 관련 매서드 끝
    

@@ -42,10 +42,6 @@
    #selectSize{
          
    }
-   .card-img{
-         width: 100%;
-         height: 550px;
-   }
 </style>
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.js"></script>
 <script type="text/javascript">
@@ -141,7 +137,7 @@
           
        
          
-           $('#resultTable').append("<tr class='bb'><td class='aa'>"+pcolor+"/"+psize+"</td><td>"+
+           $('#resultTable').append("<tr class='bb'><td class='aa'>"+pcolor+"/"+psize+" "+"</td><td>"+
                  "<input type='text' name='num' id='num' value='1' class='num' />"+
                  "<input type=button value='△' class='bt_up' onClick='CountUp(this)'>"+
                  "<input type=button value='▽' class='bt_down' onClick='CountDown(this)'>"+
@@ -158,11 +154,6 @@
              }else{
                 CalSum();  
              }
-           
-              
-              
-              
-              
                  
           console.log('aa:'+aa); 
            
@@ -250,14 +241,26 @@
       //console.log("totalSum:"+totalSum);  
       
       
-      
-      
-      
-      
-      
-      
    }
 
+   function goCart(pnum){
+	   //alert(1);
+	   console.log("goCart_pset:"+$('.aa').text());
+	   let pset = $('.aa').text();
+	   
+	   let qty = "";
+	   for(let i=0; i< $("tr[class='bb']").length ; ++i){
+		   qty += parseInt( $(".num").eq(i).val() ) + ","    
+	      } 
+	   console.log("qty:"+qty);
+	   
+	   if($("#selectColor option:selected").val().includes("선택") || $("#selectSize option:selected").val().includes("선택")){
+		   alert("필수 옵션을 선택해 주세요");  
+	   }else{
+		   
+		   location.href="cartlist.cart?pset="+pset+"&pnum="+pnum+"&qty="+qty;
+	   }
+   }
 
 
 </script>
@@ -310,7 +313,7 @@
                      </form>
 
                      <div class="select_area">
-                        <p>
+                        <p>  
                            <input type="button" value="실시간재고 확인하기" onclick="popupStock(${product.pnum })"/>
                         </p>
                         <p>
@@ -342,9 +345,9 @@
                  <span>총 : </span> 
                   <div class="totalCount"></div>
                   
-               <div class="buy_btn">
+               <div class="buy_btn">  
                   <button type="button" class="btn btn-light" id="btn">BUY IT NOW</button>
-                  <button type="button" class="btn btn-light" id="btn" style="margin-left: 20px;">ADD TO CART</button>
+                  <button type="button" class="btn btn-light" id="btn" style="margin-left: 20px;" onclick="goCart(${product.pnum })">ADD TO CART</button>
                </div>
                </div>
             </div>

@@ -250,12 +250,11 @@ drop table orderlist;
 create table orderlist(
 	olnum number primary key,
 	dnum number not null,
-	mname varchar2(20) not null,
 	mid varchar2(30) not null,
 	pname varchar2(50) not null,
    	pimage varchar2(30),
 	price number default 0,
-	qty number default 0 (이게 수량 누적인데)
+	qty number default 0 --(이게 수량 누적인데)
 );
 
 commit;

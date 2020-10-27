@@ -95,4 +95,5 @@
    <select id="SearchProduct" resultType="MyProduct">
       select * from product where pname like #{keyword}
    </select>
+
 </mapper>
