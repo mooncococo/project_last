@@ -142,7 +142,7 @@
             
             
             <a href="<%=viewLogout%>"><img src="<c:url value="/resources/images/로그아웃수정후.png"/>" /></a> 
-            <a href="#"><img src="<c:url value="/resources/images/주문내역.png"/>" /></a> 
+            <a href="showList.od"><img src="<c:url value="/resources/images/주문내역.png"/>" /></a> 
             <a href="#"><img src="<c:url value="/resources/images/장바구니.png"/>" /></a> 
             <%
                if(session.getAttribute("loginInfo2") == null){
@@ -220,8 +220,8 @@
                   </li>
                
                </ul>
-               <form class="form-inline my-2 my-lg-0">
-                  <input class="form-control mr-sm-2" type="search"
+               <form class="form-inline my-2 my-lg-0" action="search.uspage">
+                  <input class="form-control mr-sm-2" type="search" name="keyword"
                      placeholder="Search" aria-label="Search">
                   <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
                </form>

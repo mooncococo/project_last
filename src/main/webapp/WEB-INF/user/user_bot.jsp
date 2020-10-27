@@ -14,6 +14,10 @@
 		font-size: 11px;
 		
 	}
+	.user_bot_main{
+      margin-top: 50vh;
+   
+   }
 
 </style>
 </head>

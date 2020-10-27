@@ -57,7 +57,7 @@
 		<option value="code">대분류
 		<option value="cname">소분류
 	</select>
-	<input type="text" name="keyword" value="Jacket">
+	<input type="text" name="keyword" value="Outer">
 	<input type="submit" value="검색" class="btn btn-light" style="background: #e0e0e0;">
 	<input type="button" class="btn btn-light" style="color:#f5f5f5; background:#373737; border:none; text-align: center;" value="카테고리 추가" onclick="insert()">
 	

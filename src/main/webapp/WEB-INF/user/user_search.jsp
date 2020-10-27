@@ -93,7 +93,7 @@
          </div>
        </c:if>
        <c:if test="${fn:length(lists) != 0}">
-           <h4>${lists.get(0).pcode }</h4>
+           <h4>"${keyword }"이 포함된 상품입니다.</h4>
        </c:if>
      <span class="chips"></span>
      <form action="catePick.uspage" method="post">

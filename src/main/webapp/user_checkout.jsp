@@ -33,21 +33,24 @@
 	
 </head>
 <body>
-	<%@include file="user_top_4.jsp" %>
+	<%@include file="user_top_4.jsp" %> 
 	<div class="checkout_main">
 		<div class="checkout_list">
 			<h3>Order List</h3>
 			<table class="table">
 				<thead>
 					<tr>
-				      <th scope="col">#</th>
-				      <th scope="col">이미지</th>
-				      <th scope="col">상품정보</th>
+				      <th scope="col">주문내역 번호</th>
+				      <th scope="col">상품이름</th>
+				      <th scope="col">상품이미지</th>
 				      <th scope="col">판매가</th>
 				      <th scope="col">주문수량</th>
 				    </tr>
 				</thead>
 				<tbody>
+					<!--
+					mid는 세션으로 넘겨서 받고 /
+					<c:forEach var="show" items="${ orderlists }">
 					<tr>
 						<th scope="row" style="vertical-align: middle;">1</th>
 					      <td>
@@ -57,24 +60,8 @@
 					      <td style="vertical-align: middle;">￦30,000</td>
 					      <td style="vertical-align: middle;">50</td>
 				    </tr>
-				    <tr>
-						<th scope="row" style="vertical-align: middle;">1</th>
-					      <td>
-					      	<img src="<c:url value="/resources/images/test2.jpg"/>" />
-					      </td>
-					      <td style="vertical-align: middle;">무스탕</td>
-					      <td style="vertical-align: middle;">￦30,000</td>
-					      <td style="vertical-align: middle;">50</td>
-				    </tr>
-				    <tr>
-						<th scope="row" style="vertical-align: middle;">1</th>
-					      <td>
-					      	<img src="<c:url value="/resources/images/test2.jpg"/>" />
-					      </td>
-					      <td style="vertical-align: middle;">무스탕</td>
-					      <td style="vertical-align: middle;">￦30,000</td>
-					      <td style="vertical-align: middle;">50</td>
-				    </tr>
+					</c:forEach>
+					-->
 				</tbody>
 			</table>
 		</div>

@@ -130,6 +130,12 @@ public class ProductDao {
       return lists;
    }
    
+   public List<Product> searchProduct(Map<String,String> mlist){
+       List<Product> lists = new ArrayList<Product>();
+       lists = sqlSessionTemplate.selectList(namespace+".SearchProduct",mlist);
+       return lists;
+    }
+   
    //카테고리 관련 매서드 끝
    
    

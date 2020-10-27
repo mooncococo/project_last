@@ -42,6 +42,10 @@
    #selectSize{
          
    }
+   .card-img{
+         width: 100%;
+         height: 550px;
+   }
 </style>
 <script type="text/javascript" src="https://code.jquery.com/jquery-3.4.1.js"></script>
 <script type="text/javascript">
@@ -128,25 +132,37 @@
       
       //console.log(pcolor+","+psize); 
       //console.log(result); 
+      let item_price = $('#price').val();
       if( aa.includes(pcolor+"/"+psize) ){
          alert('이미 선택되어 있는 옵션입니다');
          //console.log("상품선택 후 result:"+result);
       }
       else{
-         var pset = pcolor+ psize;
+          
+       
          
            $('#resultTable').append("<tr class='bb'><td class='aa'>"+pcolor+"/"+psize+"</td><td>"+
                  "<input type='text' name='num' id='num' value='1' class='num' />"+
-                 "<input type='hidden' name='hidden' value='"+pset+"'/>"+
                  "<input type=button value='△' class='bt_up' onClick='CountUp(this)'>"+
                  "<input type=button value='▽' class='bt_down' onClick='CountDown(this)'>"+
-                 "</td><td><input type='text' readonly name='price' value='"+price+"'/></td>"+
+                 "</td><td><input type='text' readonly id='price' name='price' value='"+price+"'/></td>"+
                  
                  "<td><input type=button value='X' onClick='deleteList(this)'></td></tr>"
            )  
-           total += parseInt(price);
-           console.log("total__: "+total);  
-           $('.totalCount').append("<span>"+total+"</span>")
+           //total += parseInt(price);
+           //console.log("total__: "+total);  
+           
+           if($('.totalCount').text() == ""){      // 
+             console.log("item_price:"+item_price)
+                $('.totalCount').append(price) 
+             }else{
+                CalSum();  
+             }
+           
+              
+              
+              
+              
                  
           console.log('aa:'+aa); 
            
@@ -156,6 +172,7 @@
    function deleteList(ths){  
       
       $(ths).parents("tr").remove();
+      CalSum();
       
    }
    
@@ -174,7 +191,18 @@
       let price2 = $(".price-text span").text();   //하나당 가격
       let sum = count * price2;
       console.log("sum:"+sum); 
-      $("input[name='price']").eq(bb).val(sum);
+      $("input[name='price']").eq(bb).val(sum);   
+      
+   
+      
+      total =  parseInt(sum);  
+      console.log("수량증가 후 total:"+total);  
+      let ord_total = $(".totalCount").text();
+      console.log("기존 total:"+ord_total);    
+      let sum_total = parseInt(ord_total) + parseInt(sum);    
+      console.log("기존+수량증가 total:"+sum_total);  
+      
+      CalSum();
       
    }
    
@@ -195,7 +223,7 @@
          $("input[name='price']").eq(bb2).val(sum2);  
          
          
-         
+         CalSum();
          
          
       }
@@ -205,7 +233,30 @@
       
    }
 
-   
+   function CalSum(){
+      
+      let totalSum = 0;
+      let price5 = $(".price-text span").text();
+      //console.log("tr길이 : "+ $("tr[class='bb']").length );
+      
+     for(let i=0; i< $("tr[class='bb']").length ; ++i){
+        totalSum += parseInt( $(".num").eq(i).val() )    
+      }    
+     
+     let totalPrice = totalSum * parseInt(price5);
+     console.log("totalPrice:"+totalPrice);  
+     $(".totalCount").html(totalPrice);     
+     
+      //console.log("totalSum:"+totalSum);  
+      
+      
+      
+      
+      
+      
+      
+      
+   }
 
 
 
@@ -288,11 +339,8 @@
                        </tr>
                     </table>
                   </div>
-                  <div class="totalCount">
-                  총 :                
-                  
-                  </div>
-                  
+                 <span>총 : </span> 
+                  <div class="totalCount"></div>
                   
                <div class="buy_btn">
                   <button type="button" class="btn btn-light" id="btn">BUY IT NOW</button>

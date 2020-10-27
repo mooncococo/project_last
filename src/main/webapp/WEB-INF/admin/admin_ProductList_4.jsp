@@ -3,9 +3,14 @@
 <%@ include file ="admin_top_4.jsp" %>
 <%@ include file = "common.jsp" %>
 <!-- WEB-INF\admin\product\ProductList.jsp -->
-
+<script type="text/javascript">
+	function insert(){
+		location.href='input.prd'; 
+	}	
+</script>	
+	
+	
 <style type="text/css">
-
 	.table{
 		width: 60%;
 		margin: 0 auto;
@@ -14,7 +19,7 @@
 	#top_form2{
 		width: 45%;
 		margin: 0 auto;
-		margin-top: 4vh;   
+		margin-top: 4vh;
 	}
 	#top_form1{
 		width: 60%;
@@ -36,13 +41,15 @@
 </div>
 
 <form action="list.prd" method="get" id="top_form2">
-	<select name="whatColumn">
+	<select name="whatColumn" align="center">
 		<option value="all">전체 검색
 		<option value="pnum">상품번호
 		<option value="pname">상품이름
 	</select>
-	<input type="text" name="keyword" value="Jacket">
-	<input type="submit" value="검색">
+	<input type="text" name="keyword" value="자켓">
+	<input type="submit" class="btn btn-light" style="background: #e0e0e0;" value="검색">
+	<input type="button" class="btn btn-light" style="color:#f5f5f5; background:#373737; border:none; text-align: center;" value="상품 추가" onclick="insert()">
+	
 </form>
 
 <form action="post" enctype="multipart/form-data">

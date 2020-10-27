@@ -235,7 +235,7 @@ insert into comments values(cseq.nextval,'내용','이름',sysdate);
 
 
 ----------------------------------------------------------
-orderlist 테이블
+구매내역 테이블
 ----------------------------------------------------------
 
 drop sequence ol_seq;
@@ -249,6 +249,7 @@ create sequence ol_seq
 drop table orderlist;
 create table orderlist(
 	olnum number primary key,
+	dnum number not null,
 	mname varchar2(20) not null,
 	mid varchar2(30) not null,
 	pname varchar2(50) not null,

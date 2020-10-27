@@ -1,5 +1,8 @@
 package order.model;
 
-public class OrderDao {
+import org.springframework.stereotype.Component;
 
+@Component("myOrderDao")
+public class OrderDao {
+    
 }

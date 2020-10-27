@@ -91,4 +91,8 @@
    <select id="GetByPcate" resultType="MyProduct">
       select * from product where pcate = #{pcate}
    </select>
+   <!--검색 기능  -->
+   <select id="SearchProduct" resultType="MyProduct">
+      select * from product where pname like #{keyword}
+   </select>
 </mapper>
