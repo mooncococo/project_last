@@ -86,42 +86,181 @@
             console.log("data:"+data)
             var slice = data.split(",");
             console.log(slice)
-            if(data.includes('s')){
-               //console.log("드러옴")
                $('#selectColor option').eq(index).attr("selected","selected")
                $('#selectSize').empty();
+               $('#selectSize').append("<option>선택")
                for(let i=0; i<slice.length-1;i++){
-                  $('#selectSize').append("<option value='slice[i]'>"+slice[i])
+                  $('#selectSize').append("<option>"+slice[i])
                }
 
-            }
-         }
-         
-         
-        
+         }//showempinfo
             
        })  
+       
       
       
    })
    
    
           
-       function popupStock(){
-     	 //alert(1);
-     	 
-     	 //location.href="detaillist2.detail";  
-     	 
-     	 var url = "http://localhost:8080/ex/admin/popupStock.jsp";         
-     	 console.log(url);
-     	 var name = "popupStock";
-     	 var options = 'width=500, height=600, top=250, left=700, resizable=no, scrollbars=no, location=no';
-     	 window.open(url,name, options); 
-     	 
-     	 
-     	 
+       function popupStock(pnum){
+         //alert(pnum);
+         
+         //location.href="detaillist2.detail";  
+         
+         var url = "popupStock.jsp?pnum="+pnum;         
+         //console.log(url);
+         var name = "popupStock";
+         var options = 'width=500, height=600, top=250, left=700, resizable=no, scrollbars=no, location=no';
+         window.open(url,name, options); 
+         
+      }//popupStock
+      
+      let total = 0;
+      let sum = 0;
+   function showResult(){
+      let pcolor = $("#selectColor option:selected").val(); 
+      let psize = $("#selectSize option:selected").val();
+      
+     
+      let price = ${product.price } ;
+      let aa = $('.aa').text(); 
+      
+      //console.log(pcolor+","+psize); 
+      //console.log(result); 
+      let item_price = $('#price').val();
+      if( aa.includes(pcolor+"/"+psize) ){
+         alert('이미 선택되어 있는 옵션입니다');
+         //console.log("상품선택 후 result:"+result);
       }
+      else{
+          
+       
+         
+           $('#resultTable').append("<tr class='bb'><td class='aa'>"+pcolor+"/"+psize+" "+"</td><td>"+
+                 "<input type='text' name='num' id='num' value='1' class='num' />"+
+                 "<input type=button value='△' class='bt_up' onClick='CountUp(this)'>"+
+                 "<input type=button value='▽' class='bt_down' onClick='CountDown(this)'>"+
+                 "</td><td><input type='text' readonly id='price' name='price' value='"+price+"'/></td>"+
+                 
+                 "<td><input type=button value='X' onClick='deleteList(this)'></td></tr>"
+           )  
+           //total += parseInt(price);
+           //console.log("total__: "+total);  
+           
+           if($('.totalCount').text() == ""){      // 
+             console.log("item_price:"+item_price)
+                $('.totalCount').append(price) 
+             }else{
+                CalSum();  
+             }
+                 
+          console.log('aa:'+aa); 
+           
+      }     
+   }  
+   
+   function deleteList(ths){  
+      
+      $(ths).parents("tr").remove();
+      CalSum();
+      
+   }
+   
+   function CountUp(ths){
+      //console.log("ths:"+ths);
+      var $input = $(ths).parents("td").find("input[name='num']");
+      //console.log("$input:"+$input);
+      var tCount = Number($input.val());
+      //console.log("변경전 구매수량:"+tCount);    
+      $input.val(Number(tCount)+1);
+      
+      var bb = $('.bt_up').index(ths);  
+      
+      console.log("bb:"+bb);
+      let count = $(".num").eq(bb).val();
+      let price2 = $(".price-text span").text();   //하나당 가격
+      let sum = count * price2;
+      console.log("sum:"+sum); 
+      $("input[name='price']").eq(bb).val(sum);   
+      
+   
+      
+      total =  parseInt(sum);  
+      console.log("수량증가 후 total:"+total);  
+      let ord_total = $(".totalCount").text();
+      console.log("기존 total:"+ord_total);    
+      let sum_total = parseInt(ord_total) + parseInt(sum);    
+      console.log("기존+수량증가 total:"+sum_total);  
+      
+      CalSum();
+      
+   }
+   
 
+   function CountDown(ths){
+      var $input = $(ths).parents("td").find("input[name='num']");
+      var tCount = Number($input.val());
+      if(tCount>1){
+         $input.val(Number(tCount)-1);
+         
+         var bb2 = $('.bt_down').index(ths);  
+         
+         console.log("bb_2:"+bb2);
+         let count2 = $(".num").eq(bb2).val();
+         let price3 = $(".price-text span").text();   //하나당 가격
+         let sum2 = count2 * price3;
+         console.log("sum_2:"+sum2); 
+         $("input[name='price']").eq(bb2).val(sum2);  
+         
+         
+         CalSum();
+         
+         
+      }
+      else{
+         alert('최소 주문수량은 1개입니다.');
+      }
+      
+   }
+
+   function CalSum(){
+      
+      let totalSum = 0;
+      let price5 = $(".price-text span").text();
+      //console.log("tr길이 : "+ $("tr[class='bb']").length );
+      
+     for(let i=0; i< $("tr[class='bb']").length ; ++i){
+        totalSum += parseInt( $(".num").eq(i).val() )    
+      }    
+     
+     let totalPrice = totalSum * parseInt(price5);
+     console.log("totalPrice:"+totalPrice);  
+     $(".totalCount").html(totalPrice);     
+     
+      //console.log("totalSum:"+totalSum);  
+      
+      
+   }
+
+   function goCart(pnum){
+	   //alert(1);
+	   console.log("goCart_pset:"+$('.aa').text());
+	   let pset = $('.aa').text();
+	   
+	   let qty = "";
+	   for(let i=0; i< $("tr[class='bb']").length ; ++i){
+		   qty += parseInt( $(".num").eq(i).val() ) + ","    
+	      } 
+	   console.log("qty:"+qty);
+	   
+	   if($("#selectColor option:selected").val().includes("선택") || $("#selectSize option:selected").val().includes("선택")){
+		   alert("필수 옵션을 선택해 주세요");  
+	   }else{
+		   
+		   location.href="cartlist.cart?pset="+pset+"&pnum="+pnum+"&qty="+qty;
+	   }
+   }
 
 
 </script>
@@ -143,20 +282,26 @@
                   <h4 class="card-title">
                      <B>${product.pname }</B>
                   </h4>
-                  <div class="pnote-text">
+               <div class="pnote-text">
                      <span>
                            ${product.pnote }  
                      </span>
                     
-                  </div>
+                     </div>
                   
                   <div class="price-text">
-                     <span>
-                          	￦${product.price }  
+                        ￦<span >
+                             ${product.price }  
                      </span>
                   </div>
                   
                   <div class="card-text">
+                  
+<!--  <form>
+<input type=text name=amount value=1>
+<input type=button value='△' onClick='javascript:this.form.amount.value++;'>
+<input type=button value='▽' onClick='javascript:this.form.amount.value--;'>
+</form> -->  
                      
                      <div class="span_area">
                         <p>재고 확인 :</p> 
@@ -168,9 +313,9 @@
                      </form>
 
                      <div class="select_area">
-                     	<p>
-                     		<input type="button" value="실시간재고 확인하기" onclick="popupStock()"/>
-                     	</p>
+                        <p>  
+                           <input type="button" value="실시간재고 확인하기" onclick="popupStock(${product.pnum })"/>
+                        </p>
                         <p>
                         <select name="selectColor" id="selectColor">
                         <option>선택</option>
@@ -180,22 +325,29 @@
                         </select>
                         </p>
                         <p>
-                        <select id="selectSize">
-                           <option class="choi">선택</option>                                                      
+                        <select id="selectSize" onChange="showResult()">
+                           <option class="choi" >선택</option>                                                      
                         </select>
                         </p>
                      </div>
                      
                   </div>   
                   <div class="product_result">
-                     <p>주문이 추가 되게 하세요.</p>
+                    <table class="table" id="resultTable">
+                       <tr>
+                          <td>상세</td>
+                          <td>수량</td>
+                          <td>금액</td>
+                          <td>삭제</td>
+                       </tr>
+                    </table>
                   </div>
+                 <span>총 : </span> 
+                  <div class="totalCount"></div>
                   
-                  
-                  
-               <div class="buy_btn">
+               <div class="buy_btn">  
                   <button type="button" class="btn btn-light" id="btn">BUY IT NOW</button>
-                  <button type="button" class="btn btn-light" id="btn" style="margin-left: 20px;">ADD TO CART</button>
+                  <button type="button" class="btn btn-light" id="btn" style="margin-left: 20px;" onclick="goCart(${product.pnum })">ADD TO CART</button>
                </div>
                </div>
             </div>

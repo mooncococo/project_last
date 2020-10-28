@@ -76,6 +76,7 @@ public class ProductDetailDao {
 	      lists = sqlSessionTemplate.selectList(namespace + ".GetProductSize",pd);
 	      return lists;
    }
+
 	
 	
 }
