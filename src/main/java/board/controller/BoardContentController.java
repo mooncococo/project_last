@@ -36,6 +36,7 @@ public class BoardContentController {
     @RequestMapping(value=command,method=RequestMethod.GET)
     public ModelAndView doAction(@RequestParam(value = "num") int num) {
 	System.out.println("get 방식");
+	System.out.println("num : " +num);
 	BoardBean bean = boardDao.getOneBoard(num);
 	
 	BoardComments boardCom = boardCommentsDao.selectComments(num);
@@ -58,9 +59,11 @@ public class BoardContentController {
     @RequestMapping(value=command,method=RequestMethod.POST)
     public ModelAndView doAction(HttpServletRequest request) {
 	
-
+	ModelAndView mav = new ModelAndView();
+	BoardComments boardCom = new BoardComments();
 	int num = Integer.parseInt(request.getParameter("num"));
-	int cnum = Integer.parseInt(request.getParameter("cnum"));
+	int ccnum = Integer.parseInt(request.getParameter("ccnum"));
+
 	String cname = request.getParameter("cname");
 	String crecom = request.getParameter("crecom");
 	
@@ -70,37 +73,40 @@ public class BoardContentController {
 	
 	
 	System.out.println("post 방식");
-	System.out.println("cnum:"+cnum);
+	System.out.println("num : " +num);
+	System.out.println("ccnum : " +ccnum);
+	
 	System.out.println("cname:"+cname);
 	System.out.println("crecom:"+crecom);
 	
 	
 	
 	BoardComments boardComments = new BoardComments();
-	boardComments.setCnum(cnum);
+	System.out.println("boardComments.getCcnum() : "+boardComments.getCcnum());
+	
 	boardComments.setCname(cname);
 	boardComments.setCrecom(crecom);
+	boardComments.setCcnum(ccnum);
 	
 
 	//System.out.println("num!!!! : "+num);
 	BoardBean bean = boardDao.getOneBoard(num);
-	
+	if(num == boardComments.getCcnum()) {
 	boardCommentsDao.insertComments(boardComments);
 	System.out.println("인서트됨");
+	System.out.println("확인num : " +num);
+	System.out.println("확인ccnum : " +ccnum);
+	boardCom = boardCommentsDao.selectComments(num);
+
 	
-	BoardComments boardCom = boardCommentsDao.selectComments(cnum);
-	;
-	System.out.println("boardCom.getCdate():" +boardCom.getCdate());
-	ModelAndView mav = new ModelAndView();
 	mav.addObject("bean", bean);
 	mav.addObject("boardComments", boardCom);
 	mav.setViewName(getPage);
 	  
 	  
-	  return mav;
+	}
+	return mav;
     }
-   
-    
 
 }
 

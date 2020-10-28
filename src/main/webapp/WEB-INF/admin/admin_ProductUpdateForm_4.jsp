@@ -151,7 +151,7 @@ WEB-INF\admin\product\ProductUpdateForm.jsp 입니다.<br>
 <input type="hidden" name="pnum" value="${ product.pnum }">
 <input type="hidden" name=pageNumber value="${pageNumber }">
 <input type="hidden" name=pageSize value="${pageSize }">
-<table border="1">
+<table  class="table">
 	<tr>
 		<td>카테고리</td>
 		<td>
@@ -237,7 +237,7 @@ WEB-INF\admin\product\ProductUpdateForm.jsp 입니다.<br>
 	
 	<tr>
 		<td colspan="2" align="center">
-			<input type="submit" value="상품등록">
+			<input type="submit" value="상품수정">
 			<input type="reset" value="취소">
 		</td>
 	</tr>

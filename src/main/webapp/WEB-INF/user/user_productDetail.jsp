@@ -243,24 +243,7 @@
       
    }
 
-   function goCart(pnum){
-	   //alert(1);
-	   console.log("goCart_pset:"+$('.aa').text());
-	   let pset = $('.aa').text();
-	   
-	   let qty = "";
-	   for(let i=0; i< $("tr[class='bb']").length ; ++i){
-		   qty += parseInt( $(".num").eq(i).val() ) + ","    
-	      } 
-	   console.log("qty:"+qty);
-	   
-	   if($("#selectColor option:selected").val().includes("선택") || $("#selectSize option:selected").val().includes("선택")){
-		   alert("필수 옵션을 선택해 주세요");  
-	   }else{
-		   
-		   location.href="cartlist.cart?pset="+pset+"&pnum="+pnum+"&qty="+qty;
-	   }
-   }
+  
 
 
 </script>
@@ -347,7 +330,7 @@
                   
                <div class="buy_btn">  
                   <button type="button" class="btn btn-light" id="btn">BUY IT NOW</button>
-                  <button type="button" class="btn btn-light" id="btn" style="margin-left: 20px;" onclick="goCart(${product.pnum })">ADD TO CART</button>
+                  <button type="button" class="btn btn-light" id="btn" style="margin-left: 20px;" >ADD TO CART</button>
                </div>
                </div>
             </div>

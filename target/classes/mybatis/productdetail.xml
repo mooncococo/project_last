@@ -52,5 +52,11 @@
 	<select id="GetProductSize" resultType="MyProductDetail">
 		select psize,pstock from productdetail where pnum = #{pnum} and pcolor = #{pcolor} 
 	</select>
+	
+	<select id="GetStock" resultType="MyProductDetail">  
+		select pstock,dnum from productdetail
+		where pname=#{pname} and pcolor=#{pcolor} and psize=#{psize} 
+	</select>
+	
 </mapper>
 

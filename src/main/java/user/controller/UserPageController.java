@@ -58,20 +58,10 @@ public class UserPageController {
       List<Product> lists2 = productDao.selectByPcode(pcode2);
       mav.addObject("lists", lists);
       System.out.println("lists!!!!!!!! : "+lists.size());
-      String sizeyo = "";
-      if(lists.size() == 0) {
-	 sizeyo = "0";
-	 System.out.println("sizeyo 0000 ");
-	  mav.addObject("sizeyo",sizeyo);
-	  return mav;
-      }else {
-      sizeyo = "1";
-      System.out.println("sizeyo 1111 ");
       mav.addObject("lists2", lists2);
-      mav.addObject("sizeyo",sizeyo);
       mav.setViewName(getPagePcate);
       return mav;
-      }
+      
    }
    
    
@@ -150,14 +140,9 @@ public class UserPageController {
    
    @RequestMapping(value=shoes,method = RequestMethod.GET)
    public ModelAndView doAction8(@RequestParam(value="pcode",required = true) String pcode) {
-       System.out.println("pcode 가져와 시발라마 !!!! " +pcode);
        ModelAndView mav = new ModelAndView();
       
       List<Product> lists = productDao.selectByCateShoes();
-      System.out.println("lists!!!!!!!! 1: "+lists.get(0).getPcode());
-      System.out.println("lists!!!!!!!! 2: "+lists.get(0).getPcate());
-      System.out.println("lists!!!!!!!! 3: "+lists.get(0).getPname());
-      System.out.println("lists!!!!!!!! 4: "+lists.get(0).getPnum());
       List<Product> lists2 = productDao.selectByPcode(pcode);
       mav.addObject("lists", lists);
       mav.addObject("lists2", lists2);

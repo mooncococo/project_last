@@ -220,6 +220,7 @@ create table comments(
 	crecom varchar2(200) not null,
 	cname varchar2(20) not null,
 	cdate date default sysdate
+	ccnum number not null
 );
 
 drop sequence cseq;
@@ -254,7 +255,28 @@ create table orderlist(
 	pname varchar2(50) not null,
    	pimage varchar2(30),
 	price number default 0,
-	qty number default 0 --(이게 수량 누적인데)
+	oqty number default 0 --(이게 수량 누적인데)
 );
+
+commit;
+
+
+----------------------------------------------------------
+카트 테이블
+----------------------------------------------------------
+drop sequence cartseq ;
+create sequence cartseq start with 1001 increment by 1 nocache ;
+
+drop table cart;
+create table cart(
+   cartnum        number primary key,
+   pimage       varchar2(30),
+   pname        varchar2(50) not null,
+   pset        varchar2(50) not null,
+   price          number default 0,
+   pqty          number default 0,
+   point          number default 0,
+   id           varchar2(30)
+ );
 
 commit;

@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class BoardComments {
     private int cnum;
+    private int ccnum;
     private String crecom;
     private String cname;
     private Date cdate;
@@ -30,6 +31,12 @@ public class BoardComments {
     }
     public void setCdate(Date cdate) {
         this.cdate = cdate;
+    }
+    public int getCcnum() {
+	return ccnum;
+    }
+    public void setCcnum(int ccnum) { 
+	this.ccnum = ccnum;
     }
     
     

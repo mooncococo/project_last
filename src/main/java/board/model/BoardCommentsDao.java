@@ -17,8 +17,8 @@ public class BoardCommentsDao {
 	
     }
 
-    public BoardComments selectComments(int cnum) {
-	BoardComments boardComments =sqlSessionTemplate.selectOne(namespace+".SelectComments", cnum);
+    public BoardComments selectComments(int num) {
+	BoardComments boardComments =sqlSessionTemplate.selectOne(namespace+".SelectComments", num);
 	return boardComments;
 	
     }

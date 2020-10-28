@@ -3,7 +3,6 @@
 <%@page import="java.text.SimpleDateFormat"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ include file="../admin/admin_top_4.jsp"%>
 <%@ include file="common.jsp" %>
 <script>
 	/* 
@@ -30,61 +29,65 @@ body {
 table {
 	margin: 0 auto;
 }
-.table td, .table th {
-    padding: .75rem;
-    vertical-align: middle;
-    border-top: 1px solid #dee2e6;
+.content {
+	margin-top: 20vh;
 }
 </style>
-content.jsp
-<br>
 
-
-	글내용 보기
-
-		<table class="table" width="400" align="center" cellspacing="0">
+<%
+	if(session.getAttribute("loginInfo2").equals("admin")){
+%>
+<body>
+	<%@ include file="../admin/admin_top_4.jsp"%>
+	<div>
+	<h1><p align="center">글 내용보기</p></h1>
+	<form action="content.bd" method="post">
+	<input type="hidden" name="num" value="${bean.num }">
+	<input type="hidden" name="ccnum" value="${bean.num }">
+	
+		<table class="table">
 			 <tbody>
 			<tr> 
-				<td width="125" align="center">글번호</td>
-				<td width="125" align="center">${bean.num }</td>
-				<td width="125" align="center">조회수</td>
-				<td width="125" align="center">${bean.readcount }</td>
+				<td align="center">글번호</td>
+				<td align="center">${bean.num }</td>
+				<td align="center">조회수</td>
+				<td align="center">${bean.readcount }</td>
 
 			</tr>
 			<tr>
-				<td width="125" align="center">작성자</td>
-				<td width="125" align="center">${bean.writer }</td>
-				<td width="125" align="center">작성일</td>
-				<td width="125" align="center">${bean.regdate }
+				<td align="center">작성자</td>
+				<td align="center">${bean.writer }</td>
+				<td align="center">작성일</td>
+				<td align="center">${bean.regdate }
 			</tr>
 			<tr>
-				<td width="125" align="center">글제목</td>
+				<td align="center">글제목</td>
 				<td colspan="3" align="center">${bean.subject }</td>
 
 
 			</tr>
 			<tr>
-				<td width="125" height="350" align="center">글내용
+				<td height="350" align="center" >글내용
 				</td>
-				<td colspan="3">${bean.content }</td>
-			</tr>
-<form action="content.bd" method="post">
-<input type="hidden" name="cnum" value="${bean.num }">	
-<input type="hidden" name="num" value="${bean.num }">	
+				<td colspan="3" align="center">${bean.content }</td>
+			</tr>  
+
+	
+	
 
 			<tr>
-				<td>이름<br><input type="text" name="cname" value=""></td>
+				<td><br><br><p align="center">이름</p><input type="text" name="cname" value="" vertical-align="middle"></td>
 				<td colspan="2"><textarea rows="8" cols="200" name="crecom"></textarea>
 				</td>
-				<td align="right"><input type="submit" value="등록하기"></td>
+				<td align="right"><br><br><br><input type="submit" value="등록하기"></td>
 			</tr>
-</form>
-			<tr>
-				<td>이름<br><input type="text" name="cname"
+
+			<tr>    
+				<td><br><br><p align="center">이름</p><input type="text" name="cname"
 					value="${boardComments.cname }" disabled></td>
-				<td colspan="2"><textarea rows="8" cols="200" name="crecom" disabled>${boardComments.crecom }</textarea>
+				<td colspan="3"><textarea rows="8" cols="200" name="crecom" disabled>${boardComments.crecom }</textarea>
 				</td> 
-				<td align="right"><input type="submit" value="등록하기"></td>
+				
 			</tr>
 
 			<tr>
@@ -92,7 +95,7 @@ content.jsp
 					<input type="button" value="글수정"
 					onClick="location.href='update.bd?num=${bean.num }'">
 					<input type="button" value="글삭제"
-					onClick="location.href='reply.bd?num=${bean.num }&ref=${bean.ref }&re_level=${bean.relevel }&re_step=${bean.restep }'">
+					onClick="location.href='delete.bd?num=${bean.num}'"> 
 					<input type="button" value="목록보기"
 					onClick="location.href='read.bd?num=${bean.num}'">
 				</td>
@@ -100,4 +103,80 @@ content.jsp
 
 		</tbody>
 		</table>
-	
+		</form>
+	</div>
+	</body>
+	<%
+	} else {
+	%>	
+	<body>
+		<%@ include file="../user/user_top_4.jsp"%>
+		<div class="content">
+		<h1><p align="center">글 내용보기</p></h1>
+		<form action="content.bd" method="post">
+			<input type="hidden" name="num" value="${bean.num }">
+	<input type="hidden" name="ccnum" value="${bean.num }">
+			<table class="table">
+			
+			 <tbody>
+			<tr> 
+				<td align="center">글번호</td>
+				<td align="center">${bean.num }</td>
+				<td align="center">조회수</td>
+				<td align="center">${bean.readcount }</td>
+
+			</tr>
+			<tr>
+				<td align="center">작성자</td>
+				<td align="center">${bean.writer }</td>
+				<td align="center">작성일</td>
+				<td align="center">${bean.regdate }
+			</tr>
+			<tr>
+				<td align="center">글제목</td>
+				<td colspan="3" align="center">${bean.subject }</td>
+
+
+			</tr>
+			<tr>
+				<td height="350" align="center">글내용
+				</td>
+				<td colspan="3" align="center">${bean.content }</td>
+			</tr>  
+
+<input type="hidden" name="cnum" value="${bean.num }">	
+<input type="hidden" name="num" value="${bean.num }">	
+
+			<tr>
+				<td><br><br><p align="center">이름</p><input type="text" name="cname" value="" vertical-align="middle"></td>
+				<td colspan="2"><textarea rows="8" cols="200" name="crecom"></textarea>
+				</td>
+				<td align="right"><br><br><br><input type="submit" value="등록하기"></td>
+			</tr>
+
+			<tr>
+				<td><br><br><p align="center">이름</p><input type="text" name="cname"
+					value="${boardComments.cname }" disabled></td>
+				<td colspan="3"><textarea rows="8" cols="200" name="crecom" disabled>${boardComments.crecom }</textarea>
+				</td> 
+				
+			</tr>
+ 
+			<tr>
+				<td colspan=4 align="center" height="30">
+					<input type="button" value="글수정"
+					onClick="location.href='update.bd?num=${bean.num }'">
+ 
+					<input type="button" value="목록보기"
+					onClick="location.href='read.bd?num=${bean.num}'">
+				</td>
+			</tr>
+
+		</tbody>
+		</table>
+		</form>
+		</div>
+	</body>
+	<%
+	}
+	%>	

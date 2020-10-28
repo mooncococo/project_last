@@ -200,7 +200,7 @@
                         <div class="dropdown-content">
                             <a href="#">홈</a>
                             <a href="#">회사소개</a>
-                            <a href="#">공지사항</a>
+                            <a href="list.bd">공지사항</a>
                             <a href="#">오시는길 </a>
                              <%
                                 if(session.getAttribute("loginInfo").equals("1") && session.getAttribute("loginInfo2") == null){

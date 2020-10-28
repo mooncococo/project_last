@@ -1,25 +1,18 @@
 package order.model;
 
 public class Order {
-    private int onum; 
-    private int dnum; //productdetail
-    private String mname;  
+    private int olnum; 
+    private int dnum; //productdetail  
     private String mid;  
     private String pname; //productdetail  
     private String pimage; //product  
     private int price; //productdetail
     private int oqty; //productdetail
-    public int getOnum() {
-        return onum;
+    public int getOlnum() {
+        return olnum;
     }
-    public void setOnum(int onum) {
-        this.onum = onum;
-    }
-    public String getMname() {
-        return mname;
-    }
-    public void setMname(String mname) {
-        this.mname = mname;
+    public void setOlnum(int olnum) {
+        this.olnum = olnum;
     }
     public String getMid() {
         return mid;

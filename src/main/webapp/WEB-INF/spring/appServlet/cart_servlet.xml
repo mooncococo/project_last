@@ -16,6 +16,7 @@
 	<!-- controller 패키지를 탐색하여 모든 컴포넌트를 스캔하세요. -->
 	<context:component-scan base-package="cart"/>
 	<context:component-scan base-package="admin"/>
+	<context:component-scan base-package="user"/>
 	
 	<!-- HandlerMapping 설정 -->
 	<!-- 명시하지 않으면 기본 값은 BeanNameUrlHandlerMapping이다. -->

@@ -20,7 +20,7 @@ public class BoardDeleteController {
 	public String doAction(@RequestParam(value="num") int num) {
 		
 		boardDao.deleteBoard(num);
-
+		
 		
 		return gotoPage;
 	}
